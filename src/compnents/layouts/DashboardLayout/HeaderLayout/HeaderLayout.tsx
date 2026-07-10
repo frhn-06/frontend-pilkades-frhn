@@ -1,0 +1,63 @@
+import { IUser } from "@/types/auth";
+import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/react";
+import { useSession } from "next-auth/react";
+import { SetStateAction } from "react"
+
+interface TypeProps {
+  setSidebarAktif: React.Dispatch<SetStateAction<boolean>>
+  sidebarAktif: boolean;
+  headerTitle: string;
+  headerSubtitle: string;
+ }
+
+const HeaderLayout = (props: TypeProps) => {
+    const {
+      setSidebarAktif,
+      sidebarAktif,
+      headerTitle,
+      headerSubtitle
+    } = props;
+
+    const session = useSession();
+
+    const role = (session.data?.user as IUser )?.role
+
+    return (
+      <div className="bg-white min-h-16 py-2 px-4 lg:min-h-20 flex items-center border-b-2 border-b-default-400/30 justify-between gap-2">
+        <div className="flex items-center gap-4">
+          <div className="h-6 w-8 flex flex-col justify-between cursor-pointer" onClick={() => setSidebarAktif(!sidebarAktif)}>
+            <span className="bg-black h-[4px]"></span>
+            <span className="bg-black h-[4px]"></span>
+            <span className="bg-black h-[4px]"></span>
+          </div>
+
+          <div>
+            <h1 className="text-xl font-bold text-utama">
+              {headerTitle}
+            </h1>
+            <p className="text-second font-semibold">
+              {headerSubtitle}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center">
+          <h3 className="hidden lg:block font-semibold text-utama mr-2">
+            {role === "SUPER_ADMIN" ? "Admin" : "Petugas"}
+          </h3>
+          
+          <Dropdown className="z-0">
+            <DropdownTrigger>
+              <Avatar className="z-0 cursor-pointer" />              
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Static Actions">
+              <DropdownItem key="profile">Profil</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
+       
+      </div>
+    )
+}
+
+export default HeaderLayout;

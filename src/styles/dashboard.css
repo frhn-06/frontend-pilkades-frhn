@@ -1,0 +1,4 @@
+.Sidebar {
+    @apply min-w-fit transition-all duration-300
+}
+
