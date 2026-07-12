@@ -52,7 +52,7 @@ const DashboardLayout = (props: TypeProps) => {
               />
 
               <div className="flex-1 overflow-auto">
-                <main className="p-4 lg:p-8">
+                <main className="p-4 lg:p-8 min-h-screen">
                   {children}
                 </main>
 

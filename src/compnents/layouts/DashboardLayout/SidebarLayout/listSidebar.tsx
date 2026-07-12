@@ -46,13 +46,7 @@ const listsidebar = {
             label: "Pengaturan",
             href: "/admin/settings",
             icon: <IoMdSettings  className="w-8 h-8" />
-        },
-        {
-            id: "logout",
-            label: "Logout",
-            href: "/admin/logout",
-            icon: <MdLogout  className="w-8 h-8" />
-        },
+        }
     ],
 
     petugas: [
@@ -73,13 +67,7 @@ const listsidebar = {
             label: "Pengaturan",
             href: "/admin/dashboard",
             icon: <AiFillBehanceSquare className="w-8 h-8" />
-        },
-        {
-            id: "logout",
-            label: "Logout",
-            href: "/admin/dashboard",
-            icon: <AiFillBehanceSquare className="w-8 h-8" />
-        },
+        }
     ]
 }
 

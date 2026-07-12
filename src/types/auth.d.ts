@@ -12,6 +12,7 @@ interface ILogin {
 }
 
 interface IUser extends Omit<IRegister, "confirmPassword"> {
+    id?: number;
     role?: string;
     tpsId?: number | null 
 }

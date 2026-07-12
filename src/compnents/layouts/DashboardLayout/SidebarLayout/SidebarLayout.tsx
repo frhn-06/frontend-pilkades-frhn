@@ -3,6 +3,8 @@ import listsidebar from "./listSidebar"
 import { SetStateAction } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
+import { MdLogout } from "react-icons/md";
 
 
 interface TypeProps {
@@ -61,13 +63,25 @@ const SidebarLayout = (props: TypeProps) => {
                 </Link>
                 ))
               } 
+              <Link href="/logout" onClick={(e) => {
+                e.preventDefault();
+                signOut();
+              }} className="relative p-2 flex items-center hover:bg-red-500 active:bg-red-400 transition">
+                <div className="w-8 h-8 text-white">
+                  <MdLogout  className="w-8 h-8" />
+                </div>
+            
+                <span className={cn("text-white ml-2 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
+                  Logout
+                </span>
+              </Link>
             </div>
           </div>
             
 
 
       
-          <div className={cn("fixed top-0 bottom-0 left-0 w-64 bg-red-800 transition-transform duration-300 lg:hidden", sidebarAktif ? "-translate-x-full" : "-translate-x-0")}>
+          <div className={cn("z-10 fixed top-0 bottom-0 left-0 w-64 bg-red-800 transition-transform duration-300 lg:hidden", sidebarAktif ? "-translate-x-full" : "-translate-x-0")}>
             <div className="h-24 flex items-center px-4">
               <div className="flex-1">
       
@@ -108,7 +122,18 @@ const SidebarLayout = (props: TypeProps) => {
                   </Link>
                 ))
               }
-              
+              <Link href="/logout" onClick={(e) => {
+                e.preventDefault();
+                signOut();
+              }} className="relative p-2 flex items-center hover:bg-red-500 active:bg-red-400 transition">
+                <div className="w-8 h-8 text-white">
+                  <MdLogout  className="w-8 h-8" />
+                </div>
+            
+                <span className={cn("text-white ml-2 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
+                  Logout
+                </span>
+              </Link>
               
             </div>
           </div>
