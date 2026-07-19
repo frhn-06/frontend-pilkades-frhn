@@ -9,7 +9,7 @@ const PageAdminDashboard = () => {
         headerTitle="Admin Dashboard" 
         headerSubtitle="monitoring dashboard by admin"
         >
-          <div className="h-1000">
+          <div className="h-1000 text-utama">
             admin dashboard
           </div>
         </DashboardLayout>

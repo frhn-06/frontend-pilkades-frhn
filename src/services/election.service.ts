@@ -2,7 +2,7 @@ import instance from "@/libs/axios";
 import { IElection } from "@/types/election";
 import endpoint from "./endpoint";
 
-const electionService = {
+const ElectionService = {
     create: (payload: IElection) => instance.post(`${endpoint.ELECTION}`, payload),
 
     findOne: () => instance.get(`${endpoint.ELECTION}`),
@@ -12,4 +12,4 @@ const electionService = {
     delete: (id: string) => instance.delete(`${endpoint.ELECTION}/${id}/delete`)
 }
 
-export default electionService;
+export default ElectionService;
