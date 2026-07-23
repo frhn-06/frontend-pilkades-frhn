@@ -26,7 +26,7 @@ const listsidebar = {
         {
             id: "petugas",
             label: "Petugas",
-            href: "/admin/crews",
+            href: "/admin/petugas",
             icon: <IoMdPeople  className="w-8 h-8" />
         },
         {

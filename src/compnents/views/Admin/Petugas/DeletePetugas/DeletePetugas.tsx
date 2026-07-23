@@ -1,0 +1,58 @@
+import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react"
+import { useEffect } from "react";
+import useDeletePetugas from "./useDeletePetugas";
+
+interface TypeProps {
+  onClose: () => void;
+  isOpen: boolean;
+  id: string;
+  refetch: () => void;
+}
+const DeletePetugas = (props: TypeProps) => {
+    const {
+      onClose,
+      isOpen,
+      id,
+      refetch
+    } = props;
+
+    const {
+        onDeletePetugas,
+        isPendingDeletePetugas,
+        isSuccessDeletePetugas
+
+    } = useDeletePetugas(id)
+
+
+    useEffect(() => {
+      if(isSuccessDeletePetugas) {
+        refetch();
+        onClose();
+      }
+    },[isSuccessDeletePetugas])
+
+    return (
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalContent>
+            <ModalHeader>
+              Hapus Petugas
+            </ModalHeader>
+            <ModalBody>
+              Anda yakin untuk menghapus data petugas ini? petugas yg dihapus akan permanen tidak diberi hak akses pilkades
+            </ModalBody>
+            <ModalFooter>
+              <ButtonFlat onPress={onClose}>
+                Kembali
+              </ButtonFlat>
+              <ButtonSolid onPress={onDeletePetugas} isDisabled={isPendingDeletePetugas}>
+                {isPendingDeletePetugas ? <Spinner color="default" size="sm" /> : "Iya"}
+              </ButtonSolid>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+    )
+}
+
+export default DeletePetugas;

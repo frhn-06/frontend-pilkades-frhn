@@ -1,8 +1,9 @@
-import { LIST_LIMIT, LIST_PAYMENT_ORDER, LIST_STATUS_ORDER } from "@/utils/constanta";
+import { LIST_LIMIT, LIST_STATUS_PETUGAS } from "@/utils/constanta";
 import { Button, DatePicker, DateValue, Input, Pagination, Select, SelectItem, Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
 import {parseDate} from "@internationalized/date";
 import { ChangeEvent, useMemo } from "react";
 import { IoSearch, IoCloseCircle } from "react-icons/io5";
+import ButtonSolid from "../ButtonUi/ButtonSolid";
 
 
 interface TypeProps {
@@ -37,6 +38,7 @@ interface TypeProps {
 
   showSearch?: boolean;
   onChangeSearch?: (e: ChangeEvent<HTMLInputElement>) => void; 
+  onClearSearch?: () => void;
 
   showStatus?: boolean;
   onChangeStatus?: (e:ChangeEvent<HTMLSelectElement>) => void;
@@ -86,6 +88,7 @@ const TableUi = (props: TypeProps) => {
       
       showSearch,
       onChangeSearch,
+      onClearSearch,
 
       showStatus,
       onChangeStatus,
@@ -106,33 +109,41 @@ const TableUi = (props: TypeProps) => {
     const topContent = useMemo(() => {
       return (
         <div className="flex flex-col">
-          <div className="flex flex-col lg:flex-row justify-between gap-4">
+          <div className="flex flex-col lg:flex-row justify-between gap-4 mb-4">
             {showSearch && (
               <div className="max-w-100" >
-                <Input placeholder={placeholderSearch} variant="bordered" className="w-full bg-white rounded-2xl" onChange={onChangeSearch} startContent={(
-                  <IoSearch />
-                )} />
+                <Input 
+                  placeholder={placeholderSearch} 
+                  variant="bordered" 
+                  className="w-full bg-white rounded-2xl z-0" 
+                  onChange={onChangeSearch} 
+                  startContent={(
+                    <IoSearch />
+                  )} 
+                  isClearable
+                  onClear={onClearSearch}
+                />
               </div>
             )}
             
             {showCreate && (
-              <Button className="bg-red-600 text-white" onPress={openCreate}>
+              <ButtonSolid onPress={openCreate} className="w-fit">
                 {textCreate}
-              </Button>
+              </ButtonSolid>
             )}
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between gap-4">
             {showStatus && (
               <Select
-              className="min-w-24 max-w-xs bg-white rounded-2xl"
-              variant="bordered"
-              items={LIST_STATUS_ORDER}
-              selectedKeys={[`${currentStatus}`]}
-              startContent={<p className='text-sm font-semibold'>Status: </p>}
-              disallowEmptySelection
-              selectionMode="single"
-              onChange={onChangeStatus}
+                className="min-w-24 max-w-xs bg-white rounded-2xl"
+                variant="bordered"
+                items={LIST_STATUS_PETUGAS}
+                selectedKeys={[`${currentStatus}`]}
+                startContent={<p className='text-sm font-semibold'>Status: </p>}
+                disallowEmptySelection
+                selectionMode="single"
+                onChange={onChangeStatus}
               >
                 {(item) => (
                   <SelectItem key={item.id}>
@@ -142,7 +153,7 @@ const TableUi = (props: TypeProps) => {
               </Select>
             )}
             
-            {showPayment && (
+            {/* {showPayment && (
               <Select
               className="min-w-24 max-w-xs bg-white rounded-2xl"
               variant="bordered"
@@ -159,7 +170,7 @@ const TableUi = (props: TypeProps) => {
                   </SelectItem>
                 ) }
               </Select>
-            )}
+            )} */}
 
           </div>
           
@@ -210,11 +221,11 @@ const TableUi = (props: TypeProps) => {
         <div className="flex flex-col gap-4 lg:flex-row justify-between">
           {showLimit && (
             <Select
-            className="min-w-24 max-w-xs bg-white rounded-2xl"
+            className="min-w-24 max-w-xs bg-white rounded-2xl z-0"
             variant="bordered"
             items={LIST_LIMIT}
             selectedKeys={[`${currentLimit}`]}
-            startContent={<p className='text-sm'>limit:</p>}
+            startContent={<p className='text-sm'>Baris:</p>}
             disallowEmptySelection
             selectionMode="single"
             onChange={onChangeLimit}
@@ -229,6 +240,7 @@ const TableUi = (props: TypeProps) => {
 
           {showPagination && (
             <Pagination 
+              className="z-0"
               variant="bordered" 
               showControls 
               showShadow 
@@ -251,7 +263,14 @@ const TableUi = (props: TypeProps) => {
           </div>
         )}
 
-        <Table aria-label="table for category" fullWidth topContent={topContent} topContentPlacement="outside" bottomContent={bottomContent} bottomContentPlacement="outside">
+        <Table 
+          aria-label="table for category" 
+          fullWidth 
+          topContent={topContent} 
+          topContentPlacement="outside" 
+          bottomContent={bottomContent} 
+          bottomContentPlacement="outside"
+        >
           <TableHeader>
             {column.map((c: {label: string; id: string}) => (
               <TableColumn key={c.id} className="bg-red-400/30 text-gray-800">{c.label}</TableColumn>

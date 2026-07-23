@@ -1,9 +1,8 @@
 import DashboardLayout from "@/compnents/layouts/DashboardLayout";
 import Election from "@/compnents/views/Admin/Election";
 import ElectionService from "@/services/election.service";
-import electionService from "@/services/election.service";
 import { Spinner } from "@heroui/react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const useElection = () => {
 

@@ -2,7 +2,8 @@ const endpoint = {
     AUTH: "/auth",
     TPS: "/tps",
     ELECTION: "/election",
-    MEDIA: "/media"
+    MEDIA: "/media",
+    PETUGAS: "/petugas"
 }
 
 export default endpoint;

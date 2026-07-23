@@ -2,6 +2,7 @@ import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHe
 import useDetailTps from "./useDetailTps";
 import { Controller } from "react-hook-form";
 import { useEffect } from "react";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 
 
 
@@ -122,9 +123,9 @@ const DetailTps = () => {
               </CardBody>
 
               <CardFooter>
-                <Button type="submit" className="bg-red-800 text-white" isDisabled={isLoadingTps || isPendingUpdateTps || isRefetchingTps}>
+                <ButtonSolid type="submit" isDisabled={isLoadingTps || isPendingUpdateTps || isRefetchingTps}>
                   {isPendingUpdateTps ? <Spinner color="default" size="sm" /> : "Simpan"}
-                </Button>
+                </ButtonSolid>
               </CardFooter>
             </form>
           </Card>

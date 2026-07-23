@@ -12,6 +12,8 @@ import useAddElection from "./useAddelection";
 import useUpdateElection from "./useUpdateElection";
 import Image from 'next/image'
 import useUpdateLogo from "./useUpdateLogo";
+import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 
 interface TypeProps {
   isRefetching: boolean;
@@ -267,23 +269,13 @@ const Election = (props: TypeProps) => {
                         </RadioGroup>
                       )} />
 
-                      <Button 
-                        type="button" 
-                        onPress={() => setDisabled(!isDisabled)} 
-                        className="text-red-600 bg-red-100 border-2 border-red-400"
-                      >
+                      <ButtonFlat type="button" onPress={() => setDisabled(!isDisabled)}                      >
                         {Object.keys(data).length < 1 ? "Buat data" : "Ubah data"}
-                      </Button>
+                      </ButtonFlat>
                       
-                      <Button 
-                        type="submit" 
-                        isDisabled={isDisabled || isPendingAddElection || isPendingUpdateElection} 
-                        className="text-white bg-red-700"
-                      >
+                      <ButtonSolid type="submit" isDisabled={isDisabled || isPendingAddElection || isPendingUpdateElection} >
                         {isPendingAddElection || isPendingUpdateElection ? <Spinner size="sm" color="default" /> : "Simpan"}
-                      </Button>
-
-
+                      </ButtonSolid>
 
                       <div className="flex gap-4">
                         {data.logo !== null ? (

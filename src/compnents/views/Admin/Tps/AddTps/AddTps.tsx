@@ -2,6 +2,8 @@ import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader
 import useAddTps from "./useAddTps"
 import { Controller } from "react-hook-form";
 import { useEffect } from "react";
+import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 
 interface TypeProps {
   isOpen: boolean;
@@ -101,12 +103,12 @@ const AddTps = (props:TypeProps) => {
             </ModalBody>
 
             <ModalFooter>
-              <Button onPress={handleClose} className="bg-red-200 border-2 border-red-500 text-red-500" isDisabled={isPendingTps}>
+              <ButtonFlat onPress={handleClose} isDisabled={isPendingTps}>
                 Kembali
-              </Button>
-              <Button type="submit" className="bg-red-600 text-white" isDisabled={isPendingTps}>
+              </ButtonFlat>
+              <ButtonSolid type="submit" isDisabled={isPendingTps}>
                 {isPendingTps ? <Spinner color="default" size="sm" /> : "Simpan" }
-              </Button>
+              </ButtonSolid>
             </ModalFooter>
           </ModalContent>
         </form>

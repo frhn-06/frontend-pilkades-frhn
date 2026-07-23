@@ -1,5 +1,6 @@
 export const PAGE_DEFAULT = 1;
 export const LIMIT_DEFAULT = 12;
+export const STATUS_PETUGAS_DEFAULT = "true"
 
 export const LIST_LIMIT = [
     {key: "6", label: "6"},
@@ -8,36 +9,32 @@ export const LIST_LIMIT = [
     {key: "24", label: "24"},
 ]
 
-export const LIST_STATUS_ORDER = [
+export const LIST_STATUS_PETUGAS = [
     {
-        label: "Semua",
-        id: ""
+        label: "Aktif",
+        id: "true"
     },
     {
-        label: "Completed",
-        id: "paid"
-    },
-    {
-        label: "Cancelled",
-        id: "cancelled"
+        label: "Non Aktif",
+        id: "false"
     }
 ];
 
-export const LIST_PAYMENT_ORDER = [
-    {
-        label: "Semua",
-        id: ""
-    },
-    {
-        label: "Cash",
-        id: "cash"
-    },
-    {
-        label: "Qris",
-        id: "qris"
-    },
-    {
-        label: "Transfer",
-        id: "transfer"
-    }
-];
+// export const LIST_PAYMENT_ORDER = [
+//     {
+//         label: "Semua",
+//         id: ""
+//     },
+//     {
+//         label: "Cash",
+//         id: "cash"
+//     },
+//     {
+//         label: "Qris",
+//         id: "qris"
+//     },
+//     {
+//         label: "Transfer",
+//         id: "transfer"
+//     }
+// ];

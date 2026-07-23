@@ -3,6 +3,7 @@ import useRegister from "./useRegister";
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa"
 import { Controller } from "react-hook-form";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 
 
 const Register = () => {
@@ -106,9 +107,10 @@ const Register = () => {
                     <p className="text-sm text-amber-700">
                       Sudah punya akun ? klik <Link href="/auth/login" className="text-sm font-bold text-amber-700">Login</Link>
                     </p>
-										<Button type="submit" fullWidth isDisabled={isPendingRegister}>
-											{isPendingRegister? <Spinner color="default" size="sm" /> : "Daftar"}
-										</Button>
+                    <ButtonSolid type="submit" fullWidth isDisabled={isPendingRegister}>
+											{isPendingRegister? <Spinner color="default" size="sm" /> : "Daftar"}                      
+                    </ButtonSolid>
+										
 									</CardFooter>
 								</form>
 							</Card>

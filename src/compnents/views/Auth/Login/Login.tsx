@@ -4,6 +4,7 @@ import { FaEyeSlash } from "react-icons/fa"
 import { Controller } from "react-hook-form";
 import useLogin from "./useLogin";
 import Link from "next/link";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 
 
 const Register = () => {
@@ -79,9 +80,9 @@ const Register = () => {
                     <p className="text-sm text-amber-700">
                       Sudah punya admin ? klik <Link href="/auth/register" className="text-sm font-bold text-amber-700">Daftar</Link>
                     </p>
-                    <Button type="submit" fullWidth isDisabled={isPendingLogin}>
+                    <ButtonSolid type="submit" fullWidth isDisabled={isPendingLogin}>
                       {isPendingLogin? <Spinner color="default" size="sm" /> : "Masuk"}
-                    </Button>
+                    </ButtonSolid>
                   </CardFooter>
                 </form>
               </Card>

@@ -1,6 +1,8 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react"
 import useDeleteTps from "./useDeleteTps";
 import { useEffect } from "react";
+import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 
 
 interface TypeProps {
@@ -42,12 +44,13 @@ const DeleteTps = (props:TypeProps) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button onPress={onClose} className="bg-red-200 border-2 border-red-500 text-red-500">
+            <ButtonFlat onPress={onClose}>
               Kembali
-            </Button>
-            <Button onPress={onDelete} className="bg-red-800 text-white" isDisabled={isPendingDeleteTps}>
+            </ButtonFlat>
+           
+            <ButtonSolid onPress={onDelete} isDisabled={isPendingDeleteTps}>
               {isPendingDeleteTps ? <Spinner color="default" size="sm" /> : "Hapus"}
-            </Button>
+            </ButtonSolid>
           </ModalFooter>
         </ModalContent>
       </Modal>
