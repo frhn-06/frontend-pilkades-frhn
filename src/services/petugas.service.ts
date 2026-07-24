@@ -13,7 +13,9 @@ const PetugasService = {
 
     delete: (id: string) => instance.delete(`${endpoint.PETUGAS}/${id}`),
 
-    nonAktif: (id: string) => instance.patch(`${endpoint.PETUGAS}/${id}/non-active`)
+    nonActive: (id: string) => instance.patch(`${endpoint.PETUGAS}/${id}/non-active`),
+
+    active: (id: string) => instance.patch(`${endpoint.PETUGAS}/${id}/active`)
 }
 
 export default PetugasService;

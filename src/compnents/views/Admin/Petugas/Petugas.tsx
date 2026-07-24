@@ -84,7 +84,7 @@ const Petugas = () => {
                     modalChangeStatusPetugas.onOpen()
                   }}
                 >
-                  Non Aktif
+                  {data.isActive ? "NonAktifkan" : "Aktifkan"}
                 </DropdownItem>
                 <DropdownItem 
                   key="delete" 

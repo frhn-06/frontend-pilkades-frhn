@@ -23,14 +23,19 @@ const ChangeStatusPetugas = (props: TypeProps) => {
     const {
       onNonActive,
       isSuccessNonActive,
-      isPendingNonActive
+      isPendingNonActive,
+
+      onActive,
+      isSuccessActive,
+      isPendingActive
     } = useChangeStatusPetugas(id)
 
     useEffect(() => {
-      if(isSuccessNonActive) {
+      if(isSuccessNonActive || isSuccessActive) {
         refetch();
+        onClose();
       }
-    },[isSuccessNonActive])
+    },[isSuccessNonActive, isSuccessActive])
 
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
@@ -53,7 +58,9 @@ const ChangeStatusPetugas = (props: TypeProps) => {
                   {isPendingNonActive ? <Spinner color="default" size="sm" /> : "Iya"}
                 </ButtonSolid>
               ):(
-                <div></div>
+                <ButtonSolid onPress={onActive} isDisabled={isPendingActive}>
+                  {isPendingActive ? <Spinner color="default" size="sm" /> : "Iya"}
+                </ButtonSolid>
               )}
             </ModalFooter>
           </ModalContent>

@@ -7,7 +7,7 @@ const useChangeStatusPetugas = (id: string) => {
     const {setToaster} = useContext(toasterContext);
 
     const nonActive = async () => {
-        const {data} = await PetugasService.nonAktif(id);
+        const {data} = await PetugasService.nonActive(id);
         return data;
     }
     
@@ -38,10 +38,47 @@ const useChangeStatusPetugas = (id: string) => {
     }
 
 
+
+    const active = async () => {
+        const {data} = await PetugasService.active(id);
+        return data;
+    }
+    
+    const {
+        mutate:mutateActive, 
+        isPending:isPendingActive, 
+        isSuccess:isSuccessActive
+    } = useMutation({
+        mutationFn: active,
+        onError: (error) => {
+            setToaster({
+                type: "error",
+                message: error.message
+            })
+        },
+        onSuccess: () => {
+            setToaster({
+                type: "success",
+                message: "Petugas berhasil diaktifkan"
+            });
+        }
+    })
+    
+
+    
+    const onActive = () => {
+        mutateActive();
+    }
+
+
     return {
         onNonActive,
         isSuccessNonActive,
-        isPendingNonActive
+        isPendingNonActive,
+
+        onActive,
+        isSuccessActive,
+        isPendingActive
     }
 }
 
