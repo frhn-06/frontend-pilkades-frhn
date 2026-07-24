@@ -51,6 +51,7 @@ const Petugas = () => {
     useEffect(() => {
       setUrl();
     },[router.isReady])
+    console.log(dataPetugas)
 
 
     const renderCell = useCallback((data: Record<string, unknown>, column: {label: string; id: string}) => {
@@ -70,9 +71,9 @@ const Petugas = () => {
               <DropdownMenu aria-label="Dynamic Actions">
                 <DropdownItem 
                   key="update" 
-                  onClick={() => router.push(`/admin/tps/${data.id}`)}
+                  onClick={() => router.push(`/admin/petugas/${data.id}`)}
                 >
-                  Update
+                  Detail
                 </DropdownItem>
                 <DropdownItem 
                   key="aktif-nonaktif" 
@@ -126,9 +127,10 @@ const Petugas = () => {
               currentLimit={`${currentLimit}`}
               onChangeLimit={handleChangeLimit}
               
-              showPagination
+              showPagination={dataPetugas?.pagination?.totalPage > 1}
               currentPage={`${currentPage}`}
               onPagination={handleChangePage}
+              totalPage={dataPetugas?.pagination?.totalPage}
   
               showSearch
               onChangeSearch={handleChangeSearch}

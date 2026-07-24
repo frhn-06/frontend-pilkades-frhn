@@ -174,7 +174,7 @@ const TableUi = (props: TypeProps) => {
 
           </div>
           
-          <div className="flex flex-col lg:flex-row justify-between gap-4">
+          {/* <div className="flex flex-col lg:flex-row justify-between gap-4">
             {showDateStart && (
               <div className="flex gap-1">
                 <div className="bg-white rounded-xl">
@@ -210,7 +210,7 @@ const TableUi = (props: TypeProps) => {
               )}
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       )
     },[onChangeSearch, openCreate, onChangeStatus, onChangePayment , onChangeDateStart, onChangeDateEnd,currentStatus, currentPayment, currentStart, currentEnd, currentEnd])

@@ -2,6 +2,7 @@ import AuthService from "@/services/auth.service";
 import NextAuth, { Session, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import CredentialsProvider from 'next-auth/providers/credentials'
+import type { NextAuthOptions } from "next-auth";
 
 interface UserExtended extends User {
     role?: string;
@@ -16,7 +17,7 @@ interface SessionExtended extends Session {
     accessToken?: string;
 }
 
-export default NextAuth({
+export const authOptions : NextAuthOptions = {
     session: {
         strategy: "jwt",
         maxAge: 60 * 60 * 24
@@ -75,6 +76,8 @@ export default NextAuth({
             return session;
         }
     }
-})
+}
+
+export default NextAuth(authOptions)
 
 export type {UserExtended, JwtExtended, SessionExtended}

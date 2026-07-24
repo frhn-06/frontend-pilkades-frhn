@@ -19,7 +19,7 @@ const useDetailTps = () => {
         return data;
     }
 
-    const {data: dataTps, isLoading: isLoadingTps, refetch:refetchTps, isRefetching: isRefetchingTps} = useQuery({
+    const {data: dataTps, isLoading: isLoadingTps, refetch:refetchTps, isRefetching: isRefetchingTps, isError:isErrorTps} = useQuery({
         queryKey: ["DetailTps"],
         queryFn: findTpsByid,
         enabled: router.isReady &&!!id
@@ -72,6 +72,7 @@ const useDetailTps = () => {
         isLoadingTps,
         refetchTps,
         isRefetchingTps,
+        isErrorTps,
 
         handleSubmitTps,
         control,
