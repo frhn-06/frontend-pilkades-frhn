@@ -29,11 +29,12 @@ const useLogin = () => {
         const result = await signIn("credentials", {
             identifier: payload.identifier,
             password: payload.password,
-            callbackUrl: callbackUrl
+            callbackUrl: callbackUrl,
+            redirect: false
         });
 
         if(result?.error && result?.status === 401) {
-            throw new Error("email atau username tidak sesuai dengan password anda")
+            throw new Error(result.error)
         }
         
     }

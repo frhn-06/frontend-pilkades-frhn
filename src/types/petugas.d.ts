@@ -15,7 +15,8 @@ interface IPetugas extends IPetugasForm {
         name?: string;
         alamat?: string;
     }
-    isActive?: boolean
+    isActive?: boolean;
+    electionId?: number;
 }
 
 

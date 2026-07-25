@@ -1,5 +1,5 @@
 import { IElection } from "@/types/election";
-import { Alert, Button, Card, CardBody, CardHeader, Input, Radio, RadioGroup, Spinner, Textarea } from "@heroui/react";
+import { Alert, Card, CardBody, CardHeader, Input, Radio, RadioGroup, Spinner, Textarea } from "@heroui/react";
 import useElection from "./useElection";
 import { Controller } from "react-hook-form";
 import { useEffect, useState } from "react";
@@ -14,6 +14,8 @@ import Image from 'next/image'
 import useUpdateLogo from "./useUpdateLogo";
 import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
+import { signOut } from "next-auth/react";
+
 
 interface TypeProps {
   isRefetching: boolean;
@@ -47,7 +49,7 @@ const Election = (props: TypeProps) => {
         isPendingUpdateElection,
         isSuccessUpdateElection,
         onUpdateElection
-    } = useUpdateElection(Number(data.id), setError)
+    } = useUpdateElection(Number(data?.id), setError)
 
     const {
       isPendingAddOneImage,
@@ -56,13 +58,21 @@ const Election = (props: TypeProps) => {
       isSuccessUpdateLogo,
 
       handleChangeImg
-    } = useUpdateLogo(Number(data.id))
+    } = useUpdateLogo(Number(data?.id));
+
+
 
     useEffect(() => {
-      if(isSuccessAddElection || isSuccessUpdateElection) {
+      if(isSuccessUpdateElection) {
         refetch();
       }
-    },[isSuccessAddElection, isSuccessUpdateElection])
+    },[isSuccessUpdateElection])
+
+    useEffect(() => {
+      if(isSuccessAddElection) {
+        signOut();
+      }
+    },[isSuccessAddElection])
 
 
     useEffect(() => {
@@ -103,7 +113,8 @@ const Election = (props: TypeProps) => {
 
           {Object.keys(data).length < 1 && (
             <Alert className="mb-4" color="warning" variant="faded">
-              Data eleksi pilkades belum dibuat. silakan anda buat terlebih dahulu!
+              Anda tidak akan mendapatkan akses untuk membuat data kandidat, petugas, tps, selama tidak memiliki data eleksi.
+              Silahkan membuat eleksi terlebih dahulu, setelah itu login ulang untuk merefresh sesi anda.
             </Alert>
           )}
 
@@ -278,10 +289,10 @@ const Election = (props: TypeProps) => {
                       </ButtonSolid>
 
                       <div className="flex gap-4">
-                        {data.logo !== null ? (
+                        {data.logo !== null && Object.keys(data).length > 0 ? (
                           <div className="w-72 rounded-xl overflow-hidden relative">
                             <Image 
-                              src={`${data.logo}`} 
+                              src={`${data.logo}` || ""} 
                               alt="logo" 
                               width={720} 
                               height={480} 

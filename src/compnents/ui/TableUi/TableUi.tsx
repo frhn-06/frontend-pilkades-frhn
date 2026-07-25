@@ -1,8 +1,7 @@
 import { LIST_LIMIT, LIST_STATUS_PETUGAS } from "@/utils/constanta";
-import { Button, DatePicker, DateValue, Input, Pagination, Select, SelectItem, Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
-import {parseDate} from "@internationalized/date";
+import { DateValue, Input, Pagination, Select, SelectItem, Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
 import { ChangeEvent, useMemo } from "react";
-import { IoSearch, IoCloseCircle } from "react-icons/io5";
+import { IoSearch } from "react-icons/io5";
 import ButtonSolid from "../ButtonUi/ButtonSolid";
 
 

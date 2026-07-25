@@ -1,5 +1,5 @@
 import instance from "@/libs/axios";
-import { IElection } from "@/types/election";
+import { IElection, IStatusElection } from "@/types/election";
 import endpoint from "./endpoint";
 
 const ElectionService = {
@@ -7,9 +7,11 @@ const ElectionService = {
 
     findOne: () => instance.get(`${endpoint.ELECTION}`),
     
-    update: (id: string, payload: IElection) => instance.patch(`${endpoint.ELECTION}/${id}/update`, payload),
+    update: (payload: IElection) => instance.patch(`${endpoint.ELECTION}`, payload),
 
-    delete: (id: string) => instance.delete(`${endpoint.ELECTION}/${id}/delete`)
+    delete: () => instance.delete(`${endpoint.ELECTION}`),
+
+    status: (payload: IStatusElection) => instance.patch(`${endpoint.ELECTION}/status`, payload)
 }
 
 export default ElectionService;

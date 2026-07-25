@@ -15,7 +15,7 @@ const useUpdateElection  = (id: number, setError: UseFormSetError<IElectionForm>
         
     
     const updateElection = async (payload: IElection) => {
-        const {data} = await ElectionService.update(`${id}`, payload);
+        const {data} = await ElectionService.update(payload);
         return data;
     }
     

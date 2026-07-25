@@ -9,12 +9,6 @@ const PetugasService = {
 
     findOne: (id: string) => instance.get(`${endpoint.PETUGAS}/${id}`),
 
-    serverFindOne: (id: string, token: string) => instance.get(`${endpoint.PETUGAS}/${id}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }),
-
     update: (id: string, payload: IPetugasForm) => instance.patch(`${endpoint.PETUGAS}/${id}`, payload),
 
     delete: (id: string) => instance.delete(`${endpoint.PETUGAS}/${id}`),

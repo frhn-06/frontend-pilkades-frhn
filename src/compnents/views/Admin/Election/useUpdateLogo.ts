@@ -17,7 +17,7 @@ const useUpdateLogo = (id: number) => {
     const {setToaster} = useContext(toasterContext);
 
     const updateImage = async(payload: IElection, callback: () => void) => {
-        const {data} = await ElectionService.update(`${id}`, payload);
+        const {data} = await ElectionService.update(payload);
         
         if(data.meta.status === 200) {
             callback();

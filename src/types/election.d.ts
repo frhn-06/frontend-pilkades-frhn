@@ -14,4 +14,8 @@ interface IElection {
     updatedAt?: string;
 }
 
-export type {IElection}
+interface IStatusElection {
+    status: "DRAFT" | "UPCOMING" | "ONGOING" | "FINISHED"
+}
+
+export type {IElection, IStatusElection}

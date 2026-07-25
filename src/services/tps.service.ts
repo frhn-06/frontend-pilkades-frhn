@@ -5,7 +5,7 @@ import { ITps } from "@/types/tps";
 const TpsService = {
     create: (payload: ITps) => instance.post(`${endpoint.TPS}`, payload),
 
-    findAll: () => instance.get(`/all-tps`),
+    findAll: () => instance.get(`${endpoint.TPS}`),
 
     findOneForAdmin: (id: string) => instance.get(`${endpoint.TPS}/${id}/admin`),
 
