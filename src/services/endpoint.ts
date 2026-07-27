@@ -3,7 +3,8 @@ const endpoint = {
     TPS: "/tps",
     ELECTION: "/election",
     MEDIA: "/media",
-    PETUGAS: "/petugas"
+    PETUGAS: "/petugas",
+    CANDIDATE: "/candidate"
 }
 
 export default endpoint;

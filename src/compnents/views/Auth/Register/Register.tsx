@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, CardHeader, Input, Link, Spinner } from "@heroui/react";
+import {  Card, CardBody, CardFooter, CardHeader, Input, Link, Spinner } from "@heroui/react";
 import useRegister from "./useRegister";
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa"

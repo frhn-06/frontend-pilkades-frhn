@@ -75,14 +75,7 @@ const Tps = () => {
           <DeleteTps isOpen={modalDeleteTps.isOpen} onClose={modalDeleteTps.onClose} refetch={refetchTps} id={`${idTps}`} />
 
         </div>
-        // <div className="py-12 px-4 lg:px-8">
-
-
-         
-
-          // <DeleteCategory categoryId={`${idTps}`} onClose={modalDeleteTps.onClose} isOpen={modalDeleteTps.isOpen} refetch={refetchCategories} /> */}
-
-        // </div>
+      
     )
 }
 
