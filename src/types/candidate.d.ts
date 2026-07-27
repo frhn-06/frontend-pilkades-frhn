@@ -9,7 +9,8 @@ interface ICandidate {
     nomor?: number | string;
     vision?: string;
     mission?: string;
-    img?: string;
+    img?: string | null;
+    oldImg?: string | null;
     members?: IMemeberCandidate[]
 }
 

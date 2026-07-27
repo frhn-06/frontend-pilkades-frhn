@@ -8,6 +8,7 @@ import useCandidate from "./useCandidate";
 import { IMemeberCandidate } from "@/types/candidate";
 import Image from "next/image";
 import AddCandidate from "./AddCandidate";
+import DeleteCandidate from "./DeleteCandidate";
 
 
 const Candidate = () => {
@@ -88,9 +89,18 @@ const Candidate = () => {
             emptyContent="Kandidat Calon kosong"
           />
 
-          <AddCandidate isOpen={modalAddCandidate.isOpen} onClose={modalAddCandidate.onClose} refetch={refetchCandidate} />
+          <AddCandidate 
+            isOpen={modalAddCandidate.isOpen} 
+            onClose={modalAddCandidate.onClose} 
+            refetch={refetchCandidate} 
+          />
 
-          {/* <DeleteTps isOpen={modalDeleteCandidate.isOpen} onClose={modalDeleteCandidate.onClose} refetch={refetchTps} id={`${idCandidate}`} /> */}
+          <DeleteCandidate 
+            isOpen={modalDeleteCandidate.isOpen} 
+            onClose={modalDeleteCandidate.onClose} 
+            refetch={refetchCandidate} 
+            id={`${idCandidate}`} 
+          />
 
         </div>
       

@@ -1,34 +1,30 @@
-import { Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner, Textarea } from "@heroui/react"
+import { Card, CardBody, CardFooter, CardHeader, Input, Skeleton, Spinner, Textarea } from "@heroui/react";
+import useDetailCandidate from "./useDetailCandidate";
 import { Controller } from "react-hook-form";
-import useAddCandidate from "./useAddCandidate";
-import InputFile from "@/compnents/ui/InputFile";
-import { useEffect, useState } from "react";
-import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
-import cn from "@/utils/cn";
-import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
+import { useEffect } from "react";
+import cn from "@/utils/cn";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
+import Image from 'next/image'
+import InputFile from "@/compnents/ui/InputFile";
 
-
-interface TypeProps {
-  isOpen: boolean;
-  onClose: () => void;
-  refetch: () => void;
-}
-const AddCandidate = (props: TypeProps) => {
-    const {
-      isOpen,
-      onClose,
-      refetch
-    } = props;
-
+const DetailCandidate = () => {
     const {
         isPendingAddOneImage,
         isSuccessAddOneImage,
+        handleChangeImg,
 
         isPendingRemoveOneImage,
         isSuccessRemoveOneImage,
+        handleRemoveImg,
 
-        handleSubmitCandidate,
+        dataCandidate,
+        isLoadingCandidate,
+        refetchCandidate,
+        isRefetchingCandidate,
+        isErrorCandidate,
+
+        handleSubmitUpdateCandidate,
         control,
         errors,
         reset,
@@ -38,21 +34,31 @@ const AddCandidate = (props: TypeProps) => {
         fields,
         append,
         remove,
+        
+        isPendingUpdateCandidate,
+        isSuccessUpdateCandidate,
 
-        handleChangeImg,
-        handleRemoveImg,
+        onUpdateCandidate
+    } = useDetailCandidate();
 
-        isPendingCandidate,
-        isSuccessCandidate,
+    useEffect(() => {
+      if(dataCandidate) {
+        reset({
+          ...dataCandidate.data,
+          nomor: `${dataCandidate.data.nomor}`,
+          oldImg: `${dataCandidate.data.img}`,
+          img: null
+        })
+      }
+    }, [dataCandidate])
 
-        onAddCandidate
-    } = useAddCandidate();
 
+    useEffect(() => {
+      if(isSuccessUpdateCandidate) {
+        refetchCandidate();
+      }
+    }, [isSuccessUpdateCandidate])
 
-    const onCloseModal = () => {
-      onClose();
-      reset();
-    }
 
     const onPlusMember = () => {
       append({
@@ -66,81 +72,87 @@ const AddCandidate = (props: TypeProps) => {
       if(index > 0) {
         remove(index);
       }
-    }
-
-    useEffect(() => {
-      if(isSuccessCandidate) {
-        refetch();
-        onClose();
-      }
-    },[isSuccessCandidate])
-
-
+    }  
+  
 
     return (
-        <Modal isOpen={isOpen} onClose={onCloseModal} placement="center" scrollBehavior="inside">
-          <form onSubmit={handleSubmitCandidate(onAddCandidate)}>
-            <ModalContent>
-              <ModalHeader>
-                Buat Kandidat
-              </ModalHeader>
-
-              <ModalBody className="gap-4">
+      isErrorCandidate ? (
+        <div>
+          not found
+        </div>
+      ) : (
+        <div>
+          <Card className="max-w-140 z-0">
+            <form onSubmit={handleSubmitUpdateCandidate(onUpdateCandidate)}>
+              <CardHeader>
+                Kandidat Calon
+              </CardHeader>
+        
+              <CardBody className="gap-4">
                 {errors.root !== undefined && (
-                  <p className="text-danger text-sm">
+                  <p className="text-sm text-danger">
                     {errors.root.message}
                   </p>
-                )}
-                
+                )} 
+        
                 <Controller control={control} name="nomor" render={({field}) => (
-                  <Input 
-                    {...field}
-                    variant="bordered"
-                    label="Nomor"
-                    labelPlacement="outside"
-                    placeholder="nomor urut"
-                    isInvalid={errors.nomor !== undefined}
-                    errorMessage={errors.nomor?.message}
-                    endContent={(
-                      <span className="text-danger">
-                        *
-                      </span>
-                    )}
-                  />
+                  <Skeleton isLoaded={!!dataCandidate?.data?.nomor} className="rounded-xl">
+                    <Input
+                      {...field} 
+                      variant="bordered"
+                      label="Nomor"
+                      labelPlacement="outside"
+                      placeholder="Nomor urut"
+                      isInvalid={errors.nomor !== undefined}
+                      errorMessage={errors.nomor?.message}
+                    />
+                  </Skeleton>
                 )} />
-
+        
                 <Controller control={control} name="vision" render={({field}) => (
-                  <Textarea 
-                    {...field}
-                    variant="bordered"
-                    label="Visi"
-                    labelPlacement="outside"
-                    placeholder="Visi"
-                    isInvalid={errors.vision !== undefined}
-                    errorMessage={errors.vision?.message}
-                    endContent={(
-                      <span className="text-danger">
-                        *
-                      </span>
-                    )}
-                  />
+                  <Skeleton isLoaded={!!dataCandidate?.data?.vision} className="rounded-xl">
+                    <Textarea 
+                      {...field} 
+                      variant="bordered"
+                      label="Visi"
+                      labelPlacement="outside"
+                      placeholder="Visi"
+                      isInvalid={errors.vision !== undefined}
+                      errorMessage={errors.vision?.message}
+                    />
+                  </Skeleton>
                 )} />
 
                 <Controller control={control} name="mission" render={({field}) => (
-                  <Textarea 
-                    {...field}
-                    variant="bordered"
-                    label="Misi"
-                    labelPlacement="outside"
-                    placeholder="Misi"
-                    isInvalid={errors.mission !== undefined}
-                    errorMessage={errors.mission?.message}
-                    endContent={(
-                      <span className="text-danger">
-                        *
-                      </span>
-                    )}
-                  />
+                  <Skeleton isLoaded={!!dataCandidate?.data?.mission} className="rounded-xl">
+                    <Textarea 
+                      {...field} 
+                      variant="bordered"
+                      label="Misi"
+                      labelPlacement="outside"
+                      placeholder="Misi"
+                      isInvalid={errors.mission !== undefined}
+                      errorMessage={errors.mission?.message}
+                    />
+                  </Skeleton>
+                )} />
+
+                <div className="w-40">
+                  {dataCandidate?.data?.img ? (
+                    <Image 
+                      src={dataCandidate.data.img} 
+                      alt="foto-kandidat" 
+                      width={240} 
+                      height={480} 
+                      className="w-full rounded-xl" 
+                    />
+                  ) : (
+                    <Skeleton isLoaded={!!dataCandidate?.data?.img} className="w-full h-60 rounded-xl" />
+                  )}
+                </div>
+                
+                <Controller control={control} name="oldImg" render={({field}) => (
+                  <input {...field} type="hidden" />
                 )} />
 
                 <Controller control={control} name="img" render={({field}) => (
@@ -156,12 +168,16 @@ const AddCandidate = (props: TypeProps) => {
 
                     fotoOnLoad={typeof fotoLoad === "string" ? fotoLoad : ""}
 
-                    label="Foto"
+                    label="Foto Baru"
                     isInvalid={errors.img !== undefined}
                     errorMessage={errors.img?.message}
                   />
                 )} />
-                
+
+
+
+
+
                 <div className={cn("border-2 border-gray-400/30 rounded-xl p-4 flex flex-col gap-4 mt-4", {
                   "border-danger" : errors.members !== undefined
                   })}
@@ -170,7 +186,7 @@ const AddCandidate = (props: TypeProps) => {
                     <p className="text-sm font-semibold">
                       Kandidat Calon
                     </p>
-
+                  
                     <div className="flex gap-2 items-center">
                       <FaPlusCircle 
                         className="w-5 h-5 text-gray-700 cursor-pointer" 
@@ -178,6 +194,14 @@ const AddCandidate = (props: TypeProps) => {
                       />
                     </div>
                   </div>
+
+                  {errors.members !== undefined && (
+                    <p>
+                      {errors.members.message}
+                      error
+                    </p>
+                  )}
+
 
                   {fields.map((item, i) => (
                     <div key={item.id} className="flex flex-col gap-4 border-b-2 border-b-gray-300 pb-4 border-dashed relative">
@@ -197,7 +221,7 @@ const AddCandidate = (props: TypeProps) => {
                           )}
                         />
                       )} />
-
+                  
                       <Controller control={control} name={`members.${i}.position`} render={({field}) => (
                         <Input 
                           {...field}
@@ -215,7 +239,7 @@ const AddCandidate = (props: TypeProps) => {
                           )}
                         />
                       )} />
-
+                  
                       <FaMinusCircle 
                         className={cn("w-5 h-5 text-gray-700 cursor-pointer top-2 right-2", {"text-gray-400" : i === 0})} 
                         onClick={() => onMinMember(i)} 
@@ -223,28 +247,22 @@ const AddCandidate = (props: TypeProps) => {
                     </div>
                   ))}
                 </div>
-
-              </ModalBody>
-
-              <ModalFooter>
-                <ButtonFlat 
-                  isDisabled={isPendingAddOneImage || isPendingRemoveOneImage}
-                  onPress={onCloseModal}
+        
+              </CardBody>
+        
+              <CardFooter>
+                <ButtonSolid 
+                  type="submit" 
+                  isDisabled={isPendingUpdateCandidate || isLoadingCandidate || isRefetchingCandidate}
                 >
-                  Kembali
-                </ButtonFlat>
-
-                <ButtonSolid
-                  type="submit"
-                  isDisabled={isPendingCandidate || isPendingAddOneImage || isPendingRemoveOneImage}
-                >
-                  {isPendingCandidate ? <Spinner size="sm" color="default" /> : "Simpan"}
+                  {isPendingUpdateCandidate ? <Spinner size="sm" color="default" /> : "Ubah"}
                 </ButtonSolid>
-              </ModalFooter>
-            </ModalContent>
-          </form>
-        </Modal>
+              </CardFooter>
+            </form>
+          </Card>
+        </div>
+      )
     )
 }
 
-export default AddCandidate;
+export default DetailCandidate;
