@@ -36,6 +36,10 @@ const useLogin = () => {
         if(result?.error && result?.status === 401) {
             throw new Error(result.error)
         }
+
+        if (result?.ok && result.url) {
+            router.replace(result.url);
+        }
         
     }
     

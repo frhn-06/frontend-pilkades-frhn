@@ -51,7 +51,6 @@ const Petugas = () => {
     useEffect(() => {
       setUrl();
     },[router.isReady])
-    console.log(dataPetugas)
 
 
     const renderCell = useCallback((data: Record<string, unknown>, column: {label: string; id: string}) => {

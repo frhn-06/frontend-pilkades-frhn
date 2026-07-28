@@ -29,7 +29,6 @@ const InputDateTime = (props: TypeProps) => {
             <DatePicker
               selected={field.value}
               onChange={(date: Date | null) => {
-                console.log(convert.dateToBackend(`${date}`));
                 field.onChange(date)
               }}
               showTimeSelect

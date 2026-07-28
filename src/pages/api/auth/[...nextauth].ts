@@ -47,7 +47,6 @@ export const authOptions : NextAuthOptions = {
                     const accessToken = result.data.data;
     
                     const me = await AuthService.me(accessToken);
-                    console.log(me);
     
                     const user = me.data.data;
                     
