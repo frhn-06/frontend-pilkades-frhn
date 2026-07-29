@@ -52,7 +52,7 @@ const AddPetugas = (props: TypeProps) => {
     },[isSuccessAddPetugas])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={handleClose}>
           <ModalContent>
             <form onSubmit={handleSubmitPetugas(onAddPetugas)}>
               <ModalHeader>

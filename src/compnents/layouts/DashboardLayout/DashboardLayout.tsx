@@ -5,6 +5,7 @@ import { useState } from "react";
 import cn from "@/utils/cn";
 import SidebarLayout from "./SidebarLayout";
 import HeaderLayout from "./HeaderLayout";
+import useDashboardLayout from "./useDashboardLayout";
 
 
 interface TypeProps {
@@ -24,6 +25,13 @@ const DashboardLayout = (props: TypeProps) => {
       headerSubtitle
     } = props;
 
+    const {
+        dataMe,
+        isLoadingMe,
+        isRefetchingMe,
+        refetchMe
+    } = useDashboardLayout();
+
 
     const [sidebarAktif, setSidebarAktif] = useState(true);
 
@@ -37,18 +45,19 @@ const DashboardLayout = (props: TypeProps) => {
           <div className="min-h-screen flex">
   
             <SidebarLayout 
-            type={type} 
-            sidebarAktif={sidebarAktif} 
-            setSidebarAktif={setSidebarAktif} 
+              type={type} 
+              sidebarAktif={sidebarAktif} 
+              setSidebarAktif={setSidebarAktif} 
             />
 
 
             <div className="bg-gray-200 flex-1 h-screen overflow-hidden flex flex-col">
               <HeaderLayout 
-              sidebarAktif={sidebarAktif} 
-              setSidebarAktif={setSidebarAktif} 
-              headerTitle={headerTitle} 
-              headerSubtitle={headerSubtitle} 
+                sidebarAktif={sidebarAktif} 
+                setSidebarAktif={setSidebarAktif} 
+                headerTitle={headerTitle} 
+                headerSubtitle={headerSubtitle}
+                me={dataMe?.data} 
               />
 
               <div className="flex-1 overflow-auto">

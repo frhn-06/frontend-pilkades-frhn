@@ -4,7 +4,8 @@ const endpoint = {
     ELECTION: "/election",
     MEDIA: "/media",
     PETUGAS: "/petugas",
-    CANDIDATE: "/candidate"
+    CANDIDATE: "/candidate",
+    VOTER: "/voter"
 }
 
 export default endpoint;

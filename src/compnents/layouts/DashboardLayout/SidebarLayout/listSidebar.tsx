@@ -1,5 +1,4 @@
-import { AiFillBehanceSquare } from "react-icons/ai";
-import { FaUserTie } from "react-icons/fa";
+import { FaUsers, FaUserTie } from "react-icons/fa";
 import { IoMdPeople, IoMdSettings } from "react-icons/io";
 import { MdBarChart, MdDashboard, MdEventNote, MdHowToVote, MdLogout } from "react-icons/md";
 
@@ -53,20 +52,20 @@ const listsidebar = {
         {
             id: "dashboard",
             label: "Dashboard",
-            href: "/admin/dashboard",
-            icon: <AiFillBehanceSquare className="w-8 h-8" />
+            href: "/petugas/dashboard",
+            icon: <MdDashboard className="w-8 h-8" />
         },
         {
             id: "voter",
             label: "Voter",
-            href: "/admin/dashboard",
-            icon: <AiFillBehanceSquare className="w-8 h-8" />
+            href: "/petugas/voter",
+            icon: <FaUsers className="w-8 h-8" />
         },
         {
             id: "pengaturan",
             label: "Pengaturan",
             href: "/admin/dashboard",
-            icon: <AiFillBehanceSquare className="w-8 h-8" />
+            icon: <IoMdSettings className="w-8 h-8" />
         }
     ]
 }

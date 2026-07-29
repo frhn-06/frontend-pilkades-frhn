@@ -1,0 +1,111 @@
+import useDebaunce from "@/hooks/useDebaunce";
+import AuthService from "@/services/auth.service";
+import VoterService from "@/services/voter.service";
+import { LIMIT_VOTER_DEFAULT, PAGE_DEFAULT } from "@/utils/constanta";
+import {  useQuery } from "@tanstack/react-query"
+import { useRouter } from "next/router"
+import { ChangeEvent } from "react";
+
+const useVoter = () => {
+
+    const router = useRouter();
+
+    const {debaunce} = useDebaunce();
+
+
+
+    const currentPage = router.query.page;
+    const currentLimit = router.query.limit;
+    const currentSearch = router.query.search;
+
+    const setUrl = () => {
+        router.replace({
+            query: {
+                page: currentPage || PAGE_DEFAULT,
+                limit: currentLimit || LIMIT_VOTER_DEFAULT,
+                search: currentSearch || ""
+            }
+        })
+    }
+
+
+    const findAllVoterPerTps = async () => {
+        const params = `page=${currentPage}&limit=${currentLimit}&search=${currentSearch}`
+        const {data} = await VoterService.findAllPerTps(`${params}`);
+        return data;
+    }
+
+    const {data: dataVoter, isLoading: isLoadingVoter, refetch:refetchVoter, isRefetching: isRefetchingVoter} = useQuery({
+        queryKey: ["Voters", currentPage, currentLimit, currentSearch],
+        queryFn: findAllVoterPerTps,
+        enabled: router.isReady && !!currentPage && !!currentLimit
+    });
+
+
+
+
+    const handleChangePage = (e: number) => {
+        router.replace({
+            query: {
+                ...router.query,
+                page: e
+            }
+        })
+    }
+
+    const handleChangeLimit = (e: ChangeEvent<HTMLSelectElement>) => {
+        router.replace({
+            query: {
+                ...router.query,
+                page: 1,
+                limit: e.target.value 
+            }
+        })
+    }
+
+
+
+    const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        debaunce(() => {
+            router.replace({
+                query: {
+                    ...router.query,
+                    page: 1,
+                    search: e.target.value 
+                }
+            })
+        }, 1000)
+    }
+
+    const handleClearSearch = () => {
+        router.replace({
+            query: {
+                ...router.query,
+                page: 1,
+                search: ""
+            }
+        })
+    }
+
+
+
+    return {
+        dataVoter,
+        isLoadingVoter,
+        refetchVoter,
+        isRefetchingVoter,
+
+        setUrl,
+        currentPage,
+        handleChangePage,
+
+        currentLimit,
+        handleChangeLimit,
+
+        currentSearch,
+        handleChangeSearch,
+        handleClearSearch
+    }
+}
+
+export default useVoter;

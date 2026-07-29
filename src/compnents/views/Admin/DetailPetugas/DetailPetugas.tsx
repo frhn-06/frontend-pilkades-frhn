@@ -57,7 +57,7 @@ const DetailPetugas = () => {
         </div>
       ) : (
         <div>
-          <Card className="max-w-140">
+          <Card className="max-w-140 z-0">
             <form onSubmit={handleSubmitUpdatePetugas(onUpdatePetugas)}>
               <CardHeader>
                 Petugas

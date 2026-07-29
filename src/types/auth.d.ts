@@ -11,11 +11,18 @@ interface ILogin {
     password: string;
 }
 
+
+interface ITpsRelation {
+    id?: number;
+    name?: string;
+    alamat?: string;
+}
 interface IUser extends Omit<IRegister, "confirmPassword"> {
     id?: number;
     role?: string;
     tpsId?: number | null;
     electionId?: number | null;
+    tps? : ITpsRelation
 }
 
 

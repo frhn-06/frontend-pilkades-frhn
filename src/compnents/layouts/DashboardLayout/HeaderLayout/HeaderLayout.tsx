@@ -8,6 +8,7 @@ interface TypeProps {
   sidebarAktif: boolean;
   headerTitle: string;
   headerSubtitle: string;
+  me: IUser;
  }
 
 const HeaderLayout = (props: TypeProps) => {
@@ -15,12 +16,13 @@ const HeaderLayout = (props: TypeProps) => {
       setSidebarAktif,
       sidebarAktif,
       headerTitle,
-      headerSubtitle
+      headerSubtitle,
+      me
     } = props;
 
-    const session = useSession();
+    // const session = useSession();
 
-    const role = (session.data?.user as IUser )?.role
+    // const role = (session.data?.user as IUser )?.role
 
     return (
       <div className="bg-white min-h-16 py-2 px-4 lg:min-h-20 flex items-center border-b-2 border-b-default-400/30 justify-between gap-2">
@@ -41,10 +43,17 @@ const HeaderLayout = (props: TypeProps) => {
           </div>
         </div>
 
-        <div className="flex items-center">
-          <h3 className="hidden lg:block font-semibold text-utama mr-2">
-            {role === "SUPER_ADMIN" ? "Admin" : "Petugas"}
-          </h3>
+        <div className="flex items-center gap-2">
+          <div className="flex flex-col">
+            <h3 className="hidden lg:block font-semibold text-utama mr-2">
+              {me?.role === "SUPER_ADMIN" ? "Admin" : "Petugas"}
+            </h3>
+            {me?.tps && (
+              <span>
+                {me?.tps?.name}
+              </span>
+            )}
+          </div>
           
           <Dropdown className="z-0">
             <DropdownTrigger>

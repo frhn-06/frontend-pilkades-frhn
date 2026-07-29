@@ -11,7 +11,9 @@ const AuthService = {
         headers: {
             Authorization: `Bearer ${token}`
         }
-    })
+    }),
+
+    findMe: () => instance.get(`${endpoint.AUTH}/find-me`)
 } 
 
 export default AuthService;

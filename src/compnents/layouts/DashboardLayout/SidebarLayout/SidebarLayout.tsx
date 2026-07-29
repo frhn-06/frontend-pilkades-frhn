@@ -37,30 +37,30 @@ const SidebarLayout = (props: TypeProps) => {
             <div className="flex flex-col">
               {type === "admin" ? 
                 listsidebar.admin.map((sidbar) => (
-                <Link key={sidbar.id} href={sidbar.href} className="relative p-2 flex items-center hover:bg-red-500 active:bg-red-400 transition">
-                  <div className={cn("w-1 bg-white h-full absolute left-0 rounded-r-xl", router.pathname === sidbar.href ? "block" : "hidden")} />
+                  <Link key={sidbar.id} href={sidbar.href} className="relative p-2 flex items-center hover:bg-red-500 active:bg-red-400 transition">
+                    <div className={cn("w-1 bg-white h-full absolute left-0 rounded-r-xl", router.pathname === sidbar.href ? "block" : "hidden")} />
 
-                  <div className="w-8 h-8 text-white">
-                    {sidbar.icon}
-                  </div>
-            
-                  <span className={cn("text-white ml-2 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
-                    {sidbar.label}
-                  </span>
-                </Link>
+                    <div className="w-8 h-8 text-white">
+                      {sidbar.icon}
+                    </div>
+              
+                    <span className={cn("text-white ml-2 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
+                      {sidbar.label}
+                    </span>
+                  </Link>
                 )) : 
                 listsidebar.petugas.map((sidbar) => (
-                <Link key={sidbar.id} href={sidbar.href} className="relative p-2 flex items-center hover:bg-red-500 active:bg-red-400 transition">
-                  <div className={cn("w-1 bg-white h-full absolute left-0 rounded-r-xl", router.pathname === sidbar.href ? "block" : "hidden")} />
+                  <Link key={sidbar.id} href={sidbar.href} className="relative p-2 flex items-center hover:bg-red-500 active:bg-red-400 transition">
+                    <div className={cn("w-1 bg-white h-full absolute left-0 rounded-r-xl", router.pathname === sidbar.href ? "block" : "hidden")} />
 
-                  <div className="w-8 h-8 text-white">
-                    {sidbar.icon}
-                  </div>
-            
-                  <span className={cn("text-white ml-2 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
-                    {sidbar.label}
-                  </span>
-                </Link>
+                    <div className="w-8 h-8 text-white">
+                      {sidbar.icon}
+                    </div>
+              
+                    <span className={cn("text-white ml-2 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
+                      {sidbar.label}
+                    </span>
+                  </Link>
                 ))
               } 
               <Link href="/logout" onClick={(e) => {

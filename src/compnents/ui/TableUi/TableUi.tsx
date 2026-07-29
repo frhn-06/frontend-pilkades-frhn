@@ -30,6 +30,7 @@ interface TypeProps {
   totalPage?: number;
 
   showLimit?: boolean;
+  listLimit?: {key: string; label: string;}[]
   onChangeLimit?: (e:ChangeEvent<HTMLSelectElement>) => void;
 
   showPagination?: boolean;
@@ -80,6 +81,7 @@ const TableUi = (props: TypeProps) => {
       totalPage,
 
       showLimit,
+      listLimit = LIST_LIMIT,
       onChangeLimit,
 
       showPagination,
@@ -222,7 +224,7 @@ const TableUi = (props: TypeProps) => {
             <Select
             className="min-w-24 max-w-xs bg-white rounded-2xl z-0"
             variant="bordered"
-            items={LIST_LIMIT}
+            items={listLimit}
             selectedKeys={[`${currentLimit}`]}
             startContent={<p className='text-sm'>Baris:</p>}
             disallowEmptySelection
