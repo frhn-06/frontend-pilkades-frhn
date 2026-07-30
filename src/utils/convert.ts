@@ -50,6 +50,14 @@ const convert = {
         const result = new Date(tahun, bulan - 1, tanggal, jam, menit, detik);
 
         return result;
+    },
+
+
+
+    jam: (date:string) => {
+        const jam = new Date(date).getHours();
+        const menit = new Date(date).getMinutes();
+        return `${jam}:${menit} WIB`;
     }
 }
 

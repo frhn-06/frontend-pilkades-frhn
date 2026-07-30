@@ -5,7 +5,8 @@ const endpoint = {
     MEDIA: "/media",
     PETUGAS: "/petugas",
     CANDIDATE: "/candidate",
-    VOTER: "/voter"
+    VOTER: "/voter",
+    TOKEN: "/token-vote",
 }
 
 export default endpoint;

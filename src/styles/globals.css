@@ -25,6 +25,56 @@
 
 
 
+
+/* ////// print token ////// */
+@media print {
+
+  /* Hilangkan semua elemen */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Tampilkan hanya paper */
+  #paper,
+  #paper * {
+    visibility: visible;
+  }
+
+  /* Posisikan paper di pojok kiri atas */
+  #paper {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 80mm;
+    padding: 8mm;
+
+    margin: 0;
+
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+@page {
+    size: auto;
+    margin: 10mm;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 
 :root {
   --background: #ffffff;
