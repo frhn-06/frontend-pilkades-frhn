@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut } from "next-auth/react";
 import { MdLogout } from "react-icons/md";
+import { VscTriangleDown } from "react-icons/vsc";
 
 
 interface TypeProps {
@@ -54,10 +55,11 @@ const SidebarLayout = (props: TypeProps) => {
               {type === "admin" ? 
                 listsidebar.admin.map((sidebar) => (
                   <div key={sidebar.id}>
-                    <div className="px-3 py-2">
+                    <div className="px-3 py-2 flex items-center justify-between">
                       <span className={cn("font-semibold text-white whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
                         {sidebar.label}
                       </span>
+                      <VscTriangleDown className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
@@ -78,10 +80,11 @@ const SidebarLayout = (props: TypeProps) => {
                 )) : 
                 listsidebar.petugas.map((sidebar) => (
                   <div key={sidebar.id}>
-                    <div className="px-3 py-2">
+                    <div className="px-3 py-2 flex items-center justify-between">
                       <span className={cn("font-semibold text-white whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
                         {sidebar.label}
                       </span>
+                      <VscTriangleDown className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
@@ -143,10 +146,11 @@ const SidebarLayout = (props: TypeProps) => {
               {type === "admin" ? 
                 listsidebar.admin.map((sidebar) => (
                   <div key={sidebar.id}>
-                    <div className="px-3 py-2">
+                    <div className="px-3 py-2 flex items-center justify-between">
                       <span className={cn("font-semibold text-white whitespace-nowrap transition-all duration-300")}>
                         {sidebar.label}
                       </span>
+                      <VscTriangleDown className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
@@ -167,10 +171,11 @@ const SidebarLayout = (props: TypeProps) => {
                 )) :
                 listsidebar.petugas.map((sidebar) => (
                   <div key={sidebar.id}>
-                    <div className="px-3 py-2">
+                    <div className="px-3 py-2 flex items-center justify-between">
                       <span className={cn("font-semibold text-white whitespace-nowrap transition-all duration-300")}>
                         {sidebar.label}
                       </span>
+                      <VscTriangleDown className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
