@@ -1,6 +1,6 @@
 import cn from "@/utils/cn";
 import listsidebar from "./listSidebar"
-import { SetStateAction, useEffect, useRef } from "react";
+import { SetStateAction } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut } from "next-auth/react";
@@ -25,18 +25,8 @@ const SidebarLayout = (props: TypeProps) => {
 
     const router = useRouter();
 
-    const s = useRef<boolean>(true)
-    useEffect(() => {
-      if(s.current) {
-        console.log(router.pathname)
-      }
-      s.current = false
-    })
-
     return (
-        <div className="relative">
-
-      
+        <div className="relative">   
       
 {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
           

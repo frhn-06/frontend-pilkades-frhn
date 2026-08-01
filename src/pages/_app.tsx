@@ -6,6 +6,7 @@ import { HeroUIProvider } from "@heroui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToasterProvider } from "@/contexts/toasterContext";
 import { SessionProvider } from "next-auth/react";
+import responseHandler from "@/libs/responseHandler";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,10 +15,15 @@ const queryClient = new QueryClient({
       refetchOnReconnect: false,
       staleTime: 60 * 1000,
       gcTime: 10 * 60 * 1000,
-      retry: 1
+      retry: 1,
+      throwOnError:(error) => {
+        responseHandler.jwtExpired(error);
+        return false
+      }
     },
     mutations: {
-      retry: false
+      retry: false,
+      onError: responseHandler.jwtExpired
     }
   }
 })

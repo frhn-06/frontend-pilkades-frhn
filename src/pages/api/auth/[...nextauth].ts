@@ -61,8 +61,9 @@ export const authOptions : NextAuthOptions = {
                     let message = ""
                     if(axios.isAxiosError(error)) {
                         message = error?.response?.data?.message;
+                    } else {
+                        message = "Email Username atau Password tidak sesuai"
                     }
-                    message = "Email Username atau Password tidak sesuai"
                     throw new Error(message);
                 }
             }

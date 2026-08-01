@@ -1,7 +1,6 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import { JwtExtended } from "./pages/api/auth/[...nextauth]";
-import { redirect } from "next/dist/server/api-utils";
 
 
 

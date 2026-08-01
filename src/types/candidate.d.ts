@@ -6,6 +6,7 @@ interface IMemeberCandidate {
 }
 
 interface ICandidate {
+    id?: number;
     nomor?: number | string;
     vision?: string;
     mission?: string;
