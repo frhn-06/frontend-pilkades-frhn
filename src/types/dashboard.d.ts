@@ -18,6 +18,11 @@ interface IPercentagesDashboard {
     votePercentage?: number;
 }
 
+interface ITpsDashboard {
+    id?: number;
+    name?: string;
+    alamat?: string;
+}
 
 interface IDashboardAdmin {
     election?: IElectionDashboard;
@@ -25,12 +30,8 @@ interface IDashboardAdmin {
     percentages: IPercentagesDashboard;
 }
 
-interface IDashboardPetugas extends Omit<IDashboardAdmin> {
-    tps?: {
-        id?: number;
-        name?: string;
-        alamat?: string;
-    }
+interface IDashboardPetugas extends IDashboardAdmin {
+    tps?: ITpsDashboard;
 }
 
-export type {IDashboardAdmin, IDashboardPetugas, IElectionDashboard, IStatistics, IPercentagesDashboard}
+export type {IDashboardAdmin, IDashboardPetugas, IElectionDashboard, IStatistics, IPercentagesDashboard, ITpsDashboard}
