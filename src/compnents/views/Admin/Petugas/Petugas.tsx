@@ -1,4 +1,4 @@
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, useDisclosure } from "@heroui/react";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link, useDisclosure } from "@heroui/react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
 
@@ -10,6 +10,7 @@ import AddPetugas from "./AddPetugas";
 import ChangeStatusPetugas from "./ChangeStatusPetugas";
 import { IPetugas } from "@/types/petugas";
 import DeletePetugas from "./DeletePetugas";
+import EmptyElection from "@/compnents/ui/EmptyElection";
 
 
 
@@ -19,6 +20,8 @@ const Petugas = () => {
         isLoadingPetugas,
         refetchPetugas,
         isRefetchingPetugas,
+        isErrorPetugas,
+        errorPetugas,
 
         setUrl,
         currentPage,
@@ -110,35 +113,53 @@ const Petugas = () => {
     return (
         <div>
           {Object.keys(router.pathname).length > 0 && (
-            <TableUi
-              data={dataPetugas?.data || []}
-              column={listColumn}
-              renderCell={renderCell}
-              isLoading={isLoadingPetugas || isRefetchingPetugas}
-  
-              showCreate
-              textCreate="Buat data petugas"
-              openCreate={modalAddPetugas.onOpen}
-  
-              emptyContent="Data petugas kosong"
-  
-              showLimit
-              currentLimit={`${currentLimit}`}
-              onChangeLimit={handleChangeLimit}
-              
-              showPagination={dataPetugas?.pagination?.totalPage > 1}
-              currentPage={`${currentPage}`}
-              onPagination={handleChangePage}
-              totalPage={dataPetugas?.pagination?.totalPage}
-  
-              showSearch
-              onChangeSearch={handleChangeSearch}
-              onClearSearch={handleClearSearch}
-  
-              showStatus
-              onChangeStatus={handleChangeActive}
-              currentStatus={`${currentActive}`}
-            />
+            isErrorPetugas ? (
+              errorPetugas?.message === "Election belum ada / belum dibuat" ? (
+                <EmptyElection
+                  title="Election belum tersedia."
+                  textContent="Silakan buat Election terlebih dahulu sebelum menambahkan petugas TPS."
+                />
+              ) : (
+                <div>
+                  <h1 className="text-5xl font-bold text-utama">
+                    Error 
+                  </h1>
+                  <p>
+                    {errorPetugas?.message}
+                  </p>
+                </div>
+              )
+            ) : (
+              <TableUi
+                data={dataPetugas?.data || []}
+                column={listColumn}
+                renderCell={renderCell}
+                isLoading={isLoadingPetugas || isRefetchingPetugas}
+    
+                showCreate
+                textCreate="Buat data petugas"
+                openCreate={modalAddPetugas.onOpen}
+    
+                emptyContent="Data petugas kosong"
+    
+                showLimit
+                currentLimit={`${currentLimit}`}
+                onChangeLimit={handleChangeLimit}
+                
+                showPagination={dataPetugas?.pagination?.totalPage > 1}
+                currentPage={`${currentPage}`}
+                onPagination={handleChangePage}
+                totalPage={dataPetugas?.pagination?.totalPage}
+    
+                showSearch
+                onChangeSearch={handleChangeSearch}
+                onClearSearch={handleClearSearch}
+    
+                showStatus
+                onChangeStatus={handleChangeActive}
+                currentStatus={`${currentActive}`}
+              />
+            )
           )}
 
           <AddPetugas 

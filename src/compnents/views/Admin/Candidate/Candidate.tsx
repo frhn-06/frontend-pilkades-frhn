@@ -9,6 +9,7 @@ import { IMemeberCandidate } from "@/types/candidate";
 import Image from "next/image";
 import AddCandidate from "./AddCandidate";
 import DeleteCandidate from "./DeleteCandidate";
+import EmptyElection from "@/compnents/ui/EmptyElection";
 
 
 const Candidate = () => {
@@ -16,7 +17,9 @@ const Candidate = () => {
         dataCandidate,
         isLoadingCandidate,
         refetchCandidate,
-        isRefetchingCandidate
+        isRefetchingCandidate,
+        isErrorCandidate,
+        errorCandidate
     } = useCandidate()
 
     const router = useRouter();
@@ -75,35 +78,52 @@ const Candidate = () => {
 
 
     return (
-        <div>
-          <TableUi
-            data={dataCandidate?.data || []}
-            column={listColumn}
-            renderCell={renderCell}
-            isLoading={isLoadingCandidate || isRefetchingCandidate}
+        isErrorCandidate ? (
+          errorCandidate!.message === "Election belum ada / belum dibuat" ? (
+            <EmptyElection 
+              title="Belum ada Election."
+              textContent="Kandidat hanya dapat ditambahkan setelah Election dibuat."
+            />
+          ) : (
+            <div>
+              <h1 className="text-5xl font-bold text-utama">
+                Error 
+              </h1>
+              <p>
+                {errorCandidate?.message}
+              </p>
+            </div>
+          )
+        ) : (
+          <div>
+            <TableUi
+              data={dataCandidate?.data || []}
+              column={listColumn}
+              renderCell={renderCell}
+              isLoading={isLoadingCandidate || isRefetchingCandidate}
 
-            showCreate
-            textCreate="Buat Kandidat Calon"
-            openCreate={modalAddCandidate.onOpen}
+              showCreate
+              textCreate="Buat Kandidat Calon"
+              openCreate={modalAddCandidate.onOpen}
 
-            emptyContent="Kandidat Calon kosong"
-          />
+              emptyContent="Kandidat Calon kosong"
+            />
 
-          <AddCandidate 
-            isOpen={modalAddCandidate.isOpen} 
-            onClose={modalAddCandidate.onClose} 
-            refetch={refetchCandidate} 
-          />
+            <AddCandidate 
+              isOpen={modalAddCandidate.isOpen} 
+              onClose={modalAddCandidate.onClose} 
+              refetch={refetchCandidate} 
+            />
 
-          <DeleteCandidate 
-            isOpen={modalDeleteCandidate.isOpen} 
-            onClose={modalDeleteCandidate.onClose} 
-            refetch={refetchCandidate} 
-            id={`${idCandidate}`} 
-          />
+            <DeleteCandidate 
+              isOpen={modalDeleteCandidate.isOpen} 
+              onClose={modalDeleteCandidate.onClose} 
+              refetch={refetchCandidate} 
+              id={`${idCandidate}`} 
+            />
 
-        </div>
-      
+          </div>
+        )
     )
 }
 

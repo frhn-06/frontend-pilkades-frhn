@@ -1,6 +1,4 @@
 import { IDashboardAdmin } from "@/types/dashboard"
-import { Card, CardBody } from "@heroui/react";
-import CountUp from "react-countup";
 import Info from "./Info";
 import Statistics from "./Statistics";
 import Percentages from "./Percentages";
@@ -21,7 +19,7 @@ const Dashboard = (props: TypeProps) => {
           
           <Statistics statistics={data?.statistics} />
 
-          <Percentages percentages={data.percentages} />
+          <Percentages percentages={data?.percentages} />
 
         </div>
     )

@@ -8,7 +8,7 @@ const useCandidate = () => {
         return data;
     }
 
-    const {data: dataCandidate, isLoading: isLoadingCandidate, refetch:refetchCandidate, isRefetching: isRefetchingCandidate} = useQuery({
+    const {data: dataCandidate, isLoading: isLoadingCandidate, refetch:refetchCandidate, isRefetching: isRefetchingCandidate, isError:isErrorCandidate, error:errorCandidate} = useQuery({
         queryKey: ["Candidate"],
         queryFn: findAllCandidate,
     });
@@ -17,7 +17,9 @@ const useCandidate = () => {
         dataCandidate,
         isLoadingCandidate,
         refetchCandidate,
-        isRefetchingCandidate
+        isRefetchingCandidate,
+        isErrorCandidate,
+        errorCandidate
     }
 }
 

@@ -37,7 +37,7 @@ const usePetugas = () => {
         return data;
     }
 
-    const {data: dataPetugas, isLoading: isLoadingPetugas, refetch:refetchPetugas, isRefetching: isRefetchingPetugas} = useQuery({
+    const {data: dataPetugas, isLoading: isLoadingPetugas, refetch:refetchPetugas, isRefetching: isRefetchingPetugas, isError:isErrorPetugas, error:errorPetugas} = useQuery({
         queryKey: ["Petugass", currentPage, currentLimit, currentTps, currentActive, currentSearch],
         queryFn: findAllPetugas,
         enabled: router.isReady && !!currentPage && !!currentLimit
@@ -115,6 +115,8 @@ const usePetugas = () => {
         isLoadingPetugas,
         refetchPetugas,
         isRefetchingPetugas,
+        isErrorPetugas,
+        errorPetugas,
 
         setUrl,
         currentPage,
@@ -132,7 +134,8 @@ const usePetugas = () => {
 
         currentSearch,
         handleChangeSearch,
-        handleClearSearch
+        handleClearSearch,
+
     }
 }
 

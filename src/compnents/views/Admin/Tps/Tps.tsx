@@ -8,6 +8,7 @@ import TableUi from "@/compnents/ui/TableUi";
 import listColumn from "./listColumn";
 import AddTps from "./AddTps";
 import DeleteTps from "./DeleteTps";
+import EmptyElection from "@/compnents/ui/EmptyElection";
 
 
 const Tps = () => {
@@ -15,7 +16,9 @@ const Tps = () => {
        dataTps,
         isLoadingTps,
         refetchTps,
-        isRefetchingTps
+        isRefetchingTps,
+        isErrorTps,
+        errorTps
     } = useTps()
 
     const router = useRouter();
@@ -56,26 +59,43 @@ const Tps = () => {
 
 
     return (
-        <div>
-          <TableUi
-            data={dataTps?.data || []}
-            column={listColumn}
-            renderCell={renderCell}
-            isLoading={isLoadingTps || isRefetchingTps}
-
-            showCreate
-            textCreate="Buat TPS"
-            openCreate={modalAddTps.onOpen}
-
-            emptyContent="TPS kosong"
-          />
-
-          <AddTps isOpen={modalAddTps.isOpen} onClose={modalAddTps.onClose} refetch={refetchTps} />
-
-          <DeleteTps isOpen={modalDeleteTps.isOpen} onClose={modalDeleteTps.onClose} refetch={refetchTps} id={`${idTps}`} />
-
-        </div>
-      
+        isErrorTps ? (
+          errorTps!.message === "Election belum ada / belum dibuat" ? (
+            <EmptyElection 
+              title="Belum ada Election yang aktif."
+              textContent="Data TPS hanya dapat dibuat setelah Election tersedia."
+            />
+          ) : (
+            <div>
+              <h1 className="text-5xl font-bold text-utama">
+                Error 
+              </h1>
+              <p>
+                {errorTps?.message}
+              </p>
+            </div>
+          )
+        ) : (
+          <div>
+            <TableUi
+              data={dataTps?.data || []}
+              column={listColumn}
+              renderCell={renderCell}
+              isLoading={isLoadingTps || isRefetchingTps}
+    
+              showCreate
+              textCreate="Buat TPS"
+              openCreate={modalAddTps.onOpen}
+    
+              emptyContent="TPS kosong"
+            />
+    
+            <AddTps isOpen={modalAddTps.isOpen} onClose={modalAddTps.onClose} refetch={refetchTps} />
+    
+            <DeleteTps isOpen={modalDeleteTps.isOpen} onClose={modalDeleteTps.onClose} refetch={refetchTps} id={`${idTps}`} />
+    
+          </div>
+        )
     )
 }
 

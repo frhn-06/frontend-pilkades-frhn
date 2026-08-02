@@ -107,18 +107,48 @@ const Election = (props: TypeProps) => {
 
     return (
         <div className="">
-          <h1 className="font-bold text-2xl text-utama mb-6">
+          <h1 className="font-bold text-2xl text-utama">
             Kelola informasi Pilkades
           </h1>
 
           {Object.keys(data).length < 1 && (
-            <Alert className="mb-4" color="warning" variant="faded">
-              Anda tidak akan mendapatkan akses untuk membuat data kandidat, petugas, tps, selama tidak memiliki data eleksi.
-              Silahkan membuat eleksi terlebih dahulu, setelah itu login ulang untuk merefresh sesi anda.
-            </Alert>
+            <div className="p-4 mb-6">
+              <h1 className="text-utama font-bold text-xl">
+                Selamat Datang
+              </h1>
+              <p className="text-utama">
+                Election adalah data utama dalam aplikasi ini.
+              </p>
+              <p className="text-utama">
+                Setelah Election dibuat, Anda dapat:
+              </p>
+              <ul className="text-utama">
+                <li className="list-disc list-inside">
+                  Menambahkan TPS
+                </li>
+                <li className="list-disc list-inside">
+                  Menambahkan Petugas
+                </li>
+                <li className="list-disc list-inside">
+                  Menambahkan Kandidat
+                </li>
+                <li className="list-disc list-inside">
+                  Menambahkan Daftar Pemilih
+                </li>
+                <li className="list-disc list-inside">
+                  Melihat Dashboard
+                </li>
+                <li className="list-disc list-inside">
+                  Monitoring Pemungutan Suara
+                </li>
+              </ul>
+              <p className="text-utama">
+                Silakan lengkapi formulir di bawah ini untuk memulai.
+              </p>
+            </div>
           )}
 
-          <div>
+          <div className="mt-6">
             {isRefetching ? (
               <div className="relative bg-white rounded-2xl">
                 <div className="absolute top-0 w-full min-h-120 bg-black/30 backdrop-blur-lg rounded-2xl flex justify-center items-center">

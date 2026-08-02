@@ -1,9 +1,9 @@
 import DashboardLayout from "@/compnents/layouts/DashboardLayout";
+import EmptyElection from "@/compnents/ui/EmptyElection";
 import Dashboard from "@/compnents/views/Admin/Dashboard";
 import DashboardSerivce from "@/services/dashboard.service";
 import { Spinner } from "@heroui/react";
 import { useQuery } from "@tanstack/react-query";
-
 
 const useDashboard = () => {
     const getDashboard = async () => {
@@ -39,23 +39,34 @@ const PageAdminDashboard = () => {
 
     return (
         <DashboardLayout 
-        title="Admin | Pilkades" 
-        type="admin" 
-        headerTitle="Admin Dashboard" 
-        headerSubtitle="Pantau kondisi pemungutan suara"
+          title="Admin | Pilkades" 
+          type="admin" 
+          headerTitle="Admin Dashboard" 
+          headerSubtitle="Pantau kondisi pemungutan suara"
         >
           {isLoadingDashboard || isRefetchingDashboard ? (
-            <div className="w-full min-h-screen flex justify-center items-center">
-              <Spinner color="danger" />
+            <div className="w-full min-h-screen">
+              <div className="w-fit mx-auto my-12">
+                <Spinner color="danger" />
+              </div>
             </div>
           ) : isErrorDashboard ? (
-            <div className="w-full min-h-screen flex flex-col justify-center items-center">
-              <h1 className="text-5xl font-bold text-utama">
-                Error 
-              </h1>
-              <p>
-                {errorDashboard?.message}
-              </p>
+            <div className="w-full min-h-screen">
+              {errorDashboard?.message === "Election belum ada / belum dibuat" ? (
+                <EmptyElection 
+                  title="Dashboard belum dapat ditampilkan karena Election belum dibuat."
+                  textContent="Buat Election terlebih dahulu untuk mulai mengelola proses pemilihan dan melihat statistik pemungutan suara."
+                />
+              ) : (
+                <div>
+                  <h1 className="text-5xl font-bold text-utama">
+                    Error 
+                  </h1>
+                  <p>
+                    {errorDashboard?.message}
+                  </p>
+                </div>
+              )}
             </div>
           ) : (
             <Dashboard data={dataDashboard?.data} />
