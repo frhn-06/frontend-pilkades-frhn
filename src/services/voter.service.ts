@@ -15,6 +15,8 @@ const VoterService = {
 
     present: (id: string) => instance.patch(`${endpoint.VOTER}/${id}/present`),
 
+    noPresent: (id: string) => instance.patch(`${endpoint.VOTER}/${id}/no-present`),
+
     voted: (id: string) => instance.patch(`${endpoint.VOTER}/${id}/voted`),
 
     delete: (id: string) => instance.delete(`${endpoint.VOTER}/${id}`),   

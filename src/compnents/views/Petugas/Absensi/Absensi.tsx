@@ -11,6 +11,7 @@ import useAbsensi from "./useAbsensi";
 import Present from "./Present";
 import GenerateToken from "./GenerateToken";
 import toasterContext from "@/contexts/toasterContext";
+import NoPresent from "./NoPresent";
 
 
 
@@ -157,6 +158,13 @@ const Absensi = () => {
           <Present 
             isOpen={modalPresent.isOpen} 
             onClose={modalPresent.onClose} 
+            refetch={refetchVoter}
+            data={stateVoter!}
+          />
+
+          <NoPresent 
+            isOpen={modalNoPresent.isOpen} 
+            onClose={modalNoPresent.onClose} 
             refetch={refetchVoter}
             data={stateVoter!}
           />

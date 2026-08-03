@@ -36,14 +36,7 @@ const Info = (props: TypeProps) => {
                   {election?.status}
                 </p>
               </div>
-
-              
             </div>
-            {/* {election?.logo && (
-              <div className="w-1/2">
-                <Image src={`${election.logo}` || ""} alt="logo" width={480} height={240} className="w-full rounded-2xl" />
-              </div>
-            )} */}
           </div>
         </CardBody>
       </Card>
