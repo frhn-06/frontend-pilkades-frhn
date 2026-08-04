@@ -9,6 +9,7 @@ const endpoint = {
     TOKEN: "/token-vote",
     VOTE: "/vote",
     DASHBOARD: "/dashboard",
+    MONITORING: "/monitoring",
 }
 
 export default endpoint;
