@@ -40,10 +40,10 @@ const PagePetugasVoting = () => {
 
     return (
         <DashboardLayout 
-          title="Voting | Petugas" 
+          title="Pemungutan Suara" 
           type="petugas" 
-          headerTitle="Bilik suara" 
-          headerSubtitle="this is voting place"
+          headerTitle="Pemungutan Suara" 
+          headerSubtitle="Masukkan token yang valid, lalu pilih salah satu kandidat untuk memberikan hak suara."
         >
           {isLoadingCandidates || isRefetchingCandidates ? (
             <div className="w-full min-h-screen flex justify-center items-center">

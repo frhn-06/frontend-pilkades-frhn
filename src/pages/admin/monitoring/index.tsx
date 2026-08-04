@@ -39,10 +39,10 @@ const PageAdminMonitoring = () => {
 
     return (
         <DashboardLayout 
-          title="Admin | Monitoring" 
+          title="Monitoring Pemungutan Suara" 
           type="petugas" 
-          headerTitle="Admin Monitoring" 
-          headerSubtitle="Pantau kondisi pemungutan suara"
+          headerTitle="Monitoring Pemungutan Suara" 
+          headerSubtitle="Pantau perkembangan pemungutan suara dan perolehan suara setiap kandidat secara langsung."
         >
           {isLoadingMonitoring || isRefetchingMonitoring ? (
             <div className="w-full min-h-screen">

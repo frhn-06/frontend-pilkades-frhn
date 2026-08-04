@@ -1,5 +1,5 @@
 import { IPercentagesDashboard } from "@/types/dashboard"
-import { Card, CardBody } from "@heroui/react";
+import { Card, CardBody, Progress } from "@heroui/react";
 import CountUp from "react-countup";
 
 interface TypeProps {
@@ -16,16 +16,17 @@ const Percentages = (props: TypeProps) => {
       <div>
         <Card className="lg:p-2 w-full max-w-2xl text-utama">
           <CardBody className="gap-6">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <p className="font-semibold">
                 Kehadiran
               </p>
               <div className="flex items-center gap-4">
-                <div className=" relative flex-1 h-3 rounded-lg bg-gray-400">
-                  <div className="absolute top-0 bottom-0 bg-red-500 rounded-lg" style={
-                    {width: `${percentages?.presentPercentage}%`}
-                  } />
-                </div>
+                <Progress 
+                  aria-label="progress" 
+                  size="sm"
+                  className="flex-1" 
+                  color="danger" value={percentages?.presentPercentage} 
+                />
                 <div className="w-20">
                   <h2 className="font-bold text-xl">
                     <CountUp 
@@ -37,16 +38,17 @@ const Percentages = (props: TypeProps) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <p className="font-semibold">
                 Voting
               </p>
               <div className="flex items-center gap-4">
-                <div className=" relative flex-1 h-3 rounded-lg bg-gray-400">
-                  <div className="absolute top-0 bottom-0 bg-red-500 rounded-lg" style={
-                    {width: `${percentages?.votePercentage}%`}
-                  } />
-                </div>
+                <Progress 
+                  aria-label="progress" 
+                  size="sm"
+                  className="flex-1" 
+                  color="danger" value={percentages?.votePercentage} 
+                />
                 <div className="w-20">
                   <h2 className="font-bold text-xl">
                     <CountUp 

@@ -49,10 +49,12 @@ const DetailTps = () => {
           </div>
         ) : (
           <div>
-            <Breadcrumbs className="mb-6">
-              <BreadcrumbItem href="/admin/tps">TPS</BreadcrumbItem>
-              <BreadcrumbItem className="text-red-800 font-semibold">Detail TPS</BreadcrumbItem>
-            </Breadcrumbs>
+            <div className="bg-white w-fit rounded-xl">
+              <Breadcrumbs className="mb-6" variant="bordered">
+                <BreadcrumbItem href="/admin/tps">TPS</BreadcrumbItem>
+                <BreadcrumbItem className="font-semibold" color="danger">Edit TPS</BreadcrumbItem>
+              </Breadcrumbs>
+            </div>
 
             <Skeleton isLoaded={!!dataTps?.data?.name} className="mb-6 max-w-xl rounded-lg">
               <h1 className="font-bold text-xl text-red-800 mb-6">

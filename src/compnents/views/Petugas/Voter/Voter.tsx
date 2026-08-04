@@ -67,7 +67,7 @@ const Voter = () => {
                   key="update" 
                   onClick={() => router.push(`/petugas/voter/${data.id}`)}
                 >
-                  Detail
+                  Update
                 </DropdownItem>
                 <DropdownItem 
                   key="delete" 

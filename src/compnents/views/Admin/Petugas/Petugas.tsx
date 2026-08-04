@@ -75,7 +75,7 @@ const Petugas = () => {
                   key="update" 
                   onClick={() => router.push(`/admin/petugas/${data.id}`)}
                 >
-                  Detail
+                  Update
                 </DropdownItem>
                 <DropdownItem 
                   key="aktif-nonaktif" 

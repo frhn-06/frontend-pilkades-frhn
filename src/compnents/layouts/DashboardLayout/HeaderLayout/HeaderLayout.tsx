@@ -1,6 +1,5 @@
 import { IUser } from "@/types/auth";
 import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/react";
-import { useSession } from "next-auth/react";
 import { SetStateAction } from "react"
 
 interface TypeProps {
@@ -19,10 +18,6 @@ const HeaderLayout = (props: TypeProps) => {
       headerSubtitle,
       me
     } = props;
-
-    // const session = useSession();
-
-    // const role = (session.data?.user as IUser )?.role
 
     return (
       <div className="bg-white min-h-16 py-2 px-4 lg:min-h-20 flex items-center border-b-2 border-b-default-400/30 justify-between gap-2">
@@ -45,9 +40,9 @@ const HeaderLayout = (props: TypeProps) => {
 
         <div className="flex items-center gap-2">
           <div className="flex flex-col">
-            <h3 className="hidden lg:block font-semibold text-utama mr-2">
+            {/* <h3 className="hidden lg:block font-semibold text-utama mr-2">
               {me?.role === "SUPER_ADMIN" ? "Admin" : "Petugas"}
-            </h3>
+            </h3> */}
             {me?.tps && (
               <span>
                 {me?.tps?.name}

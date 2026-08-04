@@ -4,10 +4,10 @@ import DetailVoter from "@/compnents/views/Petugas/DetailVoter";
 const PagePetugasDetailVoter = () => {  
       return (
         <DashboardLayout 
-          title="Detail voter | Petugas" 
+          title="Edit Pemilih" 
           type="petugas" 
-          headerTitle="Data Voter" 
-          headerSubtitle="this is Voter"
+          headerTitle="Edit Pemilih" 
+          headerSubtitle="Perbarui informasi pemilih yang telah diundang."
         >
             <DetailVoter />
         </DashboardLayout>

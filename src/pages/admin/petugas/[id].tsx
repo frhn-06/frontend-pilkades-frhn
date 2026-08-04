@@ -4,10 +4,10 @@ import DetailPetugas from "@/compnents/views/Admin/DetailPetugas";
 const PageAdminDetailPetugas = () => {  
       return (
         <DashboardLayout 
-          title="Detail petugas | Admin" 
+          title="Edit Petugas" 
           type="admin" 
-          headerTitle="Daftar Petugas" 
-          headerSubtitle="this is Petugas"
+          headerTitle="Edit Petugas" 
+          headerSubtitle="Perbarui informasi mengenai petugas ini."
         >
             <DetailPetugas />  
         </DashboardLayout>

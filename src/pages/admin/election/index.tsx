@@ -36,10 +36,10 @@ const PageAdminElection = () => {
 
     return (
         <DashboardLayout 
-            title="Admin | Election" 
+            title="Election" 
             type="admin" 
-            headerTitle="Pilkades" 
-            headerSubtitle="Kelola informasi pelaksanaan pemilihan kepala desa."
+            headerTitle="Election" 
+            headerSubtitle="Kelola informasi utama pemilihan sebagai dasar pengaturan seluruh proses pemungutan suara."
         >  
             {isLoadingElection ? (
                 <div className="h-screen flex justify-center items-center">

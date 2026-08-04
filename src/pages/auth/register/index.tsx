@@ -3,7 +3,7 @@ import Register from "@/compnents/views/Auth/Register";
 
 const PageRegister = () => {
     return (
-        <AuthLayout title="daftar">
+        <AuthLayout title="Daftar">
           <Register />
         </AuthLayout>        
     )

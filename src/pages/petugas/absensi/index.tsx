@@ -8,10 +8,10 @@ const PagePetugasAbsensi = () => {
     
     return (
         <DashboardLayout 
-            title="Absensi | Petugas" 
+            title="Absensi & Token" 
             type="petugas" 
-            headerTitle="Daftar Voter Absesnsi" 
-            headerSubtitle="this is voter absensi list"
+            headerTitle="Absensi & Token" 
+            headerSubtitle="Catat kehadiran pemilih dan buat token sebagai akses untuk memberikan suara."
         >
           <Absensi />
         </DashboardLayout>

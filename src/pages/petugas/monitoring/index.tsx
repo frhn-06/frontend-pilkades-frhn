@@ -39,10 +39,10 @@ const PagePetugasMonitoring = () => {
 
     return (
         <DashboardLayout 
-          title="Petugas | Pilkades" 
+          title="Monitoring Pemungutan Suara" 
           type="petugas" 
-          headerTitle="Petugas Monitoring" 
-          headerSubtitle="Pantau kondisi pemungutan suara"
+          headerTitle="Monitoring Pemungutan Suara" 
+          headerSubtitle="Pantau perkembangan pemungutan suara dan perolehan suara setiap kandidat secara langsung."
         >
           {isLoadingMonitoring || isRefetchingMonitoring ? (
             <div className="w-full min-h-screen">

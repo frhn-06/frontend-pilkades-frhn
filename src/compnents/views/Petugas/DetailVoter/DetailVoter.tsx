@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, CardHeader, Input, Skeleton, Spinner } from "@heroui/react"
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, CardFooter, CardHeader, Input, Skeleton, Spinner } from "@heroui/react"
 import useDetailVoter from "./useDetailVoter";
 import { Controller } from "react-hook-form";
 import { useEffect } from "react";
@@ -50,10 +50,18 @@ const DetailVoter = () => {
         </div>
       ) : (
         <div>
+          <div className="bg-white w-fit rounded-xl">
+            <Breadcrumbs className="mb-6" variant="bordered">
+              <BreadcrumbItem href="/petugas/voter">Pemilih</BreadcrumbItem>
+              <BreadcrumbItem className="font-semibold" color="danger">Edit Pemilih</BreadcrumbItem>
+            </Breadcrumbs>
+          </div>
+
+
           <Card className="max-w-140 z-0">
             <form onSubmit={handleSubmitUpdateVoter(onUpdateVoter)}>
               <CardHeader>
-                Petugas
+                Pemilih
               </CardHeader>
 
               <CardBody className="gap-4">

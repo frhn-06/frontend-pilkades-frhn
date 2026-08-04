@@ -8,10 +8,10 @@ const PageAdminCandidate = () => {
     
     return (
         <DashboardLayout 
-        title="Kandidat Calon | Admin" 
+        title="Manajemen Kandidat" 
         type="admin" 
-        headerTitle="Daftar Kandidat Calon" 
-        headerSubtitle="this is Candiate list"
+        headerTitle="Manajemen Kandidat" 
+        headerSubtitle="Kelola data pasangan calon yang akan mengikuti proses pemilihan."
         >
           <Candidate />
         </DashboardLayout>

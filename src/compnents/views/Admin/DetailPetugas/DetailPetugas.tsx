@@ -1,11 +1,10 @@
-import { Card, CardBody, CardFooter, CardHeader, Input, Select, SelectItem, Skeleton, Spinner } from "@heroui/react"
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, CardFooter, CardHeader, Input, Select, SelectItem, Skeleton, Spinner } from "@heroui/react"
 import useDetailPetugas from "./useDetailPetugas";
 import { Controller } from "react-hook-form";
 import { useEffect } from "react";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import { ITps } from "@/types/tps";
-import { IoEyeSharp } from "react-icons/io5";
-import { FaEyeSlash } from "react-icons/fa";
+
 
 const DetailPetugas = () => {
     const {
@@ -57,6 +56,13 @@ const DetailPetugas = () => {
         </div>
       ) : (
         <div>
+          <div className="bg-white w-fit rounded-xl">
+            <Breadcrumbs className="mb-6" variant="bordered">
+              <BreadcrumbItem href="/admin/petugas">Petugas</BreadcrumbItem>
+              <BreadcrumbItem className="font-semibold" color="danger">Edit Petugas</BreadcrumbItem>
+            </Breadcrumbs>
+          </div>
+          
           <Card className="max-w-140 z-0">
             <form onSubmit={handleSubmitUpdatePetugas(onUpdatePetugas)}>
               <CardHeader>

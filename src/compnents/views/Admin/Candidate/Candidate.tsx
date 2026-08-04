@@ -55,7 +55,7 @@ const Candidate = () => {
                   key="update" 
                   onClick={() => router.push(`/admin/candidate/${data.id}`)}
                 >
-                  Detail
+                  Update
                 </DropdownItem>
                 <DropdownItem 
                   key="delete" 

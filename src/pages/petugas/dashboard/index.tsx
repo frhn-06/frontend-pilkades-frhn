@@ -39,10 +39,10 @@ const PagePetugasDashboard = () => {
 
     return (
         <DashboardLayout 
-          title="Petugas | Pilkades" 
+          title="Dashboard" 
           type="petugas" 
-          headerTitle="Petugas Dashboard" 
-          headerSubtitle="Pantau kondisi pemungutan suara"
+          headerTitle="Dashboard" 
+          headerSubtitle="Lihat ringkasan statistik pemilih dan perkembangan pemungutan suara di TPS Anda."
         >
           {isLoadingDashboard || isRefetchingDashboard ? (
             <div className="w-full min-h-screen">

@@ -8,10 +8,10 @@ const PagePetugasVoter = () => {
     
     return (
         <DashboardLayout 
-            title="Voter | Petugas" 
+            title="Data Pemilih" 
             type="petugas" 
-            headerTitle="Daftar Voter" 
-            headerSubtitle="this is voter list"
+            headerTitle="Data Pemilih"
+            headerSubtitle="Kelola daftar pemilih yang terdaftar pada TPS untuk mendukung proses pemungutan suara."
         >
           <Voter />
         </DashboardLayout>

@@ -4,10 +4,10 @@ import DetailCandidate from "@/compnents/views/Admin/DetailCandidate";
 const PageAdminDetailPetugas = () => {  
       return (
         <DashboardLayout 
-          title="Detail kandidat | Admin" 
+          title="Edit Kandidat" 
           type="admin" 
-          headerTitle="Kandidat" 
-          headerSubtitle="this is Candidate"
+          headerTitle="Edit Kandidat" 
+          headerSubtitle="Perbarui informasi pasangan calon yang telah terdaftar."
         >
             <DetailCandidate />  
         </DashboardLayout>

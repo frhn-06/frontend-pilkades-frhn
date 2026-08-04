@@ -8,10 +8,10 @@ const PageAdminTps = () => {
     
     return (
         <DashboardLayout 
-        title="Admin | Tps" 
-        type="admin" 
-        headerTitle="TPS List" 
-        headerSubtitle="this is TPS list"
+            title="Manajemen TPS" 
+            type="admin" 
+            headerTitle="Manajemen TPS" 
+            headerSubtitle="Kelola data Tempat Pemungutan Suara (TPS) yang akan digunakan selama proses pemilihan."
         >
           <Tps />
         </DashboardLayout>

@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, CardHeader, Input, Skeleton, Spinner, Textarea } from "@heroui/react";
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, CardFooter, CardHeader, Input, Skeleton, Spinner, Textarea } from "@heroui/react";
 import useDetailCandidate from "./useDetailCandidate";
 import { Controller } from "react-hook-form";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
@@ -82,6 +82,13 @@ const DetailCandidate = () => {
         </div>
       ) : (
         <div>
+          <div className="bg-white w-fit rounded-xl">
+            <Breadcrumbs className="mb-6" variant="bordered">
+              <BreadcrumbItem href="/admin/candidate">Kandidat</BreadcrumbItem>
+              <BreadcrumbItem className="font-semibold" color="danger">Edit Kandidat</BreadcrumbItem>
+            </Breadcrumbs>
+          </div>
+          
           <Card className="max-w-140 z-0">
             <form onSubmit={handleSubmitUpdateCandidate(onUpdateCandidate)}>
               <CardHeader>

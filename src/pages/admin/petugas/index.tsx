@@ -8,10 +8,10 @@ const PageAdminPetugas = () => {
     
     return (
         <DashboardLayout 
-        title="Admin | Petugas" 
+        title="Manajemen Petugas" 
         type="admin" 
-        headerTitle="Daftar Petugas" 
-        headerSubtitle="this is Petugas list"
+        headerTitle="Manajemen Petugas" 
+        headerSubtitle="Kelola akun petugas yang bertugas mengelola proses pemungutan suara di setiap TPS."
         >
           <Petugas />
         </DashboardLayout>

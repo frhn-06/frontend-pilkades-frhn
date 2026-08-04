@@ -39,10 +39,10 @@ const PageAdminDashboard = () => {
 
     return (
         <DashboardLayout 
-          title="Admin | Pilkades" 
+          title="Dashboard" 
           type="admin" 
-          headerTitle="Admin Dashboard" 
-          headerSubtitle="Pantau kondisi pemungutan suara"
+          headerTitle="Dashboard" 
+          headerSubtitle="Pantau ringkasan statistik dan perkembangan proses pemungutan suara secara keseluruhan."
         >
           {isLoadingDashboard || isRefetchingDashboard ? (
             <div className="w-full min-h-screen">
