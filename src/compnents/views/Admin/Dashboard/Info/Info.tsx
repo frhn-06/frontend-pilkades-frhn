@@ -19,7 +19,7 @@ const Info = (props: TypeProps) => {
                 {election?.name}
               </h1>
           
-              <p className=" text-gray-400">
+              <p className=" text-second2">
                 Status
               </p>
               <div className="flex items-center gap-1">

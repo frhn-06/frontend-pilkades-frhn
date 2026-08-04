@@ -38,7 +38,7 @@ const useUpdateElection  = (id: number, setError: UseFormSetError<IElectionForm>
         onSuccess: () => {
             setToaster({
                 type: "success",
-                message: "Eleksi pilkades berhasil diupdate"
+                message: "Eleksi voting pemilihan berhasil diupdate"
             })
         }
     })

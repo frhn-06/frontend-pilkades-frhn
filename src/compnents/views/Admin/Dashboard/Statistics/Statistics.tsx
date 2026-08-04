@@ -14,7 +14,7 @@ const Statistics = (props: TypeProps) => {
     return (
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div>
-          <Card className="relative text-utama h-full bg-red-600 p-2">
+          <Card className="relative text-utama h-full bg-inti p-2">
             <CardBody className="gap-2 z-2">
               <p>
                 Total keseluruhan pemilih :
@@ -33,7 +33,7 @@ const Statistics = (props: TypeProps) => {
           </Card>
         </div>
         <div>
-          <Card className="relative text-utama h-full bg-red-600 p-2">
+          <Card className="relative text-utama h-full bg-inti p-2">
             <CardBody className="gap-2 z-2">
               <p>
                 Jumlah pemilih hadir :
@@ -52,7 +52,7 @@ const Statistics = (props: TypeProps) => {
           </Card>
         </div>
         <div>
-          <Card className="relative text-utama h-full bg-red-600 p-2">
+          <Card className="relative text-utama h-full bg-inti p-2">
             <CardBody className="gap-2 z-2">
               <p>
                 Jumlah pemilih absen :
@@ -71,7 +71,7 @@ const Statistics = (props: TypeProps) => {
           </Card>
         </div>
         <div>
-          <Card className="relative text-utama h-full bg-red-600 p-2">
+          <Card className="relative text-utama h-full bg-inti p-2">
             <CardBody className="gap-2 z-2">
               <p>
                 Jumlah pemilih voting :
@@ -90,7 +90,7 @@ const Statistics = (props: TypeProps) => {
           </Card>
         </div>
         <div>
-          <Card className="relative text-utama h-full bg-red-600 p-2">
+          <Card className="relative text-utama h-full bg-inti p-2">
             <CardBody className="gap-2 z-2">
               <p>
                 Jumlah pemilih belum voting :

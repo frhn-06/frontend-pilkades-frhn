@@ -21,7 +21,7 @@ const InputDateTime = (props: TypeProps) => {
     } = props;
     return (
         <div>
-          <p className={cn("text-utama mb-1 text-sm", {"text-gray-400" : isDisabled})}>
+          <p className={cn("text-utama mb-1 text-sm", {"text-second2" : isDisabled})}>
             {label}
           </p>
 
@@ -38,7 +38,7 @@ const InputDateTime = (props: TypeProps) => {
               placeholderText={placeholder}
               popperPlacement="bottom-end"
               disabled={isDisabled}
-              className={isDisabled ? "text-gray-400" : "text-utama"}
+              className={isDisabled ? "text-second2" : "text-utama"}
             />
           </div>
 

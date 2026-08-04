@@ -248,7 +248,7 @@ const DetailCandidate = () => {
                       )} />
                   
                       <FaMinusCircle 
-                        className={cn("w-5 h-5 text-gray-700 cursor-pointer top-2 right-2", {"text-gray-400" : i === 0})} 
+                        className={cn("w-5 h-5 text-gray-700 cursor-pointer top-2 right-2", {"text-second2" : i === 0})} 
                         onClick={() => onMinMember(i)} 
                       />
                     </div>

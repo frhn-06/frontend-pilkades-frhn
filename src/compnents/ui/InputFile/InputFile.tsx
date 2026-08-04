@@ -80,9 +80,9 @@ const InputFile = (props: TypeProps) => {
             {!fotoOnLoad && !isPendingAdd && (
               <div className="flex flex-col justify-center items-center">
                 <span>
-                  <FaPlus className="w-10 h-10 text-gray-400" />
+                  <FaPlus className="w-10 h-10 text-second2" />
                 </span>
-                <p className="text-gray-400 text-sm">
+                <p className="text-second2 text-sm">
                   Klik Input untuk menambah foto
                 </p>
 

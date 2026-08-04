@@ -17,8 +17,8 @@ const listsidebar = {
                     icon: <MdDashboard className="w-6 h-6" />
                 },
                 {
-                    id: "pilkades",
-                    label: "Pilkades",
+                    id: "election",
+                    label: "Election",
                     href: "/admin/election",
                     icon: <MdEventNote  className="w-6 h-6" />
                 },

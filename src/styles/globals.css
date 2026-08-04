@@ -11,6 +11,12 @@
 :root {
   --text-utama: #333;
   --text-second: #777;
+  --text-second2: #888;
+  --text-inti: #dc2626;
+  --text-hover: #ef4444;
+  --text-active: #f87171;
+  --text-inti2: #991B1B;
+  --text-startwithitemhref: #7f1d1d;
 }
 
 
@@ -20,6 +26,30 @@
 
 .text-second {
   color: var(--text-second)
+}
+
+.text-second2 {
+  color: var(--text-second2);
+}
+
+.bg-inti {
+  background-color: var(--text-inti);
+}
+
+.bg-hover {
+  background-color: var(--text-hover);
+}
+
+.bg-active {
+  background-color: var(--text-active);
+}
+
+.bg-inti2 {
+  background-color: var(--text-inti2);
+}
+
+.bg-item-same-href {
+  background-color: var(--text-startwithitemhref);
 }
 
 

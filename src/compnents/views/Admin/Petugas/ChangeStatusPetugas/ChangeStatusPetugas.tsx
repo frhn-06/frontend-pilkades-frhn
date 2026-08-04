@@ -45,8 +45,8 @@ const ChangeStatusPetugas = (props: TypeProps) => {
             </ModalHeader>
             <ModalBody>
               {isActive ? 
-                "Anda yakin untuk menonaktifkan petugas ini? petugas tidak diberi akses untuk mengolah data pilkades" :
-                "Anda yakin untuk mengaktifkan petugas ini? petugas akan diberi akses untuk mengolah data pilkades"
+                "Anda yakin untuk menonaktifkan petugas ini? petugas tidak diberi akses untuk mengolah data voting pemilihan" :
+                "Anda yakin untuk mengaktifkan petugas ini? petugas akan diberi akses untuk mengolah data voting pemilihan"
               }
             </ModalBody>
             <ModalFooter>

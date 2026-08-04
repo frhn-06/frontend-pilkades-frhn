@@ -6,12 +6,14 @@ import { useRouter } from "next/router";
 import { signOut } from "next-auth/react";
 import { MdLogout } from "react-icons/md";
 import { VscTriangleDown } from "react-icons/vsc";
+import Image from 'next/image'
 
 
 interface TypeProps {
   type: "admin" | "petugas";
   sidebarAktif: boolean;
   setSidebarAktif: React.Dispatch<SetStateAction<boolean>>
+  logo: string;
 }
 
 
@@ -20,7 +22,8 @@ const SidebarLayout = (props: TypeProps) => {
     const {
       type,
       sidebarAktif,
-      setSidebarAktif
+      setSidebarAktif,
+      logo
     } = props;
 
     const router = useRouter();
@@ -33,11 +36,13 @@ const SidebarLayout = (props: TypeProps) => {
 
           {/* sidebar dekstop */}
 
-          <div className={cn("bg-red-800 h-full overflow-hidden transition-[width] duration-300 hidden lg:block", sidebarAktif ? "w-64" : "w-14")}>
+          <div className={cn("bg-inti2 h-full overflow-hidden transition-[width] duration-300 hidden lg:block", sidebarAktif ? "w-64" : "w-14")}>
 
-            <div className="h-20 p-1">
-              <div className="w-full h-full">
-
+            <div className="min-h-20 p-1">
+              <div className="w-2/3 h-full">
+                {logo && (
+                  <Image src={`${logo}` || ""} alt="logo-election" width={360} height={240} className="w-full" />
+                )}
               </div>
             </div>
 
@@ -53,7 +58,7 @@ const SidebarLayout = (props: TypeProps) => {
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
-                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-red-900")}>
+                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
                           <div className={cn("absolute w-1 rounded-r-xl bg-gray-200 top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
 
                           <div className="w-6 h-6">
@@ -78,7 +83,7 @@ const SidebarLayout = (props: TypeProps) => {
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
-                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-red-900")}>
+                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
                           <div className={cn("absolute w-1 rounded-r-xl bg-gray-200 top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
 
                           <div className="w-6 h-6">
@@ -144,7 +149,7 @@ const SidebarLayout = (props: TypeProps) => {
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
-                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-red-900")}>
+                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
                           <div className={cn("absolute w-1 rounded-r-xl bg-gray-200 top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
 
                           <div className="w-6 h-6">
@@ -169,7 +174,7 @@ const SidebarLayout = (props: TypeProps) => {
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
-                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-red-900")}>
+                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
                           <div className={cn("absolute w-1 rounded-r-xl bg-gray-200 top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
 
                           <div className="w-6 h-6">

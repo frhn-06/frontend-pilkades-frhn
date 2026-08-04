@@ -108,7 +108,7 @@ const Election = (props: TypeProps) => {
     return (
         <div className="">
           <h1 className="font-bold text-2xl text-utama">
-            Kelola informasi Pilkades
+            Kelola informasi Voting Pemilihan
           </h1>
 
           {Object.keys(data).length < 1 && (
@@ -177,7 +177,7 @@ const Election = (props: TypeProps) => {
                           variant="bordered"
                           fullWidth
                           label="Nama"
-                          placeholder="Nama Pilkades"
+                          placeholder="Nama Voting Pemilihan"
                           labelPlacement="outside"
                           isInvalid={errors.name !== undefined}
                           errorMessage={errors?.name?.message}
@@ -291,7 +291,7 @@ const Election = (props: TypeProps) => {
                           {...field}
                           className="z-0"
                           label={(
-                            <p className={cn("text-utama text-sm", {"text-gray-400" : isDisabled})}>Status</p>)
+                            <p className={cn("text-utama text-sm", {"text-second2" : isDisabled})}>Status</p>)
                           }
                           value={field.value}
                           isDisabled={isDisabled}
@@ -333,14 +333,14 @@ const Election = (props: TypeProps) => {
                           </div>
                         ):(
                           <div className="w-72 h-24 rounded-xl border-2 border-gray-300 flex items-center justify-center">
-                            <p className="text-gray-400 italic">
+                            <p className="text-second2 italic">
                               Belum ada logo
                             </p>
                           </div>
                         )}
                           
                         <label htmlFor="input-logo">
-                          <div className={cn("py-1 px-2 rounded-lg bg-red-700 text-white text-sm", {"bg-gray-300": isDisabled})}>
+                          <div className={cn("py-1 px-2 rounded-lg bg-inti text-white text-sm", {"bg-gray-300": isDisabled})}>
                             {isPendingAddOneImage || isPendingUpdateLogo ? <Spinner size="sm" color="default" /> : data.logo !== undefined ? "Update logo" : "Add logo"}
                           </div>
                           <input 

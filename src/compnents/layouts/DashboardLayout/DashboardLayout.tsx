@@ -6,6 +6,7 @@ import cn from "@/utils/cn";
 import SidebarLayout from "./SidebarLayout";
 import HeaderLayout from "./HeaderLayout";
 import useDashboardLayout from "./useDashboardLayout";
+import FooterLayout from "./FooterLayout";
 
 
 interface TypeProps {
@@ -27,9 +28,6 @@ const DashboardLayout = (props: TypeProps) => {
 
     const {
         dataMe,
-        isLoadingMe,
-        isRefetchingMe,
-        refetchMe
     } = useDashboardLayout();
 
 
@@ -47,7 +45,8 @@ const DashboardLayout = (props: TypeProps) => {
             <SidebarLayout 
               type={type} 
               sidebarAktif={sidebarAktif} 
-              setSidebarAktif={setSidebarAktif} 
+              setSidebarAktif={setSidebarAktif}
+              logo={dataMe?.data?.election?.logo !== null ? dataMe?.data?.election?.logo : ""}
             />
 
 
@@ -65,9 +64,7 @@ const DashboardLayout = (props: TypeProps) => {
                   {children}
                 </main>
 
-                <div className="h-12 bg-white">
-
-                </div>
+                <FooterLayout />
               </div>
             </div>
           </div>

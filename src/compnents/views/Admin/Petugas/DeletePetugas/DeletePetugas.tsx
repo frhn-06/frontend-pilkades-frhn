@@ -40,7 +40,7 @@ const DeletePetugas = (props: TypeProps) => {
               Hapus Petugas
             </ModalHeader>
             <ModalBody>
-              Anda yakin untuk menghapus data petugas ini? petugas yg dihapus akan permanen tidak diberi hak akses pilkades
+              Anda yakin untuk menghapus data petugas ini? petugas yg dihapus akan permanen tidak diberi hak akses voting pemilihan
             </ModalBody>
             <ModalFooter>
               <ButtonFlat onPress={onClose}>

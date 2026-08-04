@@ -24,7 +24,7 @@ const ButtonSolid = (props: TypeProps) => {
         <Button 
           type={type} 
           onPress={onPress} 
-          className={`bg-red-600 text-white ${className}`} 
+          className={`bg-inti text-white ${className}`} 
           isDisabled={isDisabled} 
           fullWidth={fullWidth}
         >
