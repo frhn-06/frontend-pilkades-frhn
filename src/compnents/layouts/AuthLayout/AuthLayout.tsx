@@ -15,7 +15,7 @@ const AuthLayout = (props: TypeProps) => {
         <>
             <PageHead title={title} />
 
-            <main className="min-h-screen px-4">
+            <main className="min-h-screen max-w-[3000px] mx-auto">
               {children}
             </main>
         </>

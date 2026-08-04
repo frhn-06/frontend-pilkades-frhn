@@ -39,7 +39,7 @@ const SidebarLayout = (props: TypeProps) => {
           <div className={cn("bg-inti2 h-full overflow-hidden transition-[width] duration-300 hidden lg:block", sidebarAktif ? "w-64" : "w-14")}>
 
             <div className="min-h-20 p-1">
-              <div className="w-2/3 h-full">
+              <div className="w-full lg:w-2/3">
                 {logo && (
                   <Image src={`${logo}` || ""} alt="logo-election" width={360} height={240} className="w-full" />
                 )}
@@ -51,15 +51,15 @@ const SidebarLayout = (props: TypeProps) => {
                 listsidebar.admin.map((sidebar) => (
                   <div key={sidebar.id}>
                     <div className="px-3 py-2 flex items-center justify-between">
-                      <span className={cn("font-semibold text-white whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
+                      <span className={cn("font-semibold text-gray-300 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
                         {sidebar.label}
                       </span>
-                      <VscTriangleDown className="w-6 h-6 text-white" />
+                      <VscTriangleDown className="w-6 h-6 text-gray-300" />
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
-                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
-                          <div className={cn("absolute w-1 rounded-r-xl bg-gray-200 top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
+                        <Link key={item.id} href={`${item.href}`} className={cn("text-white relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
+                          <div className={cn("absolute w-1 rounded-r-xl bg-white top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
 
                           <div className="w-6 h-6">
                             {item.icon}
@@ -76,15 +76,15 @@ const SidebarLayout = (props: TypeProps) => {
                 listsidebar.petugas.map((sidebar) => (
                   <div key={sidebar.id}>
                     <div className="px-3 py-2 flex items-center justify-between">
-                      <span className={cn("font-semibold text-white whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
+                      <span className={cn("font-semibold text-gray-200 whitespace-nowrap transition-all duration-300", sidebarAktif? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10")}>
                         {sidebar.label}
                       </span>
-                      <VscTriangleDown className="w-6 h-6 text-white" />
+                      <VscTriangleDown className="w-6 h-6 text-gray-200" />
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
-                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
-                          <div className={cn("absolute w-1 rounded-r-xl bg-gray-200 top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
+                        <Link key={item.id} href={`${item.href}`} className={cn("text-white relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
+                          <div className={cn("absolute w-1 rounded-r-xl bg-white top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
 
                           <div className="w-6 h-6">
                             {item.icon}

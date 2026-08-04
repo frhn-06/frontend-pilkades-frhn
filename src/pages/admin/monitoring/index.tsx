@@ -40,7 +40,7 @@ const PageAdminMonitoring = () => {
     return (
         <DashboardLayout 
           title="Monitoring Pemungutan Suara" 
-          type="petugas" 
+          type="admin" 
           headerTitle="Monitoring Pemungutan Suara" 
           headerSubtitle="Pantau perkembangan pemungutan suara dan perolehan suara setiap kandidat secara langsung."
         >
