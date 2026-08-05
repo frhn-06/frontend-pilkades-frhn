@@ -100,7 +100,7 @@ const Login = () => {
 
                 <CardFooter className="flex-col gap-4">
                   <p className="text-sm text-red-700">
-                    Belum memiliki akun Admin? <Link href="/auth/register" className="text-sm font-bold text-red-700">Daftar</Link>
+                    Belum memiliki akun Admin atau Petugas? <Link href="/auth/register" className="text-sm font-bold text-red-700">Daftar</Link>
                   </p>
                   <ButtonSolid type="submit" fullWidth isDisabled={isPendingLogin}>
                     {isPendingLogin? <Spinner color="default" size="sm" /> : "Masuk"}
