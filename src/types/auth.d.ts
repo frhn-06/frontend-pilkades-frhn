@@ -26,7 +26,15 @@ interface IUser extends Omit<IRegister, "confirmPassword"> {
 }
 
 
+interface IUserResetPassword {
+    password: string;
+    confirmPassword: string;
+    resetToken: string;
+}
 
- 
+interface IVerifyOtp {
+    otp: string;
+}
+  
 
-export type {IRegister, IUser, ILogin}
+export type {IRegister, IUser, ILogin, IUserResetPassword, IVerifyOtp}
