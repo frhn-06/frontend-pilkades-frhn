@@ -7,6 +7,7 @@ interface TypeProps {
   onPress?: (e: PressEvent) => void;
   type?: "submit" | "button";
   fullWidth?: boolean;
+  minWidth?: boolean;
   className?: string; 
 }
 const ButtonSolid = (props: TypeProps) => {
@@ -16,6 +17,7 @@ const ButtonSolid = (props: TypeProps) => {
       onPress,
       type,
       fullWidth,
+      minWidth,
       className
     } = props;
 
@@ -24,7 +26,7 @@ const ButtonSolid = (props: TypeProps) => {
         <Button 
           type={type} 
           onPress={onPress} 
-          className={`bg-inti text-white ${className}`} 
+          className={`bg-inti text-white ${className} ${minWidth && "w-fit"}`} 
           isDisabled={isDisabled} 
           fullWidth={fullWidth}
         >

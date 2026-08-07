@@ -43,18 +43,15 @@ const Login = () => {
                   <h1 className="font-bold text-utama text-xl">
 										Masuk
 									</h1>
-                  <h1 className=" text-utama">
-                    Masuk menggunakan akun Admin atau Petugas untuk mengakses sistem pemilihan.
-                  </h1>
                 </CardHeader>
 
                 <CardBody className="gap-4">
                   <Alert color="warning" hideIcon>
-                    <h1 className="text-xs lg:text-sm font-semibold">
+                    <h1 className="text-sm font-semibold">
                       Informasi
                     </h1>
-                    <p className="text-xs lg:text-sm">
-                      Halaman ini dapat digunakan oleh Admin maupun Petugas. Pastikan Anda menggunakan akun yang telah terdaftar.
+                    <p className="text-sm">
+                      Halaman ini dapat digunakan oleh Admin maupun Petugas Pemungutan Suara. Pastikan Anda menggunakan akun yang telah terdaftar.
                     </p>
                   </Alert>
 

@@ -10,6 +10,7 @@ const endpoint = {
     VOTE: "/vote",
     DASHBOARD: "/dashboard",
     MONITORING: "/monitoring",
+    EXPORT: "/export"
 }
 
 export default endpoint;

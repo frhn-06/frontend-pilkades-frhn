@@ -22,17 +22,17 @@ const HeaderLayout = (props: TypeProps) => {
     return (
       <div className="bg-white min-h-16 py-2 px-4 lg:min-h-20 flex items-center border-b-2 border-b-default-400/30 justify-between gap-2">
         <div className="flex items-center gap-4">
-          <div className="h-6 w-8 flex flex-col justify-between cursor-pointer" onClick={() => setSidebarAktif(!sidebarAktif)}>
-            <span className="bg-black h-[4px]"></span>
-            <span className="bg-black h-[4px]"></span>
-            <span className="bg-black h-[4px]"></span>
+          <div className="h-6 w-8 shrink-0 flex flex-col justify-between cursor-pointer" onClick={() => setSidebarAktif(!sidebarAktif)}>
+            <span className="bg-black h-[4px] w-full"></span>
+            <span className="bg-black h-[4px] w-full"></span>
+            <span className="bg-black h-[4px] w-full"></span>
           </div>
 
           <div>
             <h1 className="text-xl font-bold text-utama">
               {headerTitle}
             </h1>
-            <p className="text-second font-semibold">
+            <p className="text-second font-semibold line-clamp-2">
               {headerSubtitle}
             </p>
           </div>

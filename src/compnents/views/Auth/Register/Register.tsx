@@ -49,10 +49,10 @@ const Register = () => {
 
 								<CardBody className="gap-4">
                   <Alert color="warning" hideIcon>
-                    <h1 className="text-xs lg:text-sm font-semibold">
+                    <h1 className="text-sm font-semibold">
                       Informasi
                     </h1>
-                    <p className="text-xs lg:text-sm">
+                    <p className="text-sm">
                       Akun yang Anda daftarkan akan menjadi Admin untuk satu penyelenggaraan pemilihan. Setelah berhasil masuk, Anda perlu membuat Election terlebih dahulu sebelum dapat mengelola TPS, petugas, kandidat, maupun proses pemungutan suara.
                     </p>
                   </Alert>
