@@ -1,16 +1,14 @@
-import { Button } from "@heroui/react";
-import { signOut } from "next-auth/react";
+import LandingPageLayout from "@/compnents/layouts/LandingPageLayout";
+
 
 
 export default function Home() {
   return (
-    <>
-      <h1 className="text-sm font-light">
-        home
-      </h1>
-      <Button onPress={() => signOut()}>
-        secret
-      </Button>
-    </>
+    <LandingPageLayout titlePage="SemestaVote">
+
+      <div className="min-h-[3000px] bg-inti">
+
+      </div>
+    </LandingPageLayout>
   )
 }
