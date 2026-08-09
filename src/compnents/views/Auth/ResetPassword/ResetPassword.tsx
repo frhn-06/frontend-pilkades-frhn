@@ -28,7 +28,7 @@ const ResetPassword = () => {
       }
 
       
-    },[])
+    },[router])
 
 
     return (

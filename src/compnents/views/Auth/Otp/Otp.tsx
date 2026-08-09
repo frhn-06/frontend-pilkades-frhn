@@ -3,7 +3,7 @@ import useOtp from "./useOtp";
 import { Controller } from "react-hook-form";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const Otp = () => {
@@ -21,6 +21,9 @@ const Otp = () => {
 
     const router = useRouter();
 
+    const [email, setEmail] = useState("");
+    const [expired, setExpired] = useState("");
+
     useEffect(() => {
       const email = sessionStorage.getItem("email");
       const expired = sessionStorage.getItem("expired");
@@ -37,6 +40,9 @@ const Otp = () => {
         return;
       }
 
+      setEmail(email);
+      setExpired(expired);
+
     }, [router])
 
     return (
@@ -50,7 +56,7 @@ const Otp = () => {
             </CardHeader>
             <CardBody className="gap-4">
               <p className="text-second">
-                Masukkan 6 digit kode OTP yang telah kami kirim ke email Anda {sessionStorage.getItem("email")}.
+                Masukkan 6 digit kode OTP yang telah kami kirim ke email Anda {email}.
               </p>
               <Controller 
                 control={control} 
@@ -71,7 +77,7 @@ const Otp = () => {
                 Kode OTP akan kadaluarsa dalam 
               </p>
               <p>
-                {sessionStorage.getItem("expired")}
+                {expired}
               </p>
             </CardBody>
             
@@ -86,7 +92,7 @@ const Otp = () => {
                 <ButtonFlat 
                   type="button" 
                   isDisabled={isPendingVerify || isPendingReSendOtp} 
-                  onPress={() => onReSendOtp(`${sessionStorage.getItem("email")}`)}
+                  onPress={() => onReSendOtp(`${email}`)}
                 >
                   {isPendingReSendOtp ? <Spinner size="sm" color="default" /> : "Kirim ulang OTP"}
                 </ButtonFlat>
