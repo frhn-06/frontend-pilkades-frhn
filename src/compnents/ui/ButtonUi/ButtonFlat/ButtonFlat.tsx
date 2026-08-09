@@ -8,6 +8,8 @@ interface TypeProps {
   onPress?: (e: PressEvent) => void;
   type?: "submit" | "button";
   className?: string;
+  minWidth?: boolean;
+  fullWidth?: boolean;
   isLink?: boolean;
   href?: string;
 }
@@ -18,6 +20,8 @@ const ButtonFlat = (props: TypeProps) => {
       children,
       isDisabled,
       onPress,
+      minWidth,
+      fullWidth,
       type,
       className
     } = props;
@@ -29,7 +33,8 @@ const ButtonFlat = (props: TypeProps) => {
           href={isLink ? href : ""}
           onPress={onPress} 
           type={type} 
-          className={`bg-red-100 border-2 border-red-500 text-red-500 ${className}`}
+          fullWidth={fullWidth}
+          className={`bg-red-100 border-2 border-red-500 text-red-500 ${className} ${minWidth && "w-fit"}`}
           isDisabled={isDisabled}
         >
           {children}

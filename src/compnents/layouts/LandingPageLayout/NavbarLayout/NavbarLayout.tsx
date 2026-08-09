@@ -5,8 +5,22 @@ import cn from "@/utils/cn";
 import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
 
-const NavbarLayout = () => {
+
+interface TypeProps {
+  name: string;
+}
+
+const NavbarLayout = (props: TypeProps) => {
+    const {
+      name
+    } = props;
+
+    const router = useRouter();
+
+    const session = useSession();
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const [isScroll, setScroll] = useState(false);
@@ -19,7 +33,6 @@ const NavbarLayout = () => {
       }
     }
 
-    const router = useRouter();
 
 
     return (
@@ -29,7 +42,7 @@ const NavbarLayout = () => {
         isBordered={isScroll}
         isBlurred={isScroll}
         maxWidth="2xl"
-        className={cn("bg-inti", {"bg-white/50" : isScroll})}
+        className={cn("bg-inti", {"bg-black/30" : isScroll})}
       >
         <NavbarContent>
           <NavbarMenuToggle
@@ -38,7 +51,7 @@ const NavbarLayout = () => {
           />
           <NavbarBrand>
             <p className={`font-bold text-white`}>
-              SemestaVote
+              {name}
             </p>
           </NavbarBrand>
         </NavbarContent> 
@@ -50,7 +63,6 @@ const NavbarLayout = () => {
                 href={nav.href} 
                 className={cn("text-white", {
                   "font-bold" : router.pathname === nav.href,
-                  "text-red-700" : isScroll && router.pathname === nav.href,
                   }
                 )}
               >
@@ -58,25 +70,41 @@ const NavbarLayout = () => {
               </Link>
 
               <div className={cn(`w-full h-1 bg-white rounded-xl` , {
-                "bg-red-700" : isScroll,
                 "hidden" : router.pathname !== nav.href
               })} />
             </NavbarItem>
           ))}
         </NavbarContent>
 
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex">
-            <ButtonFlat>
-              Login
-            </ButtonFlat>
-          </NavbarItem>
-          <NavbarItem>
-            <ButtonSolid>
-              SignUp
-            </ButtonSolid>
-          </NavbarItem>
-        </NavbarContent>
+
+        {session.data?.user ? (
+          <NavbarContent justify="end">
+            <NavbarItem>
+              <ButtonFlat isLink href="/dashboard" >
+                Dashboard
+              </ButtonFlat>
+            </NavbarItem>
+            <NavbarItem className="hidden lg:flex">
+              <ButtonSolid onPress={() => signOut()}>
+                LogOut
+              </ButtonSolid>
+            </NavbarItem>         
+          </NavbarContent>
+        ) : (
+          <NavbarContent justify="end">
+            <NavbarItem className="hidden lg:flex">
+              <ButtonFlat isLink href="/auth/login" >
+                Login
+              </ButtonFlat>
+            </NavbarItem>
+            <NavbarItem>
+              <ButtonSolid isLink href="/auth/register">
+                SignUp
+              </ButtonSolid>
+            </NavbarItem>         
+          </NavbarContent>
+        )}
+
 
 
 

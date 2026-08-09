@@ -1,4 +1,5 @@
 import { Button, PressEvent } from "@heroui/react"
+import Link from "next/link";
 import React from "react"
 
 interface TypeProps {
@@ -8,10 +9,14 @@ interface TypeProps {
   type?: "submit" | "button";
   fullWidth?: boolean;
   minWidth?: boolean;
-  className?: string; 
+  className?: string;
+  isLink?: boolean;
+  href?: string;
 }
 const ButtonSolid = (props: TypeProps) => {
     const {
+      isLink,
+      href,
       children,
       isDisabled,
       onPress,
@@ -26,6 +31,8 @@ const ButtonSolid = (props: TypeProps) => {
         <Button 
           type={type} 
           onPress={onPress} 
+          as={isLink ? Link : "button"}
+          href={isLink ? href : ""}
           className={`bg-inti text-white ${className} ${minWidth && "w-fit"}`} 
           isDisabled={isDisabled} 
           fullWidth={fullWidth}

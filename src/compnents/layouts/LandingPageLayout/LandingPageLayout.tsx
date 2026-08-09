@@ -1,14 +1,17 @@
 import PageHead from "@/compnents/commons/PageHead";
 import NavbarLayout from "./NavbarLayout";
+import FooterLayout from "./FooterLayout";
 
 interface TypeProps {
   titlePage: string;
   children: React.ReactNode;
+  name: string;
 }
 const LandingPageLayout = (props: TypeProps) => {
     const {
       titlePage,
-      children
+      children,
+      name
     } = props;
 
     return (
@@ -16,11 +19,13 @@ const LandingPageLayout = (props: TypeProps) => {
         <PageHead title={titlePage} />  
         
         <div className="w-full max-w-[2000px] mx-auto">
-          <NavbarLayout />
+          <NavbarLayout name={name} />
           
-          <main>
+          <main className="overflow-x-hidden">
             {children}
           </main>
+
+          <FooterLayout name={name} />
         </div>
       </>
     )
