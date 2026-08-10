@@ -35,7 +35,7 @@ const Steps = () => {
                             <tr>
                               <td className="px-1" />
 
-                              <td className="px-1 text-gray-100">
+                              <td className="px-1">
                                 {item.description}
                               </td>
                             </tr>

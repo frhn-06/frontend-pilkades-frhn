@@ -1,3 +1,4 @@
+import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import { Card, CardBody } from "@heroui/react";
 
@@ -19,9 +20,9 @@ const CTA = () => {
                     Mulai Sekarang
                   </ButtonSolid>
 
-                  <ButtonSolid isLink href="/how-it-works">
+                  <ButtonFlat isLink href="/how-it-works">
                     Cara Kerja
-                  </ButtonSolid>
+                  </ButtonFlat>
                 </div>
               </CardBody>
             </Card>

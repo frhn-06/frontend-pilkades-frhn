@@ -3,7 +3,7 @@ import HowItWorksPage from "@/compnents/views/HowItWorksPage";
 
 const PageHowItWorks = () => {
     return (
-        <LandingPageLayout titlePage="How It Works" name="VoteDesk">
+        <LandingPageLayout titlePage="VoteDesk | How It Works" name="VoteDesk">
             <HowItWorksPage name="VoteDesk" />
         </LandingPageLayout>
     )

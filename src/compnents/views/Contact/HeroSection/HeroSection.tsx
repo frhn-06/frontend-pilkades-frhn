@@ -15,13 +15,13 @@ const HeroSection = (props: TypeProps) => {
         <div className="w-full max-w-5xl mx-auto">
           <div>
             <h1 className="text-3xl lg:text-4xl font-extrabold text-red-700 text-center">
-              CARA KERJA
+              CONTACT
             </h1>
             <h2 className="font-light text-2xl text-gray-700 text-center mb-2">
-              Dari Persiapan hingga Hasil Akhir
+              Mari Terhubung
             </h2>
             <p className="text-gray-700 text-center">
-              Ikuti alur lengkap {name} dalam mengelola proses pemilihan, mulai dari menyiapkan pemilihan hingga memantau hasil dan mengunduh laporan.
+              Ingin mengetahui lebih lanjut tentang project ini, berdiskusi, atau sekadar menyapa? Kamu dapat menemukan saya melalui beberapa platform berikut.
             </p>
           </div>
         </div> 
