@@ -11,7 +11,7 @@ const Contact = (props: TypeProps) => {
 
     return (
       <div>
-        <HeroSection name={name} />
+        <HeroSection />
 
         <ContactCards name={name} />
       </div>

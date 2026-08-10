@@ -13,7 +13,7 @@ const Keunggulan = (props: TypeProps) => {
     } = props;
 
     return (
-      <section className="relative min-h-svh w-full pt-22 lg:pt-36 pb-48 px-4 bg-inti ">
+      <section className="relative w-full pt-22 lg:pt-36 pb-48 px-4 bg-inti ">
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="flex-1">

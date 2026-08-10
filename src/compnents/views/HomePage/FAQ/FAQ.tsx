@@ -11,7 +11,7 @@ const FAQ = (props: TypeProps) => {
     } = props;
 
     return (
-			<section className="relative min-h-svh w-full pt-22 lg:pt-36 pb-48 px-4">
+			<section className="relative w-full pt-22 lg:pt-36 pb-48 px-4">
         <div className="w-full max-w-7xl mx-auto">
           <div className="w-full max-w-3xl mx-auto mb-24">
 						<h1 className="font-semibold text-2xl lg:text-3xl text-red-600 text-center mb-4">

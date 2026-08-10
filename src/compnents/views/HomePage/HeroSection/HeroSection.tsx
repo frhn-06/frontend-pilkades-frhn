@@ -14,7 +14,7 @@ const HeroSection = (props: TypeProps) => {
 
 
     return (
-      <section className="relative min-h-svh w-full bg-inti pt-22 lg:pt-36 pb-48 px-4">
+      <section className="relative w-full bg-inti pt-22 lg:pt-36 pb-48 px-4">
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-around  gap-12">
             <div className="max-w-lg">
@@ -44,7 +44,7 @@ const HeroSection = (props: TypeProps) => {
 
               <div>
                 <ButtonSolid className="bg-yellow-400" isLink href="/auth/register">
-                  Get Started
+                  Mulai
                 </ButtonSolid>
               </div>
             </div>

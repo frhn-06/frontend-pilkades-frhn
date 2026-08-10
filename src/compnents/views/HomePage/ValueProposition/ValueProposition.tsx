@@ -1,10 +1,17 @@
 import { Card, CardBody } from "@heroui/react";
 import listConstant from "./listConstant";
 
-const ValueProposition = () => {
+interface TypeProps {
+  name: string;
+}
+const ValueProposition = (props: TypeProps) => {
+    const {
+      name
+    } = props;
+
     
     return (
-      <section className="relative min-h-svh w-full pt-22 lg:pt-36 pb-48 px-4">
+      <section className="relative w-full pt-22 lg:pt-36 pb-48 px-4">
         <div className="w-full max-w-7xl mx-auto">
           <div className="w-full max-w-3xl mx-auto mb-24">
             <h1 className="font-semibold text-2xl lg:text-3xl text-red-600 text-center mb-4">
@@ -14,7 +21,7 @@ const ValueProposition = () => {
               Kelola Pemilihan dari Awal hingga Akhir
             </h2>
             <p className="text-gray-500 text-center">
-              SemestaVote membantu mengelola seluruh proses pemilihan dalam satu platform — mulai dari persiapan data, pemungutan suara, pemantauan hasil, hingga laporan akhir.
+              {name} membantu mengelola seluruh proses pemilihan dalam satu platform — mulai dari persiapan data, pemungutan suara, pemantauan hasil, hingga laporan akhir.
             </p>
           </div>
 

@@ -40,9 +40,9 @@ const HeaderLayout = (props: TypeProps) => {
 
         <div className="flex items-center gap-2">
           <div className="flex flex-col">
-            {/* <h3 className="hidden lg:block font-semibold text-utama mr-2">
+            <h3 className="hidden lg:block font-semibold text-utama mr-2">
               {me?.role === "SUPER_ADMIN" ? "Admin" : "Petugas"}
-            </h3> */}
+            </h3>
             {me?.tps && (
               <span>
                 {me?.tps?.name}
@@ -52,7 +52,7 @@ const HeaderLayout = (props: TypeProps) => {
           
           <Dropdown className="z-0">
             <DropdownTrigger>
-              <Avatar className="z-0 cursor-pointer" />              
+              <Avatar className="z-0 cursor-pointer shrink-0" />              
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
               <DropdownItem key="profile">Profil</DropdownItem>

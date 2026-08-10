@@ -291,7 +291,9 @@ const Election = (props: TypeProps) => {
                           {...field}
                           className="z-0"
                           label={(
-                            <p className={cn("text-utama text-sm", {"text-second2" : isDisabled})}>Status</p>)
+                            <p className={cn("text-utama text-sm", {"text-second2" : isDisabled})}>
+                              Status
+                            </p>)
                           }
                           value={field.value}
                           isDisabled={isDisabled}

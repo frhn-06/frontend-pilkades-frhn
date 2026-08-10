@@ -15,7 +15,7 @@ const HomePage = (props: {name: string}) => {
         <HeroSection name={name} />
 
 
-        <ValueProposition />
+        <ValueProposition name={name} />
 
 
         <Features name={name} />

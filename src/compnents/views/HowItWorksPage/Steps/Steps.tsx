@@ -12,10 +12,10 @@ const Steps = () => {
             <div className="flex flex-col gap-22">
               {listConstant.map((list, i) => (
                 <div key={i}>
-                  <h1 className="text-gray-200 font-bold">
+                  <h1 className="text-gray-200 font-bold mb-2">
                     ~ Fase {i+1} ~
                   </h1>
-                  <h2 className="text-white text-2xl lg:text-3xl font-bold mb-4">
+                  <h2 className="text-white text-2xl lg:text-3xl font-bold mb-6">
                     {list.title}
                   </h2>
 
@@ -25,10 +25,10 @@ const Steps = () => {
                         <table className="h-fit text-white">
                           <tbody>
                             <tr>
-                              <td className="px-1 font-bold text-xl flex items-start">
+                              <td className="px-1 font-bold text-xl flex items-start pb-1">
                                 {i + 1}.
                               </td>
-                              <td className="px-1 font-semibold text-xl">
+                              <td className="px-1 font-semibold text-xl pb-1">
                                 {item.title}
                               </td>
                             </tr>

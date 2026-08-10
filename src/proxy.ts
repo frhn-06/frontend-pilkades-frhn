@@ -81,10 +81,18 @@ export async function proxy(req: NextRequest) {
         }
     }
 
+
+    if(pathName === "/") {
+        if(accessToken) {
+            const url = new URL("/dashboard", req.url);
+            return NextResponse.redirect(url);
+        }
+    }
+
     
     return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/auth/login", "/auth/register", "/auth/activation", "/admin/:path", "/petugas/:path", "/login", "/register", "/dashboard", "/admin", "/petugas"],
+  matcher: ["/auth/login", "/auth/register", "/auth/activation", "/admin/:path", "/petugas/:path", "/login", "/register", "/dashboard", "/admin", "/petugas", "/"],
 };

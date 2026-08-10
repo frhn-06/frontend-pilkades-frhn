@@ -1,22 +1,22 @@
 const listStatusEnum = [
     {
-        label: "Draft",
+        label: " DRAFT / Draft",
         id: "DRAFT"
     },
     {
-        label: "Siap digunakan",
+        label: "UP COMING / Siap",
         id: "UPCOMMING"
     },
     {
-        label: "Sedang digunakan",
+        label: " ON GOING / Sedang berlangsung",
         id: "ONGOING"
     },
     {
-        label: "Batal",
+        label: "CANCELLED / Batal",
         id: "CANCELLED"
     },
     {
-        label: "Selesai",
+        label: "FINISHED / Selesai",
         id: "FINISHED"
     }
 ]

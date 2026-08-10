@@ -13,13 +13,6 @@ const listConstant = [
         ]      
     },
     {
-        title: "Data Pemilih",
-        description: "Kelola data pemilih dan pantau status kehadiran serta partisipasi.",
-        icon: [
-            <FaUsers key={1} className="w-full h-full" />
-        ]    
-    },
-    {
         title: "Kandidat, TPS & Petugas",
         description: "Kelola kandidat, tempat pemungutan suara, dan petugas dalam satu sistem.",
         icon: [
@@ -29,20 +22,27 @@ const listConstant = [
         ]    
     },
     {
+        title: "Data Pemilih",
+        description: "Kelola data pemilih dan pantau status kehadiran serta partisipasi.",
+        icon: [
+            <FaUsers key={1} className="w-full h-full" />
+        ]    
+    },
+    {
         title: "Pemungutan Suara",
         description: "Jalankan proses pemungutan suara menggunakan token yang aman.",
         icon: [
             <MdHowToVote key={1} className="w-full h-full" />
         ]    
     },
-    {
-        title: "Token Sekali Pakai",
-        description: "Setiap pemilih mendapatkan token unik dan sekali pakai sehingga membantu mencegah penggunaan ulang token pada pemungutan suara.",
-        icon: [
-            <LuTicketCheck key={1} className="w-full h-full" />,
-            <RiLockPasswordFill key={1} className="w-full h-full" />,
-        ]    
-    },
+    // {
+    //     title: "Token Sekali Pakai",
+    //     description: "Setiap pemilih mendapatkan token unik dan sekali pakai sehingga membantu mencegah penggunaan ulang token pada pemungutan suara.",
+    //     icon: [
+    //         <LuTicketCheck key={1} className="w-full h-full" />,
+    //         <RiLockPasswordFill key={1} className="w-full h-full" />,
+    //     ]    
+    // },
     {
         title: "Monitoring & Hasil",
         description: "Pantau partisipasi pemilih dan perolehan suara secara terpusat.",

@@ -21,7 +21,7 @@ const Register = () => {
 		} = useRegister();
 
     return (
-			<div className="w-full min-h-screen flex flex-wrap gap-6">
+			<div className="w-full min-h-svh flex flex-wrap gap-6">
         <div className="bg-inti min-w-86 flex-1 flex items-center p-4">
           <div className="w-1/2 sm:w-2/3 lg:w-3/5 mx-auto">
             <Image 

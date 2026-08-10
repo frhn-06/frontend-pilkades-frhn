@@ -1,13 +1,5 @@
 
-interface TypeProps {
-  name: string;
-}
-
-const HeroSection = (props: TypeProps) => {
-    const {
-      name
-    } = props;
-
+const HeroSection = () => {
 
 
     return (

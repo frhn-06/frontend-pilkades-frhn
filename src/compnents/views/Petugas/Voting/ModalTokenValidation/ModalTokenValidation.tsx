@@ -60,7 +60,7 @@ const ModalTokenValidation = (props: TypeProps) => {
   }
 
     return (
-        <Modal isOpen={!modal} backdrop="blur" placement="center" className="z-0">
+        <Modal isOpen={!modal} backdrop="blur" placement="center" className="z-0 p-2">
           <ModalContent>
             <ModalHeader>
               <h1 className="font-bold text-utama">
@@ -103,7 +103,7 @@ const ModalTokenValidation = (props: TypeProps) => {
                   NB:
                 </p>
                 <p className="text-utama font-semibold">
-                  Anda tidak akan bisa memilih calon kandidat sebelum anda mengisi token dengan sesuai
+                  Masukkan token yang valid terlebih dahulu untuk dapat mengakses dan memilih kandidat.
                 </p>
               </div>
             </ModalBody>
