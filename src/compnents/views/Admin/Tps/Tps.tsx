@@ -1,7 +1,6 @@
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, useDisclosure } from "@heroui/react";
+import { Chip, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, useDisclosure } from "@heroui/react";
 import { ReactNode, useCallback, useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
-
 import { useRouter } from "next/router";
 import useTps from "./useTps";
 import TableUi from "@/compnents/ui/TableUi";
@@ -27,7 +26,7 @@ const Tps = () => {
 
     const modalDeleteTps = useDisclosure();
 
-    const [idTps, setIdTps] = useState<string | null>(null);
+    const [stateTps, setstateTps] = useState<Record<string, unknown> | null>(null);
 
 
 
@@ -37,19 +36,29 @@ const Tps = () => {
       switch(column.id) {
         case "actions" :
           return (
-            <Dropdown >
-              <DropdownTrigger>
-                <CiMenuKebab className="cursor-pointer" />
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Dynamic Actions">
-                <DropdownItem key="update" onClick={() => router.push(`/admin/tps/${data.id}`)}>
-                  Update
-                </DropdownItem>
-                <DropdownItem key="delete" onClick={() => {modalDeleteTps.onOpen(); setIdTps(`${data.id}`)}}>
-                  Delete
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <div className="flex gap-2">
+              <Chip 
+                color="primary" 
+                className="cursor-pointer flex justify-center items-center"
+                onClick={() => router.push(`/admin/tps/${data.id}`)}                
+              >
+                Edit
+              </Chip>
+
+              <Chip 
+                color="danger" 
+                className="cursor-pointer"
+                onClick={() => {
+                  modalDeleteTps.onOpen();
+                  setstateTps({
+                    id: `${data.id}`,
+                    name: data.name
+                  })
+                }}
+              >
+                Hapus
+              </Chip>
+            </div>
           )
           default :
             return value as ReactNode;
@@ -92,7 +101,7 @@ const Tps = () => {
     
             <AddTps isOpen={modalAddTps.isOpen} onClose={modalAddTps.onClose} refetch={refetchTps} />
     
-            <DeleteTps isOpen={modalDeleteTps.isOpen} onClose={modalDeleteTps.onClose} refetch={refetchTps} id={`${idTps}`} />
+            <DeleteTps isOpen={modalDeleteTps.isOpen} onClose={modalDeleteTps.onClose} refetch={refetchTps} tps={stateTps} />
     
           </div>
         )

@@ -9,13 +9,15 @@ interface TypeProps {
   isOpen: boolean;
   id: string;
   refetch: () => void;
+  name: string;
 }
 const DeletePetugas = (props: TypeProps) => {
     const {
       onClose,
       isOpen,
       id,
-      refetch
+      refetch,
+      name
     } = props;
 
     const {
@@ -40,7 +42,7 @@ const DeletePetugas = (props: TypeProps) => {
               Hapus Petugas
             </ModalHeader>
             <ModalBody>
-              Anda yakin untuk menghapus data petugas ini? petugas yg dihapus akan permanen tidak diberi hak akses voting pemilihan
+              Anda yakin untuk menghapus {name}? petugas yg dihapus akan permanen tidak diberi hak akses voting pemilihan
             </ModalBody>
             <ModalFooter>
               <ButtonFlat onPress={onClose}>

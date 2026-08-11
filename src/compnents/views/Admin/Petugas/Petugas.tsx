@@ -1,6 +1,5 @@
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link, useDisclosure } from "@heroui/react";
+import { Chip, useDisclosure } from "@heroui/react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
-import { CiMenuKebab } from "react-icons/ci";
 
 import { useRouter } from "next/router";
 import TableUi from "@/compnents/ui/TableUi";
@@ -32,9 +31,6 @@ const Petugas = () => {
         
         currentActive,
         handleChangeActive,
-        
-        currentTps,
-        handleChangeTps,
 
         handleChangeSearch,
         handleClearSearch
@@ -66,42 +62,45 @@ const Petugas = () => {
           return `${(data.tps as unknown as {alamat: string}).alamat}`;
         case "actions" :
           return (
-            <Dropdown >
-              <DropdownTrigger>
-                <CiMenuKebab className="cursor-pointer" />
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Dynamic Actions">
-                <DropdownItem 
-                  key="update" 
-                  onClick={() => router.push(`/admin/petugas/${data.id}`)}
-                >
-                  Update
-                </DropdownItem>
-                <DropdownItem 
-                  key="aktif-nonaktif" 
-                  onClick={() => {
-                    setStatePetugas({
-                      id: data.id as number,
-                      isActive: data.isActive as boolean
-                    })
-                    modalChangeStatusPetugas.onOpen()
-                  }}
-                >
-                  {data.isActive ? "NonAktifkan" : "Aktifkan"}
-                </DropdownItem>
-                <DropdownItem 
-                  key="delete" 
-                  onClick={() => {
-                    modalDeletePetugas.onOpen(); 
-                    setStatePetugas({
-                      id: data.id as number
-                    })
-                  }}
-                >
-                  Delete
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <div className="flex gap-2">
+              <Chip 
+                color="primary" 
+                className="cursor-pointer"
+                onClick={() => router.push(`/admin/petugas/${data.id}`)}                
+              >
+                Edit
+              </Chip>
+
+              <Chip
+                color="warning"
+                className="cursor-pointer"
+                variant="flat"
+                onClick={() => {
+                  setStatePetugas({
+                    id: data.id as number,
+                    isActive: data.isActive as boolean,
+                    name: data.name as string
+                  })
+                  modalChangeStatusPetugas.onOpen()
+                }}
+              >
+                {data.isActive ? "Non Aktifkan" : "Aktifkan"}
+              </Chip>
+
+              <Chip 
+                color="danger" 
+                className="cursor-pointer"
+                onClick={() => {
+                  modalDeletePetugas.onOpen(); 
+                  setStatePetugas({
+                    id: data.id as number,
+                    name: data.name as string
+                  })
+                }}
+              >
+                Hapus
+              </Chip>
+            </div>
           )
           default :
             return value as ReactNode;
@@ -174,13 +173,15 @@ const Petugas = () => {
             isActive={Boolean(statePetugas?.isActive)} 
             id={`${statePetugas?.id}`}
             refetch={refetchPetugas}
+            name={`${statePetugas?.name}`}
           />
 
           <DeletePetugas 
             isOpen={modalDeletePetugas.isOpen} 
             onClose={modalDeletePetugas.onClose} 
             refetch={refetchPetugas} 
-            id={`${statePetugas?.id}`} 
+            id={`${statePetugas?.id}`}
+            name={`${statePetugas?.name}`}
           />
 
         </div>

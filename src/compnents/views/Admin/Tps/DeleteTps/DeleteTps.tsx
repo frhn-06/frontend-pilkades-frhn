@@ -1,4 +1,4 @@
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react"
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react"
 import useDeleteTps from "./useDeleteTps";
 import { useEffect } from "react";
 import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
@@ -8,14 +8,14 @@ import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 interface TypeProps {
   onClose: () => void;
   isOpen: boolean;
-  id: string;
+  tps: Record<string, unknown> | null;
   refetch: () => void;
 }
 const DeleteTps = (props:TypeProps) => {
     const {
       isOpen,
       onClose,
-      id,
+      tps,
       refetch
     } = props;
 
@@ -23,7 +23,7 @@ const DeleteTps = (props:TypeProps) => {
         isPendingDeleteTps,
         isSuccessDeleteTps,
         onDelete
-    } = useDeleteTps(id);
+    } = useDeleteTps(`${tps?.id}`);
 
     useEffect(() => {
       if(isSuccessDeleteTps) {
@@ -40,7 +40,7 @@ const DeleteTps = (props:TypeProps) => {
           </ModalHeader>
 
           <ModalBody>
-            Anda yakin ingin menghapus data TPS ini ?
+            Anda yakin ingin menghapus {`${tps?.name}`} ?
           </ModalBody>
 
           <ModalFooter>

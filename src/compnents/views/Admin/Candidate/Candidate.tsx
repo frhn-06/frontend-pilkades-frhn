@@ -1,6 +1,5 @@
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, useDisclosure } from "@heroui/react";
+import { Chip, useDisclosure } from "@heroui/react";
 import { ReactNode, useCallback, useState } from "react";
-import { CiMenuKebab } from "react-icons/ci";
 import { useRouter } from "next/router";
 import TableUi from "@/compnents/ui/TableUi";
 import listColumn from "./listColumn";
@@ -28,7 +27,7 @@ const Candidate = () => {
 
     const modalDeleteCandidate = useDisclosure();
 
-    const [idCandidate, setIdCandidate] = useState<string | null>(null);
+    const [stateCandidate, setStateCandidate] = useState<Record<string, unknown> | null>(null);
 
 
 
@@ -46,29 +45,29 @@ const Candidate = () => {
           return <Image src={`${data.img}` || ""} alt="foto-kandidat" width={480} height={360} className="w-20 rounded-lg" />
         case "actions" :
           return (
-            <Dropdown >
-              <DropdownTrigger>
-                <CiMenuKebab className="cursor-pointer" />
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Dynamic Actions">
-                <DropdownItem 
-                  key="update" 
-                  onClick={() => router.push(`/admin/candidate/${data.id}`)}
-                >
-                  Update
-                </DropdownItem>
-                <DropdownItem 
-                  key="delete" 
-                  onClick={() => {
-                    modalDeleteCandidate.onOpen(); 
-                    setIdCandidate(`${data.id}`)
-                    }
-                  }
-                >
-                  Delete
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <div className="flex gap-2">
+              <Chip 
+                color="primary" 
+                className="cursor-pointer"
+                onClick={() => router.push(`/admin/candidate/${data.id}`)}                
+              >
+                Edit
+              </Chip>
+
+              <Chip 
+                color="danger" 
+                className="cursor-pointer"
+                onClick={() => {
+                  modalDeleteCandidate.onOpen(); 
+                  setStateCandidate({
+                    id: data.id as number,
+                    name: (data.members as IMemeberCandidate[]).map((member) => member.name).join(" & ")
+                  })
+                }}
+              >
+                Hapus
+              </Chip>
+            </div>
           )
           default :
             return value as ReactNode;
@@ -119,7 +118,8 @@ const Candidate = () => {
               isOpen={modalDeleteCandidate.isOpen} 
               onClose={modalDeleteCandidate.onClose} 
               refetch={refetchCandidate} 
-              id={`${idCandidate}`} 
+              id={`${stateCandidate?.id}`}
+              name={`${stateCandidate?.name}`} 
             />
 
           </div>

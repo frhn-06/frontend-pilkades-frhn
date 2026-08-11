@@ -10,6 +10,7 @@ interface TypeProps {
   isActive: boolean;
   id: string;
   refetch: () => void;
+  name: string;
 }
 const ChangeStatusPetugas = (props: TypeProps) => {
     const {
@@ -17,7 +18,8 @@ const ChangeStatusPetugas = (props: TypeProps) => {
       isOpen,
       isActive,
       id,
-      refetch
+      refetch,
+      name
     } = props;
 
     const {
@@ -45,8 +47,8 @@ const ChangeStatusPetugas = (props: TypeProps) => {
             </ModalHeader>
             <ModalBody>
               {isActive ? 
-                "Anda yakin untuk menonaktifkan petugas ini? petugas tidak diberi akses untuk mengolah data voting pemilihan" :
-                "Anda yakin untuk mengaktifkan petugas ini? petugas akan diberi akses untuk mengolah data voting pemilihan"
+                `Anda yakin untuk menonaktifkan ${name}? ${name} tidak diberi akses untuk mengolah data voting pemilihan` :
+                `Anda yakin untuk mengaktifkan ${name} ini? ${name} akan diberi akses untuk mengolah data voting pemilihan`
               }
             </ModalBody>
             <ModalFooter>

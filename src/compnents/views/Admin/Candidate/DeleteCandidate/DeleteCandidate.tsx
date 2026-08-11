@@ -2,7 +2,6 @@ import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react"
 import { useEffect } from "react";
-import useDeletePetugas from "../../Petugas/DeletePetugas/useDeletePetugas";
 import useDeleteCandidate from "./useDeleteCandidate";
 
 interface TypeProps {
@@ -10,13 +9,15 @@ interface TypeProps {
   isOpen: boolean;
   id: string;
   refetch: () => void;
+  name: string;
 }
 const DeleteCandidate = (props: TypeProps) => {
     const {
       onClose,
       isOpen,
       id,
-      refetch
+      refetch,
+      name
     } = props;
 
     const {
@@ -41,7 +42,7 @@ const DeleteCandidate = (props: TypeProps) => {
               Hapus Kandidat Calon Pemilihan
             </ModalHeader>
             <ModalBody>
-              Anda yakin untuk menghapus data kandidat ini? kandidat yg dihapus akan permanen tidak ikut serta pemilihan
+              Anda yakin untuk menghapus {name}? kandidat yg dihapus akan permanen tidak ikut serta pemilihan
             </ModalBody>
             <ModalFooter>
               <ButtonFlat onPress={onClose}>
