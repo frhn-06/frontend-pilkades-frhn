@@ -46,7 +46,7 @@ const Monitoring = (props: TypeProps) => {
                     {data.tps?.name}
                   </h2>
                   <p className="text-utama">
-                    {data.tps?.alamat}
+                    {data.tps?.location}
                   </p>
                 </div>
               </CardBody>

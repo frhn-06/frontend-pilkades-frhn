@@ -1,7 +1,7 @@
 interface ITpsRelation {
     id?: string;
     name?: string;
-    alamat?: string;
+    location?: string;
 }
 
 interface IVoter {

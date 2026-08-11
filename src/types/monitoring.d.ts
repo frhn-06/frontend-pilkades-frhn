@@ -2,7 +2,7 @@ import { IMemeberCandidate } from "./candidate";
 
 interface ITpsMonitong {
     name?: string;
-    alamat?: string;
+    location?: string;
 }
 
 interface IProgressMonitoring {

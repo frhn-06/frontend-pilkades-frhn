@@ -1,4 +1,4 @@
-import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react";
+import { Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react";
 import useAddTps from "./useAddTps"
 import { Controller } from "react-hook-form";
 import { useEffect } from "react";
@@ -62,44 +62,23 @@ const AddTps = (props:TypeProps) => {
                 variant="bordered" 
 								label="Nama TPS" 
 								labelPlacement="outside" 
-								placeholder="TPS 01" 
+								placeholder="Contoh: TPS 01" 
 								isInvalid={!!errors.name}
 								errorMessage={errors?.name?.message}
                 />
               )}/>
-              <Controller control={control} name="alamat" render={({field}) => (
+              <Controller control={control} name="location" render={({field}) => (
                 <Input 
                 {...field}
                 variant="bordered" 
-								label="Alamat" 
+								label="Lokasi / Keterangan Tempat" 
 								labelPlacement="outside" 
-								placeholder="Blok / Komplek" 
-								isInvalid={!!errors.alamat}
-								errorMessage={errors?.alamat?.message}
+								placeholder="Contoh: Rt Rw, Aula, ruang kelas, gedung, atau balai desa" 
+								isInvalid={!!errors.location}
+								errorMessage={errors?.location?.message}
                 />
               )}/>
-              <Controller control={control} name="rt" render={({field}) => (
-                <Input 
-                {...field}
-                variant="bordered" 
-								label="Rt" 
-								labelPlacement="outside" 
-								placeholder="Rt" 
-								isInvalid={!!errors.rt}
-								errorMessage={errors?.rt?.message}
-                />
-              )}/>
-              <Controller control={control} name="rw" render={({field}) => (
-                <Input 
-                {...field}
-                variant="bordered" 
-								label="Rw" 
-								labelPlacement="outside" 
-								placeholder="Rw" 
-								isInvalid={!!errors.rw}
-								errorMessage={errors?.alamat?.message}
-                />
-              )}/>
+
             </ModalBody>
 
             <ModalFooter>

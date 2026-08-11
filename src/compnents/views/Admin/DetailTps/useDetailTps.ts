@@ -58,12 +58,7 @@ const useDetailTps = () => {
 
     
     const onUpdateTps = (payload: ITps) => {
-        const data = {
-            ...payload,
-            rt: Number(payload.rt),
-            rw: Number(payload.rw)
-        }
-        mutateUpdateTps(data);
+        mutateUpdateTps(payload);
     }
 
 

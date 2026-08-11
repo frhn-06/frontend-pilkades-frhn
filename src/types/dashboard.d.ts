@@ -21,7 +21,7 @@ interface IPercentagesDashboard {
 interface ITpsDashboard {
     id?: number;
     name?: string;
-    alamat?: string;
+    location?: string;
 }
 
 interface IDashboardAdmin {

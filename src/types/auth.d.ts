@@ -15,7 +15,7 @@ interface ILogin {
 interface ITpsRelation {
     id?: number;
     name?: string;
-    alamat?: string;
+    location?: string;
 }
 interface IUser extends Omit<IRegister, "confirmPassword"> {
     id?: number;

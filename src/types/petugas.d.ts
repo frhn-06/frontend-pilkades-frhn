@@ -13,7 +13,7 @@ interface IPetugas extends IPetugasForm {
     tps?: {
         id?: number;
         name?: string;
-        alamat?: string;
+        location?: string;
     }
     isActive?: boolean;
     electionId?: number;

@@ -1,10 +1,8 @@
-interface ITps extends Record<string, unknown> {
+interface ITps {
     id?: number | string;
     name?: string;
-    alamat?: string;
+    location?: string;
     electionId?: number;
-    rt?: number | string;
-    rw?: number | string;
 }
 
 export type {ITps}

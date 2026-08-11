@@ -4,16 +4,8 @@ const listColumn = [
         id: "name"
     },
     {
-        label: "RT",
-        id: "rt"
-    },
-    {
-        label: "RW",
-        id: "rw"
-    },
-    {
-        label: "Alamat",
-        id: "alamat"
+        label: "Lokasi",
+        id: "location"
     },
     {
         label: "Actions",

@@ -1,4 +1,4 @@
-import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Input, Skeleton, Spinner } from "@heroui/react";
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, CardFooter, CardHeader, Input, Skeleton, Spinner } from "@heroui/react";
 import useDetailTps from "./useDetailTps";
 import { Controller } from "react-hook-form";
 import { useEffect } from "react";
@@ -28,9 +28,7 @@ const DetailTps = () => {
     useEffect(() => {
       if(dataTps?.data) {
         setValue("name", dataTps?.data?.name);
-        setValue("alamat", dataTps?.data?.alamat);
-        setValue("rt", `${dataTps?.data?.rt}`);
-        setValue("rw", `${dataTps?.data?.rw}`);
+        setValue("location", dataTps?.data?.location);
       }
     },[dataTps?.data])
 
@@ -89,47 +87,21 @@ const DetailTps = () => {
                     </Skeleton>
                   )}/>
 
-                  <Controller control={control} name="alamat" render={({field}) => (
-                    <Skeleton className="rounded-2xl" isLoaded={!!dataTps?.data?.alamat}>
+                  <Controller control={control} name="location" render={({field}) => (
+                    <Skeleton className="rounded-2xl" isLoaded={!!dataTps?.data?.location}>
                       <Input 
                       {...field}
                       variant="bordered" 
-                      label="Alamat" 
+                      label="Lokasi / Keterangan Tempat" 
                       labelPlacement="outside" 
-                      placeholder="Blok / Komplek" 
-                      isInvalid={!!errors.alamat}
-                      errorMessage={errors?.alamat?.message}
+                      placeholder="Contoh: Rt Rw, Aula, ruang kelas, gedung, atau balai desa" 
+                      isInvalid={!!errors.location}
+                      errorMessage={errors?.location?.message}
                       />
                     </Skeleton>
                   )}/>
 
-                  <Controller control={control} name="rt" render={({field}) => (
-                    <Skeleton className="rounded-2xl" isLoaded={!!dataTps?.data?.rt}>
-                      <Input 
-                      {...field}
-                      variant="bordered" 
-                      label="Rt" 
-                      labelPlacement="outside" 
-                      placeholder="Rt" 
-                      isInvalid={!!errors.rt}
-                      errorMessage={errors?.rt?.message}
-                      />
-                    </Skeleton>
-                  )}/>
 
-                  <Controller control={control} name="rw" render={({field}) => (
-                    <Skeleton className="rounded-2xl" isLoaded={!!dataTps?.data?.rw}>
-                      <Input 
-                      {...field}
-                      variant="bordered" 
-                      label="Rw" 
-                      labelPlacement="outside" 
-                      placeholder="Rw" 
-                      isInvalid={!!errors.rw}
-                      errorMessage={errors?.alamat?.message}
-                      />
-                    </Skeleton>
-                  )}/>
                 </CardBody>
 
                 <CardFooter>

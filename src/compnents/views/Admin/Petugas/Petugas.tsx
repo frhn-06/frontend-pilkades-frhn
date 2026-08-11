@@ -58,8 +58,8 @@ const Petugas = () => {
       switch(column.id) {
         case "tps.name" :
           return `${(data.tps as unknown as {name: string}).name}`;
-        case "tps.alamat" :
-          return `${(data.tps as unknown as {alamat: string}).alamat}`;
+        case "tps.location" :
+          return `${(data.tps as unknown as {location: string}).location}`;
         case "actions" :
           return (
             <div className="flex gap-2">

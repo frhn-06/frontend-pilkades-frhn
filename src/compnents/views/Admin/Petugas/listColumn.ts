@@ -12,8 +12,8 @@ const listColumn = [
         id: "tps.name"
     },
     {
-        label: "alamat TPS",
-        id: "tps.alamat"
+        label: "Lokasi TPS",
+        id: "tps.location"
     },
     {
         label: "Actions",

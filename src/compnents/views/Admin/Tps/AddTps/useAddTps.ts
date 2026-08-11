@@ -45,12 +45,8 @@ const useAddTps = () => {
 
 
     const onTps = (payload: ITps) => {
-        const data = {
-            ...payload,
-            rt: Number(payload.rt),
-            rw: Number(payload.rw)
-        }
-        mutateTps(data);
+        
+        mutateTps(payload);
     }
 
     return {
