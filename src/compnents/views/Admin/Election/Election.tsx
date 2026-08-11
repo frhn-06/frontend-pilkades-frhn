@@ -80,13 +80,10 @@ const Election = (props: TypeProps) => {
         reset();
         return;
       } else {
-        setValue("name", `${data.name}`)
-        setValue("desa", `${data.desa}`)
-        setValue("kecamatan", `${data.kecamatan}`)
-        setValue("kabupatenKota", `${data.kabupatenKota}`)
-        setValue("provinsi", `${data.provinsi}`)
+        setValue("name", `${data.name}`);
+        setValue("organizerName", `${data.organizerName}`);
+        setValue("organizerInfo", `${data.organizerInfo}`);
         setValue("description", `${data.description}`)
-        setValue("provinsi", `${data.provinsi}`)
         setValue("description", `${data.description !== null ? data.description : ""}`)
         setValue("status", `${data.status}`)
         setValue("startAt", convert.dateToFrontend(`${data.startAt}`));
@@ -177,69 +174,42 @@ const Election = (props: TypeProps) => {
                           variant="bordered"
                           fullWidth
                           label="Nama"
-                          placeholder="Nama Voting Pemilihan"
+                          placeholder="Contoh: Pemilihan Kepala Desa Sukamaju 2026"
                           labelPlacement="outside"
                           isInvalid={errors.name !== undefined}
                           errorMessage={errors?.name?.message}
                           isDisabled={isDisabled}
                         />
                       )} />
-                      <Controller control={control} name="desa" render={({field}) => (
+                      <Controller control={control} name="organizerName" render={({field}) => (
                         <Input 
                           {...field}
                           className="z-0"
                           variant="bordered"
                           fullWidth
-                          label="Desa"
-                          placeholder="Desa"
+                          label="Nama Penyelenggara"
+                          placeholder="Contoh: SMA Negeri 1 Semarang, Universitas ABC, atau Desa Sukamaju"
                           labelPlacement="outside"
-                          isInvalid={errors.desa !== undefined}
-                          errorMessage={errors?.desa?.message}
+                          isInvalid={errors.organizerName !== undefined}
+                          errorMessage={errors?.organizerName?.message}
                           isDisabled={isDisabled}
                         />
                       )} />
-                      <Controller control={control} name="kecamatan" render={({field}) => (
+                      <Controller control={control} name="organizerInfo" render={({field}) => (
                         <Input 
                           {...field}
                           className="z-0"
                           variant="bordered"
                           fullWidth
-                          label="Kecamatan"
-                          placeholder="Kecamatan"
+                          label="Informasi penyelenggara"
+                          placeholder="Contoh: alamat, fakultas, kecamatan, atau informasi lainnya"
                           labelPlacement="outside"
-                          isInvalid={errors.kecamatan !== undefined}
-                          errorMessage={errors?.kecamatan?.message}
+                          isInvalid={errors.organizerInfo !== undefined}
+                          errorMessage={errors?.organizerInfo?.message}
                           isDisabled={isDisabled}
                         />
                       )} />
-                      <Controller control={control} name="kabupatenKota" render={({field}) => (
-                        <Input 
-                          {...field}
-                          className="z-0"
-                          variant="bordered"
-                          fullWidth
-                          label="Kabupaten / Kota"
-                          placeholder="Kabupaten / Kota"
-                          labelPlacement="outside"
-                          isInvalid={errors.kabupatenKota !== undefined}
-                          errorMessage={errors?.kabupatenKota?.message}
-                          isDisabled={isDisabled}
-                        />
-                      )} />
-                      <Controller control={control} name="provinsi" render={({field}) => (
-                        <Input 
-                          {...field}
-                          className="z-0"
-                          variant="bordered"
-                          fullWidth
-                          label="Provinsi"
-                          placeholder="Provinsi"
-                          labelPlacement="outside"
-                          isInvalid={errors.provinsi !== undefined}
-                          errorMessage={errors?.provinsi?.message}
-                          isDisabled={isDisabled}
-                        />
-                      )} />
+                          
                       <Controller control={control} name="description" render={({field}) => (
                         <Textarea 
                           {...field}
@@ -247,10 +217,10 @@ const Election = (props: TypeProps) => {
                           variant="bordered"
                           fullWidth
                           label="Deskripsi"
-                          placeholder="Deskripsi"
+                          placeholder="Jelaskan secara singkat tentang pemilihan ini"
                           labelPlacement="outside"
-                          isInvalid={errors.provinsi !== undefined}
-                          errorMessage={errors?.provinsi?.message}
+                          isInvalid={errors.description !== undefined}
+                          errorMessage={errors?.description?.message}
                           isDisabled={isDisabled}
                         />
                       )} />
@@ -268,7 +238,7 @@ const Election = (props: TypeProps) => {
                           isInvalid={errors.startAt !== undefined}
                           errorMessage={`${errors?.startAt?.message}`}
                           isDisabled={isDisabled}
-                          placeholder="Pilih waktu awal"
+                          placeholder="01/01/2026 00:00:00"
                         />
                       )} />
 
@@ -282,7 +252,7 @@ const Election = (props: TypeProps) => {
                           isInvalid={errors.endAt !== undefined}
                           errorMessage={`${errors?.endAt?.message}`}
                           isDisabled={isDisabled}
-                          placeholder="Pilih waktu akhir"
+                          placeholder="01/01/2026 00:00:00"
                         />
                       )} />
                         

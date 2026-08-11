@@ -1,10 +1,8 @@
 interface IElection {
     id?: number;
     name?: string;
-    desa?: string;
-    kecamatan?: string;
-    kabupatenKota?: string;
-    provinsi?: string;
+    organizerName?: string;
+    organizerInfo?: string;
     status?: string;
     description?: string;
     logo?: string | null;
