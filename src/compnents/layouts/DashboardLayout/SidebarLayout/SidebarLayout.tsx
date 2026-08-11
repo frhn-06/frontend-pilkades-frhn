@@ -142,14 +142,14 @@ const SidebarLayout = (props: TypeProps) => {
                 listsidebar.admin.map((sidebar) => (
                   <div key={sidebar.id}>
                     <div className="px-3 py-2 flex items-center justify-between">
-                      <span className={cn("font-semibold text-white whitespace-nowrap transition-all duration-300")}>
+                      <span className={cn("font-semibold text-gray-300 whitespace-nowrap transition-all duration-300")}>
                         {sidebar.label}
                       </span>
                       <VscTriangleDown className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex flex-col">
                       {sidebar.items.map((item) => (
-                        <Link key={item.id} href={`${item.href}`} className={cn("text-gray-200 relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
+                        <Link key={item.id} href={`${item.href}`} className={cn("text-white relative px-3 py-2 flex items-center hover:bg-red-500 active:bg-red-400 transition", router.pathname.startsWith(item.href) && "bg-item-same-href")}>
                           <div className={cn("absolute w-1 rounded-r-xl bg-gray-200 top-0 left-0 h-full", router.pathname.startsWith(item.href) ? "block" : "hidden")} />
 
                           <div className="w-6 h-6">
