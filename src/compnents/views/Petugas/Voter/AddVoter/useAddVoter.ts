@@ -1,9 +1,8 @@
 import toasterContext from "@/contexts/toasterContext";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import TpsService from "@/services/tps.service";
 import { schemaVoter } from "./validation";
 import VoterService from "@/services/voter.service";
 import { IVoter } from "@/types/voter";

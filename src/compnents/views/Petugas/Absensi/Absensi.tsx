@@ -1,7 +1,6 @@
 
-import { Chip, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, useDisclosure } from "@heroui/react";
+import { Chip, useDisclosure } from "@heroui/react";
 import { ReactNode, useCallback, useContext, useEffect, useState } from "react";
-import { CiMenuKebab } from "react-icons/ci";
 import { useRouter } from "next/router";
 import TableUi from "@/compnents/ui/TableUi";
 import listColumn from "./listColumn";
@@ -57,7 +56,7 @@ const Absensi = () => {
 
       switch(column.id) {
         case "nik" : 
-          return data.ink ? `${data.nik}` : "-";
+          return data.nik ? `${data.nik}` : "-";
         case "info" :
           return data.info ? `${data.info}` : "-";   
         case "present" :
@@ -70,55 +69,55 @@ const Absensi = () => {
             <Chip variant="flat" color="warning">Belum Vote</Chip>
         case "actions" :
           return (
-            <Dropdown >
-              <DropdownTrigger>
-                <CiMenuKebab className="cursor-pointer" />
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Dynamic Actions">
-                <DropdownItem 
-                  key="present"
-                  onClick={() => {
-                    if(data.isPresent) {
-                      modalNoPresent.onOpen();
-                    } else {
-                      modalPresent.onOpen();
-                    }
+            <div className="flex gap-2">
+              <Chip 
+                color="danger" 
+                className="cursor-pointer"
+                onClick={() => {
+                  if(data.isPresent) {
+                    modalNoPresent.onOpen();
+                  } else {
+                    modalPresent.onOpen();
+                  }
+                  setStateVoter({
+                    id: Number(data.id),
+                    name: `${data.name}`,
+                  })
+                }}            
+              >
+                {data.isPresent ? "Batal hadir" : "Hadir"}
+              </Chip>
+
+              <Chip 
+                color="primary"
+                className="cursor-pointer"
+                isDisabled={!data.isPresent}
+                onClick={() => {
+                  if(!data.isPresent) {
+                    setToaster({
+                      type: "error",
+                      message: "Voter belum hadir"
+                    })
+                  }
+                  if(data.isVoted) {
+                    setToaster({
+                      type: "error",
+                      message: "Voter sudah mencoblos"
+                    })
+                  }
+                  if(data.isPresent && !data.isVoted) {
+                    modalGenerateToken.onOpen();
                     setStateVoter({
                       id: Number(data.id),
                       name: `${data.name}`,
                     })
-                  }} 
-                >
-                  {data.isPresent ? "Batal hadir" : "Hadir"}
-                </DropdownItem>
-                <DropdownItem
-                  key="token"
-                  onClick={() => {
-                    if(!data.isPresent) {
-                      setToaster({
-                        type: "error",
-                        message: "Voter belum hadir"
-                      })
-                    }
-                    if(data.isVoted) {
-                      setToaster({
-                        type: "error",
-                        message: "Voter sudah mencoblos"
-                      })
-                    }
-                    if(data.isPresent && !data.isVoted) {
-                      modalGenerateToken.onOpen();
-                      setStateVoter({
-                        id: Number(data.id),
-                        name: `${data.name}`,
-                      })
-                    } 
-                  }}
-                >
-                  Generate Token
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+                  } 
+                }}
+              >
+                Generate Token
+              </Chip>
+            </div>
+            
           )
           default :
             return value as ReactNode;

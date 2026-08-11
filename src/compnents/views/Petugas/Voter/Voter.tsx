@@ -1,7 +1,6 @@
 
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, useDisclosure } from "@heroui/react";
+import { Chip, useDisclosure } from "@heroui/react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
-import { CiMenuKebab } from "react-icons/ci";
 import { useRouter } from "next/router";
 import TableUi from "@/compnents/ui/TableUi";
 import listColumn from "./listColumn";
@@ -51,37 +50,36 @@ const Voter = () => {
 
       switch(column.id) {
         case "nik" : 
-            return data.ink ? `${data.nik}` : "-";
+            return data.nik ? `${data.nik}` : "-";
         case "info" :
             return data.info ? `${data.info}` : "-";   
         case "tps.name" :
           return `${(data.tps as unknown as {name: string}).name}`;
         case "actions" :
           return (
-            <Dropdown >
-              <DropdownTrigger>
-                <CiMenuKebab className="cursor-pointer" />
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Dynamic Actions">
-                <DropdownItem 
-                  key="update" 
-                  onClick={() => router.push(`/petugas/voter/${data.id}`)}
-                >
-                  Update
-                </DropdownItem>
-                <DropdownItem 
-                  key="delete" 
-                  onClick={() => {
-                    modalDeleteVoter.onOpen(); 
-                    setStateVoter({
-                      id: data.id as number
-                    })
-                  }}
-                >
-                  Delete
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <div className="flex gap-2">
+              <Chip 
+                color="primary" 
+                className="cursor-pointer"
+                onClick={() => router.push(`/petugas/voter/${data.id}`)}                
+              >
+                Edit
+              </Chip>
+
+              <Chip 
+                color="danger" 
+                className="cursor-pointer"
+                onClick={() => {
+                  modalDeleteVoter.onOpen(); 
+                  setStateVoter({
+                    id: data.id as number,
+                    name: data.name as string
+                  })
+                }}
+              >
+                Hapus
+              </Chip>
+            </div>
           )
           default :
             return value as ReactNode;
@@ -134,6 +132,7 @@ const Voter = () => {
             onClose={modalDeleteVoter.onClose} 
             refetch={refetchVoter} 
             id={`${stateVoter?.id}`} 
+            name={`${stateVoter?.name}`}
           />
 
         </div>
