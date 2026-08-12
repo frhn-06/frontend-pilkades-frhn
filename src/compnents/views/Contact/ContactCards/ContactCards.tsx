@@ -2,7 +2,7 @@ import { Card, CardBody, CardFooter } from "@heroui/react";
 import listConstant from "./listConstant";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import ScrollReveal from "@/compnents/animation/ScrollReveal";
-import { motion, MotionConfig } from "motion/react";
+import { motion } from "motion/react";
 import { revealVariants } from "@/compnents/animation/variants";
 
 interface TypeProps {

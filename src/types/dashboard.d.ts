@@ -3,6 +3,9 @@ interface IElectionDashboard {
     name?: string;
     logo?: string;
     status?: string;
+    organizerName?: string | null;
+    organizerInfo?: string | null;
+    description?: string | null;
 };
 
 interface IStatistics {

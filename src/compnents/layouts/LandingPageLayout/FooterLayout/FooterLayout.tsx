@@ -2,6 +2,7 @@ import ScrollReveal from "@/compnents/animation/ScrollReveal";
 import Link from "next/link"
 import { FaGithub, FaInstagramSquare, FaLinkedin } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
+import Image from 'next/image'
 
 interface TypeProps {
   name: string;
@@ -16,7 +17,13 @@ const FooterLayout = (props: TypeProps) => {
       <ScrollReveal variant="fadeUp">
         <section className="px-4 py-6 bg-inti2">
           <div className="w-full max-w-3xl lg:max-w-6xl mx-auto">
-            <div className="flex flex-col lg:flex-row gap-6">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+              <div className="flex-1">
+                <div className="w-1/2 max-w-48">
+                  <Image src="/logo/main/votedesk.png" alt="main-logo" width={240} height={240} className="w-full" />
+                </div>
+              </div>
+
               <div className="flex-1">
                 <h1 className="text-2xl font-bold text-white">
                   {name}
@@ -62,7 +69,11 @@ const FooterLayout = (props: TypeProps) => {
                   </Link>
                 </div>
               </div>
+
+
+              
             </div>
+
 
             <hr className="text-white my-4" />
 

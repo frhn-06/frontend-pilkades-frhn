@@ -1,4 +1,4 @@
-import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@heroui/react"
+import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@heroui/react"
 import listNav from "./listNav";
 import { useState } from "react";
 import cn from "@/utils/cn";
@@ -6,6 +6,7 @@ import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
+import Image from 'next/image'
 
 
 interface TypeProps {
@@ -49,7 +50,10 @@ const NavbarLayout = (props: TypeProps) => {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="sm:hidden text-white"
           />
-          <NavbarBrand>
+          <NavbarBrand className="gap-2">
+            <div className="w-10 h-10">
+              <Image src="/logo/main/votedesk.png" alt="main-logo" width={136} height={136} className="w-full" />
+            </div>
             <p className={`font-bold text-white`}>
               {name}
             </p>

@@ -17,25 +17,32 @@ const Info = (props: TypeProps) => {
         <CardBody>
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
             <div>
-              <h1 className="text-utama text-xl lg:text-2xl font-bold mb-3">
+              <h1 className="text-utama text-xl lg:text-2xl font-bold mb-1">
                 {election?.name}
               </h1>
 
-              <h1 className="text-utama text-2xl lg:text-4xl font-bold">
-                {tps?.name}
-              </h1>
-
-              <p className=" text-second2">
-                Status
+              <p className="text-utama font-medium">
+                {election?.organizerName}
               </p>
-              <div className="flex items-center gap-1">
-                <div className="rounded-full w-5 h-5 bg-white border-2 border-green-500 flex justify-center items-center">
-                  <div className="rounded-full w-3 h-3 bg-green-500" />
-                </div>
-                <p className="text-utama">
-                  {election?.status}
+           
+              <h1 className="text-utama text-2xl lg:text-4xl font-bold mt-2">
+                {tps?.name}
+              </h1> 
+
+              <div className="mt-5">
+                <p className=" text-second2">
+                  Status
                 </p>
+                <div className="flex items-center gap-1">
+                  <div className="rounded-full w-5 h-5 bg-white border-2 border-green-500 flex justify-center items-center">
+                    <div className="rounded-full w-3 h-3 bg-green-500" />
+                  </div>
+                  <p className="text-utama">
+                    {election?.status}
+                  </p>
+                </div>
               </div>
+
             </div>
           </div>
         </CardBody>
