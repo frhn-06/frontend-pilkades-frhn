@@ -19,14 +19,20 @@ const listConstant = [
             },
             {
                 title: "Masuk sebagai Admin",
-                description: "Gunakan akun yang telah dibuat untuk masuk ke dalam sistem dan mulai menyiapkan pemilihan.",
+                description: "Gunakan akun admin yang telah dibuat untuk masuk ke dalam sistem dan memulai proses persiapan pemilihan.",
                 photo: <Image src="/landing/hero-sementara.png" width={480} height={480} alt='foto-2' className='w-full' />
             },
             {
                 title: "Buat Pemilihan",
-                description: "Buat pemilihan baru dan lengkapi informasi dasar seperti nama pemilihan, wilayah, periode, dan informasi lainnya.",
+                description: "Buat pemilihan baru dengan melengkapi informasi dasar seperti nama pemilihan, penyelenggara, periode pelaksanaan, dan informasi lainnya.",
                 photo: <Image src="/landing/hero-sementara.png" width={480} height={480} alt='foto-3' className='w-full' />,
-                nb: "Secara default, pemilihan baru dibuat dengan status DRAFT."
+                nb: "Pemilihan baru secara default dibuat dengan status DRAFT."
+            },
+            {
+                title: "Masuk Kembali Setelah Pemilihan Dibuat",
+                description: "Setelah pemilihan berhasil dibuat, sistem akan mengeluarkan akun admin secara otomatis. Masuk kembali menggunakan akun admin untuk memperbarui sesi dan mulai mengelola pemilihan.",
+                photo: <Image src="/landing/hero-sementara.png" width={480} height={480} alt='foto-3' className='w-full' />,
+                nb: "Admin perlu masuk kembali karena informasi pemilihan digunakan sebagai bagian dari sesi akun."
             },
             {
                 title: "Siapkan Tempat Pemungutan Suara",
