@@ -9,9 +9,12 @@ const schemaElection = yup.object({
     logo: yup.string(),
     startAt: yup.date().required("Waktu mulai harus diisi"),
     endAt: yup.date().required("Waktu akhir harus diisi"),
-    status: yup.string().required("Status harus diisi"),
 })
 
 export type IElectionForm = yup.InferType<typeof schemaElection>;
 
-export {schemaElection}
+const schemaStatus = yup.object({
+    status: yup.string().required("Status election harus diisi")
+})
+
+export {schemaElection, schemaStatus}

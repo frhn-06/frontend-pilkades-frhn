@@ -1,6 +1,5 @@
-import { Chip, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, useDisclosure } from "@heroui/react";
+import { Chip, useDisclosure } from "@heroui/react";
 import { ReactNode, useCallback, useState } from "react";
-import { CiMenuKebab } from "react-icons/ci";
 import { useRouter } from "next/router";
 import useTps from "./useTps";
 import TableUi from "@/compnents/ui/TableUi";

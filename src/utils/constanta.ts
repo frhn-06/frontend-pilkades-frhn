@@ -57,21 +57,27 @@ export const LIST_STATUS_VOTED_VOTER = [
     }
 ]
 
-// export const LIST_PAYMENT_ORDER = [
-//     {
-//         label: "Semua",
-//         id: ""
-//     },
-//     {
-//         label: "Cash",
-//         id: "cash"
-//     },
-//     {
-//         label: "Qris",
-//         id: "qris"
-//     },
-//     {
-//         label: "Transfer",
-//         id: "transfer"
-//     }
-// ];
+
+
+export const LIST_STATUS_ELECTION = [
+    {
+        label: "Draft",
+        id: "DRAFT"
+    },
+    {
+        label: "Up Coming",
+        id: "UPCOMING"
+    },
+    {
+        label: "ON Going",
+        id: "ONGOING"
+    },
+    {
+        label: "Cancelled",
+        id: "CANCELLED"
+    },
+    {
+        label: "Finish",
+        id: "FINISHED"
+    },
+]

@@ -1,4 +1,4 @@
-import { Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem, Spinner } from "@heroui/react"
+import { Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from "@heroui/react"
 import useAddVoter from "./useAddVoter"
 import { Controller } from "react-hook-form";
 import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";

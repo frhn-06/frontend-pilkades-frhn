@@ -1,9 +1,8 @@
-import { IElection } from "@/types/election";
-import { Alert, Card, CardBody, CardHeader, Input, Radio, RadioGroup, Spinner, Textarea } from "@heroui/react";
+import { IElection, IStatusElection } from "@/types/election";
+import {  Card, CardBody, CardHeader, Input, Select, SelectItem, Spinner, Textarea } from "@heroui/react";
 import useElection from "./useElection";
 import { Controller } from "react-hook-form";
 import { useEffect, useState } from "react";
-import listStatusEnum from "./listStatusEnum";
 import "react-datepicker/dist/react-datepicker.css";
 import convert from "@/utils/convert";
 import InputDateTime from "@/compnents/ui/InputDateTime";
@@ -15,6 +14,8 @@ import useUpdateLogo from "./useUpdateLogo";
 import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import { signOut } from "next-auth/react";
+import { LIST_STATUS_ELECTION } from "@/utils/constanta";
+import useUpdateStatus from "./useUpdateStatus";
 
 
 interface TypeProps {
@@ -49,7 +50,7 @@ const Election = (props: TypeProps) => {
         isPendingUpdateElection,
         isSuccessUpdateElection,
         onUpdateElection
-    } = useUpdateElection(Number(data?.id), setError)
+    } = useUpdateElection(setError)
 
     const {
       isPendingAddOneImage,
@@ -58,15 +59,21 @@ const Election = (props: TypeProps) => {
       isSuccessUpdateLogo,
 
       handleChangeImg
-    } = useUpdateLogo(Number(data?.id));
+    } = useUpdateLogo();
+
+    const {
+        isPendingUpdateStatusElection,
+        isSuccessUpdateStatusElection,
+        onUpdateStatusElection
+    } = useUpdateStatus();
 
 
 
     useEffect(() => {
-      if(isSuccessUpdateElection) {
+      if(isSuccessUpdateElection || isSuccessUpdateStatusElection) {
         refetch();
       }
-    },[isSuccessUpdateElection])
+    },[isSuccessUpdateElection, isSuccessUpdateStatusElection])
 
     useEffect(() => {
       if(isSuccessAddElection) {
@@ -83,9 +90,7 @@ const Election = (props: TypeProps) => {
         setValue("name", `${data.name}`);
         setValue("organizerName", `${data.organizerName}`);
         setValue("organizerInfo", `${data.organizerInfo}`);
-        setValue("description", `${data.description}`)
         setValue("description", `${data.description !== null ? data.description : ""}`)
-        setValue("status", `${data.status}`)
         setValue("startAt", convert.dateToFrontend(`${data.startAt}`));
         setValue("endAt", convert.dateToFrontend(`${data.endAt}`));
       }
@@ -255,32 +260,7 @@ const Election = (props: TypeProps) => {
                           placeholder="01/01/2026 00:00:00"
                         />
                       )} />
-                        
-                      <Controller control={control} name="status" render={({field}) => (
-                        <RadioGroup 
-                          {...field}
-                          className="z-0"
-                          label={(
-                            <p className={cn("text-utama text-sm", {"text-second2" : isDisabled})}>
-                              Status
-                            </p>)
-                          }
-                          value={field.value}
-                          isDisabled={isDisabled}
-                          isInvalid={errors.status !== undefined}
-                          errorMessage={`${errors.status?.message}`}
-                        >
-                          {listStatusEnum.map((status) => (
-                            <Radio 
-                              key={status.id} 
-                              value={status.id}
-                              size="sm"
-                            >
-                              {status.label}
-                            </Radio>
-                          ))}
-                        </RadioGroup>
-                      )} />
+
 
                       <ButtonFlat type="button" onPress={() => setDisabled(!isDisabled)}                      >
                         {Object.keys(data).length < 1 ? "Buat data" : "Ubah data"}
@@ -311,7 +291,7 @@ const Election = (props: TypeProps) => {
                           </div>
                         )}
                           
-                        <label htmlFor="input-logo">
+                        <label htmlFor="input-logo" className="h-fit">
                           <div className={cn("py-1 px-2 rounded-lg bg-inti text-white text-sm", {"bg-gray-300": isDisabled})}>
                             {isPendingAddOneImage || isPendingUpdateLogo ? <Spinner size="sm" color="default" /> : data.logo !== undefined ? "Update logo" : "Add logo"}
                           </div>
@@ -324,6 +304,26 @@ const Election = (props: TypeProps) => {
                           />
                         </label>
                       </div>
+
+                    
+                      <Select
+                        variant="bordered"
+                        label="Status Election"
+                        labelPlacement="outside"
+                        placeholder="Pilih Status Election"
+                        className="bg-red-100 rounded-2xl border-red-500 border-2"
+                        selectedKeys={data.status ? [`${data.status}`] : []}
+                        isDisabled={isDisabled}
+                        onChange={(e) => onUpdateStatusElection({
+                          status: `${e.target.value}`
+                        } as IStatusElection)}
+                      >
+                        {LIST_STATUS_ELECTION?.map((status) => (
+                          <SelectItem key={status.id}>
+                            {isPendingUpdateStatusElection ? "mengupdate...." : status.label}
+                          </SelectItem>
+                        ))}
+                      </Select>
                     </div>
 
                   </CardBody>

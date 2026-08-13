@@ -5,7 +5,7 @@ import { IElection } from "@/types/election";
 import { useMutation } from "@tanstack/react-query";
 import { ChangeEvent, useContext } from "react";
 
-const useUpdateLogo = (id: number) => {
+const useUpdateLogo = () => {
     const {
             mutateAddOneImage,
             isPendingAddOneImage,

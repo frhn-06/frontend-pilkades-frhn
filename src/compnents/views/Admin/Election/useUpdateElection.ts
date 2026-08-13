@@ -8,7 +8,7 @@ import { UseFormSetError } from "react-hook-form";
 import { IElectionForm } from "./validation";
 
 
-const useUpdateElection  = (id: number, setError: UseFormSetError<IElectionForm>) => {
+const useUpdateElection  = (setError: UseFormSetError<IElectionForm>) => {
     const {setToaster} = useContext(toasterContext);
     
 
@@ -51,9 +51,8 @@ const useUpdateElection  = (id: number, setError: UseFormSetError<IElectionForm>
             startAt: convert.dateToBackend(`${payload.startAt}`),
             endAt: convert.dateToBackend(`${payload.endAt}`),
         }
-        
-        mutateUpdateElection(data);
-       
+
+        mutateUpdateElection(data);       
     }
 
     return {
