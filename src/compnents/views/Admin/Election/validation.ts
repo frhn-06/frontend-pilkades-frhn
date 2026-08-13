@@ -6,7 +6,6 @@ const schemaElection = yup.object({
     organizerName: yup.string(),
     organizerInfo: yup.string(),
     description: yup.string(),
-    logo: yup.string(),
     startAt: yup.date().required("Waktu mulai harus diisi"),
     endAt: yup.date().required("Waktu akhir harus diisi"),
 })

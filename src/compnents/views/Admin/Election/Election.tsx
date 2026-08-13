@@ -57,8 +57,11 @@ const Election = (props: TypeProps) => {
       
       isPendingUpdateLogo,
       isSuccessUpdateLogo,
+      handleChangeImg,
 
-      handleChangeImg
+      isPendingRemoveLogo,
+      isSuccessRemoveLogo,
+      handleRemoveLogo
     } = useUpdateLogo();
 
     const {
@@ -70,10 +73,10 @@ const Election = (props: TypeProps) => {
 
 
     useEffect(() => {
-      if(isSuccessUpdateElection || isSuccessUpdateStatusElection) {
+      if(isSuccessUpdateElection || isSuccessUpdateStatusElection || isSuccessRemoveLogo || isSuccessUpdateLogo) {
         refetch();
       }
-    },[isSuccessUpdateElection, isSuccessUpdateStatusElection])
+    },[isSuccessUpdateElection, isSuccessUpdateStatusElection, isSuccessRemoveLogo, isSuccessUpdateLogo])
 
     useEffect(() => {
       if(isSuccessAddElection) {
@@ -96,14 +99,8 @@ const Election = (props: TypeProps) => {
       }
     },[data])
 
+   
   
-
-    useEffect(() => {
-      if(isSuccessUpdateLogo) {
-        refetch();
-      }
-    },[isSuccessUpdateLogo])
-    
     const [isDisabled, setDisabled] = useState(true);
 
 
@@ -291,18 +288,37 @@ const Election = (props: TypeProps) => {
                           </div>
                         )}
                           
-                        <label htmlFor="input-logo" className="h-fit">
-                          <div className={cn("py-1 px-2 rounded-lg bg-inti text-white text-sm", {"bg-gray-300": isDisabled})}>
-                            {isPendingAddOneImage || isPendingUpdateLogo ? <Spinner size="sm" color="default" /> : data.logo !== undefined ? "Update logo" : "Add logo"}
-                          </div>
-                          <input 
-                            type="file" 
-                            id="input-logo" 
-                            className="hidden" 
-                            onChange={(e) => handleChangeImg(e, data.logo)} 
-                            disabled={isPendingAddOneImage || isPendingUpdateElection || isDisabled} 
-                          />
-                        </label>
+
+                        <div className="flex flex-col gap-2">
+                          <label htmlFor="input-logo" className="h-fit">
+                            <div className={cn("py-1 px-2 rounded-lg bg-inti text-white text-sm cursor-pointer", {"bg-gray-300": isDisabled})}>
+                              {isPendingAddOneImage || isPendingUpdateLogo ? 
+                                <Spinner size="sm" color="default" /> : 
+                                data.logo !== undefined ? "Update Logo" : 
+                                "Add logo"
+                              }
+                            </div>
+                            <input 
+                              type="file" 
+                              id="input-logo" 
+                              className="hidden" 
+                              onChange={(e) => handleChangeImg(e)} 
+                              disabled={isPendingAddOneImage || isPendingUpdateElection || isDisabled} 
+                            />
+                          </label>
+
+                          {data.logo !== undefined && (
+                            <div 
+                              className={cn("py-1 px-2 rounded-lg bg-inti text-white text-sm cursor-pointer", {"bg-gray-300": isDisabled})}
+                              onClick={handleRemoveLogo}
+                            >
+                              {isPendingRemoveLogo ? 
+                                <Spinner size="sm" color="default" /> : 
+                                "Hapus Logo"
+                              }
+                            </div>
+                          )}
+                        </div>
                       </div>
 
                     
@@ -324,6 +340,9 @@ const Election = (props: TypeProps) => {
                           </SelectItem>
                         ))}
                       </Select>
+
+
+                     
                     </div>
 
                   </CardBody>

@@ -16,4 +16,8 @@ interface IStatusElection {
     status: "DRAFT" | "UPCOMING" | "ONGOING" | "FINISHED"
 }
 
-export type {IElection, IStatusElection}
+interface ILogoElection {
+    logo: string | null
+}
+
+export type {IElection, IStatusElection, ILogoElection}

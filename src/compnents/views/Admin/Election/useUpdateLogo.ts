@@ -1,7 +1,7 @@
 import toasterContext from "@/contexts/toasterContext";
 import useMediaHandler from "@/hooks/useMediaHandler";
 import ElectionService from "@/services/election.service";
-import { IElection } from "@/types/election";
+import { ILogoElection } from "@/types/election";
 import { useMutation } from "@tanstack/react-query";
 import { ChangeEvent, useContext } from "react";
 
@@ -10,14 +10,13 @@ const useUpdateLogo = () => {
             mutateAddOneImage,
             isPendingAddOneImage,
             isSuccessAddOneImage,
-    
-            mutateRemoveOneImage,
+
         } = useMediaHandler();
 
     const {setToaster} = useContext(toasterContext);
 
-    const updateImage = async(payload: IElection, callback: () => void) => {
-        const {data} = await ElectionService.update(payload);
+    const updateImage = async(payload: ILogoElection, callback: () => void) => {
+        const {data} = await ElectionService.updateLogo(payload);
         
         if(data.meta.status === 200) {
             callback();
@@ -25,7 +24,7 @@ const useUpdateLogo = () => {
     }
 
     const {mutate:mutateUpdateLogo, isPending:isPendingUpdateLogo, isSuccess:isSuccessUpdateLogo} = useMutation({
-        mutationFn: (object: {payload: IElection, callback: () => void}) => updateImage(object.payload, object.callback),
+        mutationFn: (object: {payload: ILogoElection, callback: () => void}) => updateImage(object.payload, object.callback),
         onError: (error) => {
             setToaster({
                 type: "error",
@@ -40,7 +39,7 @@ const useUpdateLogo = () => {
         }
     })
 
-    const handleChangeImg = (e: ChangeEvent<HTMLInputElement>, oldLogo: string | null | undefined) => {
+    const handleChangeImg = (e: ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
         
         if(files) {
@@ -51,22 +50,43 @@ const useUpdateLogo = () => {
                 callback: (url: string) => {
                     mutateUpdateLogo({
                         payload: {
-                            logo: url
+                            logo: url,
                         },
                         callback: () => {
-                            if(oldLogo !== null) {
-                                mutateRemoveOneImage({
-                                    url: `${oldLogo}`,
-                                    callback: () => {
-                                        
-                                    }
-                                })
-                            }
+                            
                         }
                     });
                 }
             })
         }
+    }
+
+
+    const removeLogo = async(payload: ILogoElection) => {
+        const {data} = await ElectionService.updateLogo(payload);
+        return data
+    }
+
+    const {mutate:mutateRemoveLogo, isPending:isPendingRemoveLogo, isSuccess:isSuccessRemoveLogo} = useMutation({
+        mutationFn: (payload: ILogoElection) => removeLogo(payload),
+        onError: (error) => {
+            setToaster({
+                type: "error",
+                message: error.message
+            })
+        },
+        onSuccess: () => {
+            setToaster({
+                type: "success",
+                message: "Berhasil menghapus logo"
+            })
+        }
+    });
+
+    const handleRemoveLogo = () => {
+        mutateRemoveLogo({
+            logo: null
+        })
     }
 
     return {
@@ -75,8 +95,11 @@ const useUpdateLogo = () => {
 
         isPendingUpdateLogo,
         isSuccessUpdateLogo,
+        handleChangeImg,
 
-        handleChangeImg
+        isPendingRemoveLogo,
+        isSuccessRemoveLogo,
+        handleRemoveLogo
     }
 }
 

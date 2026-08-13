@@ -52,7 +52,8 @@ const useUpdateElection  = (setError: UseFormSetError<IElectionForm>) => {
             endAt: convert.dateToBackend(`${payload.endAt}`),
         }
 
-        mutateUpdateElection(data);       
+        // mutateUpdateElection(data);
+        console.log(data);    
     }
 
     return {
