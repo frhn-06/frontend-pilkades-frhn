@@ -78,7 +78,7 @@ const DetailVoter = () => {
                       variant="bordered"
                       label="Nama"
                       labelPlacement="outside"
-                      placeholder="Nama pencoblos"
+                      placeholder="Masukkan nama lengkap pemilih"
                       isInvalid={errors.name !== undefined}
                       errorMessage={errors.name?.message}
                       endContent={(
@@ -95,9 +95,9 @@ const DetailVoter = () => {
                     <Input 
                       {...field} 
                       variant="bordered"
-                      label="NIK"
+                      label="Nomor Identitas"
                       labelPlacement="outside"
-                      placeholder="Nomor induk kewarganegaraan"
+                      placeholder="Masukkan NIK atau nomor identitas pemilih"
                       isInvalid={errors.nik !== undefined}
                       errorMessage={errors.nik?.message}
                     />
@@ -109,9 +109,9 @@ const DetailVoter = () => {
                     <Input 
                       {...field} 
                       variant="bordered"
-                      label="Info"
+                      label="Informasi Tambahan"
                       labelPlacement="outside"
-                      placeholder="Informasi alamat / asal pencoblos"
+                      placeholder="Contoh: Kelas 12 A, RT 03/RW 02, Fakultas Teknik, atau informasi lainnya"
                       isInvalid={errors.info !== undefined}
                       errorMessage={errors.info?.message}
                     />
@@ -124,7 +124,7 @@ const DetailVoter = () => {
 
               <CardFooter>
                 <ButtonSolid type="submit" isDisabled={isPendingUpdateVoter || isLoadingVoter || isRefetchingVoter}>
-                  {isPendingUpdateVoter ? <Spinner size="sm" color="default" /> : "Ubah"}
+                  {isPendingUpdateVoter ? <Spinner size="sm" color="default" /> : "Simpan"}
                 </ButtonSolid>
               </CardFooter>
             </form>

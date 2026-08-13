@@ -48,7 +48,9 @@ const Petugas = () => {
 
 
     useEffect(() => {
-      setUrl();
+      if(router.isReady) {
+        setUrl();
+      }
     },[router.isReady])
 
 

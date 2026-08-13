@@ -262,7 +262,7 @@ const DetailCandidate = () => {
                   type="submit" 
                   isDisabled={isPendingUpdateCandidate || isLoadingCandidate || isRefetchingCandidate}
                 >
-                  {isPendingUpdateCandidate ? <Spinner size="sm" color="default" /> : "Ubah"}
+                  {isPendingUpdateCandidate ? <Spinner size="sm" color="default" /> : "Simpan"}
                 </ButtonSolid>
               </CardFooter>
             </form>

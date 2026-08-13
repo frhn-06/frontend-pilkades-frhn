@@ -46,7 +46,7 @@ const AddTps = (props:TypeProps) => {
         <form onSubmit={handleSubmitTps(onTps)}>
           <ModalContent>
             <ModalHeader>
-              Create TPS
+              Bangun TPS
             </ModalHeader>
 
             <ModalBody>

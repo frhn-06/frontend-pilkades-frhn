@@ -72,7 +72,7 @@ const AddPetugas = (props: TypeProps) => {
                     variant="bordered"
                     label="Nama"
                     labelPlacement="outside"
-                    placeholder="Nama Petugas"
+                    placeholder="Masukkan Nama Petugas"
                     isInvalid={errors.name !== undefined}
                     errorMessage={errors.name?.message}
                   />
@@ -83,7 +83,7 @@ const AddPetugas = (props: TypeProps) => {
                     variant="bordered"
                     label="Email"
                     labelPlacement="outside"
-                    placeholder="Email Petugas"
+                    placeholder="Masukkan Email Petugas"
                     isInvalid={errors.email !== undefined}
                     errorMessage={errors.email?.message}
                   />
@@ -94,7 +94,7 @@ const AddPetugas = (props: TypeProps) => {
                     variant="bordered"
                     label="TPS"
                     labelPlacement="outside"
-                    placeholder="Alamat TPS"
+                    placeholder="Masukkan TPS Penempatan Tugas"
                     isInvalid={errors.tpsId !== undefined}
                     errorMessage={errors.tpsId?.message}
                   >
@@ -112,7 +112,7 @@ const AddPetugas = (props: TypeProps) => {
                     variant="bordered"
                     label="Password"
                     labelPlacement="outside"
-                    placeholder="Password Akun"
+                    placeholder="Masukkan Password Akun Petugas"
                     isInvalid={errors.password !== undefined}
                     errorMessage={errors.password?.message}
                     endContent={(

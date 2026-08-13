@@ -83,7 +83,7 @@ const DetailPetugas = () => {
                       variant="bordered"
                       label="Nama"
                       labelPlacement="outside"
-                      placeholder="Nama"
+                      placeholder="Masukkan Nama Petugas"
                       isInvalid={errors.name !== undefined}
                       errorMessage={errors.name?.message}
                     />
@@ -97,7 +97,7 @@ const DetailPetugas = () => {
                       variant="bordered"
                       label="Email"
                       labelPlacement="outside"
-                      placeholder="example@gmail.com"
+                      placeholder="Masukkan Email Petugas"
                       isInvalid={errors.email !== undefined}
                       errorMessage={errors.email?.message}
                       isDisabled
@@ -112,7 +112,7 @@ const DetailPetugas = () => {
                       variant="bordered"
                       label="TPS"
                       labelPlacement="outside"
-                      placeholder="Alamat TPS"
+                      placeholder="Masukkan TPS Penempatan Tugas"
                       isInvalid={errors.tpsId !== undefined}
                       errorMessage={errors.tpsId?.message}
                       selectedKeys={field.value ? [field?.value] : []}
@@ -130,7 +130,7 @@ const DetailPetugas = () => {
 
               <CardFooter>
                 <ButtonSolid type="submit" isDisabled={isPendingUpdatePetugas || isLoadingPetugas || isRefetchingPetugas}>
-                  {isPendingUpdatePetugas ? <Spinner size="sm" color="default" /> : "Ubah"}
+                  {isPendingUpdatePetugas ? <Spinner size="sm" color="default" /> : "Simpan"}
                 </ButtonSolid>
               </CardFooter>
             </form>

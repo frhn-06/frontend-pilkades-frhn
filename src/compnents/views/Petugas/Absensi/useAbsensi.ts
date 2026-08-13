@@ -1,7 +1,7 @@
 import useDebaunce from "@/hooks/useDebaunce";
 import VoterService from "@/services/voter.service";
 import { LIMIT_VOTER_DEFAULT, PAGE_DEFAULT } from "@/utils/constanta";
-import {  useMutation, useQuery } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import { useRouter } from "next/router"
 import { ChangeEvent } from "react";
 
@@ -29,7 +29,8 @@ const useAbsensi = () => {
 
 
     const findAllVoterPerTps = async () => {
-        const params = `page=${currentPage}&limit=${currentLimit}&search=${currentSearch}`
+        let params = `page=${currentPage}&limit=${currentLimit}`;
+        if(currentSearch) params += `&search=${currentSearch}`;
         const {data} = await VoterService.findAllPerTps(`${params}`);
         return data;
     }
@@ -44,7 +45,7 @@ const useAbsensi = () => {
 
 
     const handleChangePage = (e: number) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: e
@@ -53,7 +54,7 @@ const useAbsensi = () => {
     }
 
     const handleChangeLimit = (e: ChangeEvent<HTMLSelectElement>) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,
@@ -66,7 +67,7 @@ const useAbsensi = () => {
 
     const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
         debaunce(() => {
-            router.replace({
+            router.push({
                 query: {
                     ...router.query,
                     page: 1,
@@ -77,7 +78,7 @@ const useAbsensi = () => {
     }
 
     const handleClearSearch = () => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,

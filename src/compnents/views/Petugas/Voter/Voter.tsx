@@ -6,7 +6,7 @@ import TableUi from "@/compnents/ui/TableUi";
 import listColumn from "./listColumn";
 import useVoter from "./useVoter";
 import { IVoter } from "@/types/voter";
-import { LIST_LIMIT_VOTER } from "@/utils/constanta";
+import {  LIST_LIMIT_VOTER } from "@/utils/constanta";
 import AddVoter from "./AddVoter";
 import DeleteVoter from "./DeleteVoter";
 
@@ -41,8 +41,12 @@ const Voter = () => {
 
 
     useEffect(() => {
-      setUrl();
+      if(router.isReady) {
+        setUrl();
+      }
     },[router.isReady])
+
+   
 
 
     const renderCell = useCallback((data: Record<string, unknown>, column: {label: string; id: string}) => {
@@ -109,7 +113,7 @@ const Voter = () => {
               onChangeLimit={handleChangeLimit}
               
               showPagination={dataVoter?.pagination?.totalPage > 1}
-              currentPage={`${currentPage}`}
+              currentPage={Number(currentPage)}
               onPagination={handleChangePage}
               totalPage={dataVoter?.pagination?.totalPage}
   

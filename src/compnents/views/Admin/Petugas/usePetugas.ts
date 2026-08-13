@@ -1,7 +1,7 @@
 import useDebaunce from "@/hooks/useDebaunce";
 import PetugasService from "@/services/petugas.service";
 import { LIMIT_DEFAULT, PAGE_DEFAULT, STATUS_PETUGAS_DEFAULT } from "@/utils/constanta";
-import { useMutation, useQuery } from "@tanstack/react-query"
+import {  useQuery } from "@tanstack/react-query"
 import { useRouter } from "next/router"
 import { ChangeEvent } from "react";
 
@@ -32,7 +32,9 @@ const usePetugas = () => {
 
 
     const findAllPetugas = async () => {
-        const params = `page=${currentPage}&limit=${currentLimit}&tps=${currentTps}&active=${currentActive}&search=${currentSearch}`
+        let params = `page=${currentPage}&limit=${currentLimit}&active=${currentActive}`
+        if(currentTps) params += `&tps=${currentTps}`;
+        if(currentSearch) params += `&search=${currentSearch}`;
         const {data} = await PetugasService.findAll(`${params}`);
         return data;
     }
@@ -47,7 +49,7 @@ const usePetugas = () => {
 
 
     const handleChangePage = (e: number) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: e
@@ -56,7 +58,7 @@ const usePetugas = () => {
     }
 
     const handleChangeLimit = (e: ChangeEvent<HTMLSelectElement>) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,
@@ -66,7 +68,7 @@ const usePetugas = () => {
     }
 
     const handleChangeTps = (e: ChangeEvent<HTMLSelectElement>) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,
@@ -76,7 +78,7 @@ const usePetugas = () => {
     }
 
     const handleChangeActive = (e: ChangeEvent<HTMLSelectElement>) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,
@@ -88,7 +90,7 @@ const usePetugas = () => {
 
     const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
         debaunce(() => {
-            router.replace({
+            router.push({
                 query: {
                     ...router.query,
                     page: 1,
@@ -99,7 +101,7 @@ const usePetugas = () => {
     }
 
     const handleClearSearch = () => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,

@@ -30,7 +30,8 @@ const useVoter = () => {
 
 
     const findAllVoterPerTps = async () => {
-        const params = `page=${currentPage}&limit=${currentLimit}&search=${currentSearch}`
+        let params = `page=${currentPage}&limit=${currentLimit}`;
+        if(currentSearch) params += `&search=${currentSearch}`
         const {data} = await VoterService.findAllPerTps(`${params}`);
         return data;
     }
@@ -45,7 +46,7 @@ const useVoter = () => {
 
 
     const handleChangePage = (e: number) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: e
@@ -54,7 +55,7 @@ const useVoter = () => {
     }
 
     const handleChangeLimit = (e: ChangeEvent<HTMLSelectElement>) => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,
@@ -67,7 +68,7 @@ const useVoter = () => {
 
     const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
         debaunce(() => {
-            router.replace({
+            router.push({
                 query: {
                     ...router.query,
                     page: 1,
@@ -78,7 +79,7 @@ const useVoter = () => {
     }
 
     const handleClearSearch = () => {
-        router.replace({
+        router.push({
             query: {
                 ...router.query,
                 page: 1,

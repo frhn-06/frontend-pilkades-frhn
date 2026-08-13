@@ -47,7 +47,9 @@ const Absensi = () => {
 
 
     useEffect(() => {
-      setUrl();
+      if(router.isReady) {
+        setUrl();
+      }
     },[router.isReady])
 
 

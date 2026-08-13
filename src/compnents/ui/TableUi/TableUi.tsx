@@ -1,5 +1,5 @@
 import { LIST_LIMIT, LIST_STATUS_PETUGAS } from "@/utils/constanta";
-import { DateValue, Input, Pagination, Select, SelectItem, Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
+import {  Input, Pagination, Select, SelectItem, Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
 import { ChangeEvent, useMemo } from "react";
 import { IoSearch } from "react-icons/io5";
 import ButtonSolid from "../ButtonUi/ButtonSolid";
@@ -22,10 +22,8 @@ interface TypeProps {
   currentLimit?: string;
   currentPage?: string | number;
   currentStatus?: string;
-  currentPayment?: string;
-  currentCashierId?: string;
-  currentStart?: string;
-  currentEnd?: string;
+
+  
 
   totalPage?: number;
 
@@ -42,17 +40,6 @@ interface TypeProps {
 
   showStatus?: boolean;
   onChangeStatus?: (e:ChangeEvent<HTMLSelectElement>) => void;
-
-  showPayment?: boolean;
-  onChangePayment?: (e:ChangeEvent<HTMLSelectElement>) => void;
-
-  showDateStart?: boolean;
-  onChangeDateStart?: (e: DateValue | null) => void;
-  onClearDateStart?: () => void;
-  
-  showDateEnd?: boolean;
-  onChangeDateEnd?: (e: DateValue | null) => void;
-  onClearDateEnd?: () => void;
 }
 
 const TableUi = (props: TypeProps) => {
@@ -73,10 +60,6 @@ const TableUi = (props: TypeProps) => {
       currentLimit,
       currentPage,
       currentStatus,
-      currentPayment,
-      currentCashierId,
-      currentStart,
-      currentEnd,
 
       totalPage,
 
@@ -94,16 +77,6 @@ const TableUi = (props: TypeProps) => {
       showStatus,
       onChangeStatus,
 
-      showPayment,
-      onChangePayment,
-
-      showDateStart,
-      onChangeDateStart,
-      onClearDateStart,
-
-      showDateEnd,
-      onChangeDateEnd,
-      onClearDateEnd
     } = props;
 
     
@@ -154,67 +127,12 @@ const TableUi = (props: TypeProps) => {
               </Select>
             )}
             
-            {/* {showPayment && (
-              <Select
-              className="min-w-24 max-w-xs bg-white rounded-2xl"
-              variant="bordered"
-              items={LIST_PAYMENT_ORDER}
-              selectedKeys={[`${currentPayment}`]}
-              startContent={<p className='text-sm font-semibold'>Payment: </p>}
-              disallowEmptySelection
-              selectionMode="single"
-              onChange={onChangePayment}
-              >
-                {(item) => (
-                  <SelectItem key={item.id}>
-                    {item.label}
-                  </SelectItem>
-                ) }
-              </Select>
-            )} */}
 
           </div>
           
-          {/* <div className="flex flex-col lg:flex-row justify-between gap-4">
-            {showDateStart && (
-              <div className="flex gap-1">
-                <div className="bg-white rounded-xl">
-                  <DatePicker
-                    className="max-w-[284px] bg-transparent" 
-                    variant="bordered" 
-                    label={(<p className="font-semibold">Waktu awal</p>)}
-                    value={currentStart ? parseDate(`${currentStart}`) as never : null}
-                    onChange={onChangeDateStart}
-                  />
-                </div>
-
-                {currentStart && (
-                  <IoCloseCircle className="cursor-pointer" onClick={onClearDateStart} />
-                )} 
-              </div>
-            )}
-
-            {showDateEnd && (
-              <div className="flex gap-1">
-                <div className="bg-white rounded-xl">
-                  <DatePicker 
-                    className="max-w-[284px] bg-transparent" 
-                    variant="bordered" 
-                    label={(<p className="font-semibold">Waktu akhir</p>)}
-                    value={currentEnd ? parseDate(`${currentEnd}`) as never : null}
-                    onChange={onChangeDateEnd}
-                  />
-                </div>
-
-              {currentEnd && (
-                <IoCloseCircle className="cursor-pointer" onClick={onClearDateEnd} />
-              )}
-              </div>
-            )}
-          </div> */}
         </div>
       )
-    },[onChangeSearch, openCreate, onChangeStatus, onChangePayment , onChangeDateStart, onChangeDateEnd,currentStatus, currentPayment, currentStart, currentEnd, currentEnd])
+    },[onChangeSearch, openCreate, onChangeStatus,currentStatus, ])
 
 
     const bottomContent = useMemo(() => {
@@ -246,7 +164,7 @@ const TableUi = (props: TypeProps) => {
               showControls 
               showShadow 
               color="primary"  
-              initialPage={1} 
+              initialPage={Number(currentPage) || 1} 
               total={totalPage || 1}
               onChange={onPagination}
             />
