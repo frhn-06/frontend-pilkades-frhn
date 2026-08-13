@@ -31,8 +31,8 @@ const Voting = (props: Typeprops) => {
           {data.map((d) => (
             <Card key={d.id} className="z-0">
               <CardBody className="gap-4">
-                <div className="w-full">
-                  <Image src={`${d.img}`} alt={`foto-${d.nomor}`} width={480} height={480} className="w-full aspect-[3x4] object-cover object-center" />
+                <div className="w-full rounded-xl overflow-hidden">
+                  <Image src={`${d.img}`} alt={`foto-${d.nomor}`} width={480} height={480} className="w-full aspect-[3/4] object-cover object-center" />
                 </div>
                 <div>
                   <h1 className="text-utama font-bold text-4xl">

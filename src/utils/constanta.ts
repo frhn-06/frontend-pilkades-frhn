@@ -69,7 +69,7 @@ export const LIST_STATUS_ELECTION = [
         id: "UPCOMING"
     },
     {
-        label: "ON Going",
+        label: "On Going",
         id: "ONGOING"
     },
     {

@@ -69,35 +69,36 @@ const Monitoring = (props: TypeProps) => {
                   </CardHeader>
                   <CardBody className="gap-6">
                     <div className="flex gap-4">
-                      <div className="w-20">
+                      <div className="w-14">
                         <Image src={`${candid.img}` || ""} alt={`foto-${candid.id}`} width={360} height={360} className="w-full rounded-lg" />
                       </div>
-                      <div>
+
+                      <div className="flex-1">
                         {candid.members?.map((membe) => (
                           <h2 key={membe.order} className="text-utama font-semibold text-xl lg:text-2xl">
                             {membe.name}
                           </h2>
                         ))}
+                        <div className="flex flex-col gap-1 mt-4">
+                          <div className="flex gap-6 items-center">
+                            <Progress 
+                              aria-label="progress" 
+                              color="danger" 
+                              value={candid.percentage} 
+                              size="md"
+                            />
+                            <p className="text-utama">
+                              {candid.percentage}%
+                            </p>
+                          </div>
+
+                          <p>
+                            {candid.vote} Pemilih dari {data.progress.totalVoterVote} yang sudah mencoblos
+                          </p>
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex flex-col gap-2">
-                      <div className="flex gap-6 items-center">
-                        <Progress 
-                          aria-label="progress" 
-                          color="danger" 
-                          value={candid.percentage} 
-                          size="lg"
-                        />
-                        <p className="text-utama">
-                          {candid.percentage}%
-                        </p>
-                      </div>
-
-                      <p>
-                        {candid.vote} Pemilih dari {data.progress.totalVoterVote} yang sudah mencoblos
-                      </p>
-                    </div>
 
                   </CardBody>
                 </Card>
