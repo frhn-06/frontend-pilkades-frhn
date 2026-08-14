@@ -1,3 +1,4 @@
+import PageHead from "@/compnents/commons/PageHead";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import TokenVote from "@/compnents/views/Petugas/TokenVote";
 import tokenVoteService from "@/services/tokenvote.service";
@@ -37,27 +38,34 @@ const PagePetugasToken = () => {
     const router = useRouter();
 
     return (
-      isLoadingToken ? (
-        <div className="w-full min-h-screen flex justify-center items-center">
-          <Spinner color="danger" />
-        </div>
-      ) : isErrorToken ? (
-        <div  className="w-full min-h-screen flex flex-col justify-center items-center gap-6">
-          <div>
-            <h1 className="font-bold text-xl text-utama">
-              Error Token
-            </h1>
-            <p>
-              {error?.message}
-            </p>
-          </div>
-          <ButtonSolid onPress={() => router.push("/petugas/absensi")}>
-            Kembali
-          </ButtonSolid>
-        </div>
-      ) : (
-        <TokenVote data={dataToken?.data} />
-      )
+      <div>
+        <PageHead title="Token Vote" />
+
+
+
+        {isLoadingToken ? (
+            <div className="w-full min-h-screen flex justify-center items-center">
+              <Spinner color="danger" />
+            </div>
+          ) : isErrorToken ? (
+            <div  className="w-full min-h-screen flex flex-col justify-center items-center gap-6">
+              <div>
+                <h1 className="font-bold text-xl text-utama">
+                  Error Token
+                </h1>
+                <p>
+                  {error?.message}
+                </p>
+              </div>
+              <ButtonSolid onPress={() => router.push("/petugas/absensi")}>
+                Kembali
+              </ButtonSolid>
+            </div>
+          ) : (
+            <TokenVote data={dataToken?.data} />
+          )
+        }
+      </div>
     )
     
 }

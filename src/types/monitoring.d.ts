@@ -25,12 +25,21 @@ interface ICandidateMonitoring {
     members?: IMemeberCandidate[];
 }
 
+interface IProgressTps {
+    id?: number;
+    name?: string;
+    totalVoters?: number;
+    totalVote?: number;
+    percentageVote?: number;
+}
+
 interface IMonitoringAdmin {
     progress: IProgressMonitoring;
     candidates: ICandidateMonitoring[];
+    progressTps: IProgressTps[];
 }
 
-interface IMonitoringPetugas extends IMonitoringAdmin {
+interface IMonitoringPetugas extends Omit<IMonitoringAdmin, "progressTps"> {
     tps?: ITpsMonitong;
 }
 

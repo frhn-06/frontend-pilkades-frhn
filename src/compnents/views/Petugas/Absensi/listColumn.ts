@@ -4,11 +4,11 @@ const listColumn = [
         id: "name"
     },
     {
-        label: "NIK",
+        label: "Nomor Identitas",
         id: "nik"
     },
     {
-        label: "Informasi",
+        label: "Informasi Tambahan",
         id: "info"
     },
     {

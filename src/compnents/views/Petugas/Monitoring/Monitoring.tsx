@@ -14,7 +14,7 @@ const Monitoring = (props: TypeProps) => {
       <div>
         <div className="flex flex-col lg:flex-row-reverse flex-wrap gap-6">
           <div className="flex flex-col gap-6 mb-8 flex-1">
-            <Card className="p-4 w-full">
+            <Card className="p-2 w-full">
               <CardBody className="gap-4">
                 <h1 className="font-bold lg:text-xl text-utama">
                   Progress Pemungutan
@@ -27,16 +27,16 @@ const Monitoring = (props: TypeProps) => {
                   />
                 
                   <p className="text-utama w-fit">
-                    {data.progress.percentageVoterVote}%
+                    {Number(data.progress.percentageVoterVote?.toFixed(1))}%
                   </p>
                 </div>
-                <p>
+                <p className="text-utama">
                   {data.progress.totalVoterVote} Pencoblos dari {data.progress.totalAllVoter} undangan
                 </p>
               </CardBody>
             </Card>
 
-            <Card className="p-4 w-full">
+            <Card className="p-2 w-full">
               <CardBody className="gap-2">
                 <h1 className="font-bold text-xl lg:text-2xl text-utama">
                   Monitoring TPS
@@ -87,12 +87,12 @@ const Monitoring = (props: TypeProps) => {
                               value={candid.percentage} 
                               size="md"
                             />
-                            <p className="text-utama">
+                            <p className="text-utama font-bold">
                               {candid.percentage}%
                             </p>
                           </div>
 
-                          <p>
+                          <p className="text-utama font-medium">
                             {candid.vote} Pemilih dari {data.progress.totalVoterVote} yang sudah mencoblos
                           </p>
                         </div>
