@@ -37,7 +37,7 @@ const Features = (props: TypeProps) => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {listConstant.map((list, i) => (
                   <motion.div key={i} variants={revealVariants.item}>
-                    <div className="shadow-2xl/40 shadow-red-500 rounded-xl">
+                    <div className="shadow-2xl/40 shadow-red-500 rounded-xl transition duration-250 hover:-translate-y-2 hover:shadow-2xl/80">
                       <Card className="p-2 h-full">
                         <CardBody className="gap-4">
                           <div className="flex gap-2">

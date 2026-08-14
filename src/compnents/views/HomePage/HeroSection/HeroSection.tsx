@@ -56,7 +56,7 @@ const HeroSection = (props: TypeProps) => {
             <ScrollReveal variant="scale">
               <div className="relative w-full max-w-150 h-fit">
                 <Image 
-                  src={"/landing/hero-sementara.png"} 
+                  src={"/landing/home/dashboard.png"} 
                   alt="hero-foto" 
                   width={480} 
                   height={480} 
@@ -66,7 +66,7 @@ const HeroSection = (props: TypeProps) => {
                 <div className="absolute w-full h-full bg-black/30 top-4 left-6" />
 
                 <Image 
-                  src={"/landing/hero-sementara.png"} 
+                  src={"/landing/home/candidates.png"} 
                   alt="hero-foto" 
                   width={480} 
                   height={480} 

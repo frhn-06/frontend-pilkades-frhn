@@ -56,8 +56,8 @@ const Keunggulan = (props: TypeProps) => {
           
 
             <ScrollReveal variant="fadeLeft" className="flex-1">
-              <div className="w-full max-w-160 bg-amber-200 h-20 mx-auto">
-                <Image src={"/landing/hero-sementara.png"} alt="foto-keunggulan" width={360} height={360} className="w-full" />
+              <div className="w-full max-w-160 mx-auto transition duration-250 hover:scale-105 hover:-translate-x-2">
+                <Image src={"/landing/home/dashboard.png"} alt="foto-keunggulan" width={360} height={360} className="w-full" />
               </div>
             </ScrollReveal>
           </div>

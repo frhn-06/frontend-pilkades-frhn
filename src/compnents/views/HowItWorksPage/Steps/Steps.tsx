@@ -52,7 +52,8 @@ const Steps = () => {
                               )}
                             </tbody>
                           </table>
-                          <div className="w-full max-w-lg shrink-0 rounded-lg overflow-hidden">
+
+                          <div className="w-full max-w-lg shrink-0 rounded-lg overflow-hidden border-2 border-white/70">
                             {item.photo}
                           </div>
                         </div>
