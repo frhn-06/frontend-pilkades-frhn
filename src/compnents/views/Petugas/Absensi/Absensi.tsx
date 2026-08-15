@@ -74,7 +74,7 @@ const Absensi = () => {
             <div className="flex gap-2">
               <Chip 
                 color="danger" 
-                className="cursor-pointer"
+                className="cursor-pointer transition duration-200 hover:-translate-y-1 active:translate-y-1"
                 onClick={() => {
                   if(data.isPresent) {
                     modalNoPresent.onOpen();
@@ -92,7 +92,7 @@ const Absensi = () => {
 
               <Chip 
                 color="primary"
-                className="cursor-pointer"
+                className="cursor-pointer transition duration-200 hover:-translate-y-1 active:translate-y-1"
                 isDisabled={!data.isPresent}
                 onClick={() => {
                   if(!data.isPresent) {

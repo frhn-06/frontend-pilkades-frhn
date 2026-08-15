@@ -134,7 +134,7 @@ const listConstant = [
             {
                 title: "Simpan Hasil Pemilihan",
                 description: "Hasil pemilihan dapat diunduh dalam bentuk laporan PDF untuk dokumentasi dan kebutuhan administrasi.",
-                photo: <Image src="/landing/steps/step-19.png" width={480} height={480} alt='foto-3' className='w-full' />,   
+                photo: <Image src="/landing/steps/step-20.png" width={480} height={480} alt='foto-3' className='w-full' />,   
             },
         ]
     }
