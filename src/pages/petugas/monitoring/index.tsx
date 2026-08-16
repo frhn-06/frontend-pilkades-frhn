@@ -11,7 +11,7 @@ const useMonitoring = () => {
         return data;
     }
 
-    const {data: dataMonitoring, isLoading:isLoadingMonitoring, isError: isErrorMonitoring, error:errorMonitoring, refetch:refetchMonitoring, isRefetching: isRefetchingMonitoring} = useQuery({
+    const {data: dataMonitoring, isLoading:isLoadingMonitoring, isError: isErrorMonitoring, error:errorMonitoring} = useQuery({
         queryKey: ["Monitoring-petugas"],
         queryFn: getMonitoring
     })
@@ -21,8 +21,6 @@ const useMonitoring = () => {
         isLoadingMonitoring,
         isErrorMonitoring,
         errorMonitoring,
-        refetchMonitoring,
-        isRefetchingMonitoring
     }
 }
 
@@ -34,7 +32,6 @@ const PagePetugasMonitoring = () => {
       isLoadingMonitoring,
       isErrorMonitoring,
       errorMonitoring,
-      isRefetchingMonitoring
     } = useMonitoring();
 
     return (
@@ -44,7 +41,7 @@ const PagePetugasMonitoring = () => {
           headerTitle="Monitoring Pemungutan Suara" 
           headerSubtitle="Pantau perkembangan pemungutan suara dan perolehan suara setiap kandidat secara langsung."
         >
-          {isLoadingMonitoring || isRefetchingMonitoring ? (
+          {isLoadingMonitoring ? (
             <div className="w-full min-h-screen">
               <div className="w-fit mx-auto my-12">
                 <Spinner color="danger" />

@@ -11,7 +11,7 @@ const useDashboard = () => {
         return data;
     }
 
-    const {data: dataDashboard, isLoading:isLoadingDashboard, isError: isErrorDashboard, error:errorDashboard, refetch:refetchDashboard, isRefetching: isRefetchingDashboard} = useQuery({
+    const {data: dataDashboard, isLoading:isLoadingDashboard, isError: isErrorDashboard, error:errorDashboard} = useQuery({
         queryKey: ["Dashboard-admin"],
         queryFn: getDashboard
     })
@@ -21,8 +21,6 @@ const useDashboard = () => {
         isLoadingDashboard,
         isErrorDashboard,
         errorDashboard,
-        refetchDashboard,
-        isRefetchingDashboard
     }
 }
 
@@ -34,7 +32,6 @@ const PageAdminDashboard = () => {
       isLoadingDashboard,
       isErrorDashboard,
       errorDashboard,
-      isRefetchingDashboard
     } = useDashboard();
 
     return (
@@ -44,7 +41,7 @@ const PageAdminDashboard = () => {
           headerTitle="Dashboard" 
           headerSubtitle="Pantau ringkasan statistik dan perkembangan proses pemungutan suara secara keseluruhan."
         >
-          {isLoadingDashboard || isRefetchingDashboard ? (
+          {isLoadingDashboard ? (
             <div className="w-full min-h-screen">
               <div className="w-fit mx-auto my-12">
                 <Spinner color="danger" />

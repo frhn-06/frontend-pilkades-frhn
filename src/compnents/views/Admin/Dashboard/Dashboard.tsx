@@ -5,6 +5,11 @@ import Percentages from "./Percentages";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import useDashboard from "./useDashboard";
 import { Spinner } from "@heroui/react";
+import { useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { CustomSession } from "@/libs/axios";
+import { socket } from "@/libs/socket";
+import { getSession } from "next-auth/react";
 
 interface TypeProps {
     data: IDashboardAdmin;
@@ -19,6 +24,36 @@ const Dashboard = (props: TypeProps) => {
       onDownloadPDF,
       isPendingDownloadPDF
     } = useDashboard();
+
+    const queryClient = useQueryClient();
+    useEffect(() => {
+      const connectSocket = async () => {
+        const session : CustomSession | null = await getSession();
+        if(!session || !session.accessToken) return;
+
+        socket.auth = {
+          token: session.accessToken,
+        }
+
+        socket.on("connect", () => console.log(socket.id));
+
+        socket.on("vote:created", () => {
+          queryClient.invalidateQueries({
+            queryKey: ["Monitoring-petugas"]
+          })
+        })
+        
+        socket.connect();
+      }
+
+      connectSocket();
+
+      return () => {
+        socket.off("connect");
+        socket.off("vote:created")
+        socket.disconnect();
+      }
+    },[])
 
     return (
         <div className="flex flex-col gap-8">

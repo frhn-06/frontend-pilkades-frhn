@@ -1,6 +1,12 @@
+import { CustomSession } from "@/libs/axios";
+import { socket } from "@/libs/socket";
+import { IUser } from "@/types/auth";
 import { IMonitoringPetugas } from "@/types/monitoring"
 import { Card, CardBody, CardHeader, Progress } from "@heroui/react";
+import { useQueryClient } from "@tanstack/react-query";
+import { getSession } from "next-auth/react";
 import Image from 'next/image'
+import { useEffect } from "react";
 
 interface TypeProps {
     data: IMonitoringPetugas;
@@ -9,6 +15,36 @@ const Monitoring = (props: TypeProps) => {
     const {
       data
     } = props;
+
+    const queryClient = useQueryClient();
+    useEffect(() => {
+      const connectSocket = async () => {
+        const session : CustomSession | null = await getSession();
+        if(!session || !session.accessToken) return;
+
+        socket.auth = {
+          token: session.accessToken,
+        }
+
+        socket.on("connect", () => console.log(socket.id));
+
+        socket.on("vote:created", () => {
+          queryClient.invalidateQueries({
+            queryKey: ["Monitoring-petugas"]
+          })
+        })
+        
+        socket.connect();
+      }
+
+      connectSocket();
+
+      return () => {
+        socket.off("connect");
+        socket.off("vote:created")
+        socket.disconnect();
+      }
+    },[])
 
     return (
       <div>
