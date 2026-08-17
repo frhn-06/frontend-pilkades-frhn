@@ -50,7 +50,7 @@ const Monitoring = (props: TypeProps) => {
       <div>
         <div className="flex flex-col lg:flex-row-reverse flex-wrap gap-6">
           <div className="flex flex-col gap-6 mb-8 flex-1">
-            <Card className="p-2 w-full">
+            <Card className="p-2 w-full z-0">
               <CardBody className="gap-4">
                 <h1 className="font-bold lg:text-xl text-utama">
                   Progress Pemungutan
@@ -72,7 +72,7 @@ const Monitoring = (props: TypeProps) => {
               </CardBody>
             </Card>
 
-            <Card className="p-2 w-full">
+            <Card className="p-2 w-full z-0">
               <CardBody className="gap-2">
                 <h1 className="font-bold text-xl lg:text-2xl text-utama">
                   Monitoring TPS
@@ -97,7 +97,7 @@ const Monitoring = (props: TypeProps) => {
 
             <div className="flex flex-col gap-4">
               {data.candidates.map((candid, i) => (
-                <Card key={candid.id} className="p-2 w-full">
+                <Card key={candid.id} className="p-2 w-full z-0">
                   <CardHeader>
                     <h1 className="text-utama font-bold lg:text-xl">
                       Paslon {i + 1}
