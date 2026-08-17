@@ -12,10 +12,6 @@ export async function proxy(req: NextRequest) {
         secret: process.env.NEXTAUTH_SECRET
     })
 
-    if(token === null) {
-        signOut();
-        return;
-    }
 
     const accessToken = token?.user?.accessToken;
     const role = token?.user?.role;
