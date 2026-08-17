@@ -43,7 +43,7 @@ const AddVoter = (props: TypeProps) => {
     },[isSuccessAddVoter])
 
     return (
-        <Modal isOpen={isOpen} onClose={handleClose}>
+        <Modal isOpen={isOpen} onClose={handleClose} placement="center">
           <ModalContent>
             <form onSubmit={handleSubmitVoter(onAddVoter)}>
               <ModalHeader>

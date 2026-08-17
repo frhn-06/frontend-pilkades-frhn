@@ -42,7 +42,7 @@ const AddTps = (props:TypeProps) => {
     },[isSuccessTps])
 
      return (
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} placement="center">
         <form onSubmit={handleSubmitTps(onTps)}>
           <ModalContent>
             <ModalHeader>

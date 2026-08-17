@@ -36,7 +36,7 @@ const DeleteVoter = (props: TypeProps) => {
     },[isSuccessDeleteVoter])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               Hapus Voter

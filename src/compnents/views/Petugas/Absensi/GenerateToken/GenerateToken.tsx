@@ -34,7 +34,7 @@ const GenerateToken = (props: TypeProps) => {
     },[isErrorGenerateToken])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               Absensi Voter

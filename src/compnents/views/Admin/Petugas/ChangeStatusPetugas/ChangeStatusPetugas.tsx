@@ -40,7 +40,7 @@ const ChangeStatusPetugas = (props: TypeProps) => {
     },[isSuccessNonActive, isSuccessActive])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               {isActive ? "Non Aktifkan Petugas" : "Aktifkan Petugas"}

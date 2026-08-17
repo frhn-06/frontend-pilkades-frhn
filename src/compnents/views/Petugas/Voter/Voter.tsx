@@ -63,16 +63,14 @@ const Voter = () => {
           return (
             <div className="flex gap-2">
               <Chip 
-                color="primary" 
-                className="cursor-pointer"
+                className="cursor-pointer bg-blue-500 text-white hover:bg-blue-400 active:bg-blue-700 transition"
                 onClick={() => router.push(`/petugas/voter/${data.id}`)}                
               >
                 Edit
               </Chip>
 
               <Chip 
-                color="danger" 
-                className="cursor-pointer"
+                className="cursor-pointer bg-red-500 text-white hover:bg-red-400 active:bg-red-700 transition"
                 onClick={() => {
                   modalDeleteVoter.onOpen(); 
                   setStateVoter({

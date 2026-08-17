@@ -41,7 +41,7 @@ const Present = (props: TypeProps) => {
     },[isErrorPresent])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               Absensi Voter

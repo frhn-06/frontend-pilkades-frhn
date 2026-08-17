@@ -41,7 +41,7 @@ const NoPresent = (props: TypeProps) => {
     },[isErrorNoPresent])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               Absensi Voter

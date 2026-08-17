@@ -44,7 +44,7 @@ const ModalVoting = (props: TypeProps) => {
     }
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               Coblos Pilihanmu

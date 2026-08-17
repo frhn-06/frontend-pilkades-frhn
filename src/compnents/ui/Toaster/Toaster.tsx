@@ -14,7 +14,7 @@ const Toaster = (props: TypeProps) => {
 
     return (
 		<div className="absolute top-2 right-2 max-w-63">
-			<Card className={cn({"bg-success" : type === "success", "bg-danger" : type === "error"})} fullWidth >
+			<Card className={cn("z-50",{"bg-success" : type === "success", "bg-danger" : type === "error"})} fullWidth >
 				<CardBody className="flex-row gap-3">
 					<div>
             {type === "success" ? <FaCheckCircle className="w-8 h-8 text-white" /> : <IoIosCloseCircle className="w-8 h-8 text-white" />}

@@ -36,7 +36,7 @@ const DeleteCandidate = (props: TypeProps) => {
     },[isSuccessDeleteCandidate])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               Hapus Kandidat Calon Pemilihan

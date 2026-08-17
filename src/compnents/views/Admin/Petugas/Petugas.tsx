@@ -66,16 +66,14 @@ const Petugas = () => {
           return (
             <div className="flex gap-2">
               <Chip 
-                color="primary" 
-                className="cursor-pointer"
+                className="cursor-pointer bg-blue-500 text-white hover:bg-blue-400 active:bg-blue-700 transition"
                 onClick={() => router.push(`/admin/petugas/${data.id}`)}                
               >
                 Edit
               </Chip>
 
               <Chip
-                color="warning"
-                className="cursor-pointer"
+                className="cursor-pointer bg-yellow-500 text-white hover:bg-yellow-400 active:bg-yellow-700 transition"
                 variant="flat"
                 onClick={() => {
                   setStatePetugas({
@@ -90,8 +88,7 @@ const Petugas = () => {
               </Chip>
 
               <Chip 
-                color="danger" 
-                className="cursor-pointer"
+                className="cursor-pointer bg-red-500 text-white hover:bg-red-400 active:bg-red-700 transition"
                 onClick={() => {
                   modalDeletePetugas.onOpen(); 
                   setStatePetugas({

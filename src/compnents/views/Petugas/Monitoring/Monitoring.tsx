@@ -1,6 +1,5 @@
 import { CustomSession } from "@/libs/axios";
 import { socket } from "@/libs/socket";
-import { IUser } from "@/types/auth";
 import { IMonitoringPetugas } from "@/types/monitoring"
 import { Card, CardBody, CardHeader, Progress } from "@heroui/react";
 import { useQueryClient } from "@tanstack/react-query";

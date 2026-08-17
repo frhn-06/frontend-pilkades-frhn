@@ -36,7 +36,7 @@ const DeletePetugas = (props: TypeProps) => {
     },[isSuccessDeletePetugas])
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} placement="center">
           <ModalContent>
             <ModalHeader>
               Hapus Petugas
