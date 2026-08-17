@@ -1,4 +1,5 @@
 import DashboardLayout from "@/compnents/layouts/DashboardLayout";
+import AlertStatusElection from "@/compnents/ui/AlertStatusElection";
 import EmptyElection from "@/compnents/ui/EmptyElection";
 import Monitoring from "@/compnents/views/Admin/Monitoring";
 import MonitoringService from "@/services/monitoring.service";
@@ -47,7 +48,15 @@ const PageAdminMonitoring = () => {
                 <Spinner color="danger" />
               </div>
             </div>
-          ) : isErrorMonitoring ? (
+          ) : isErrorMonitoring ? 
+            errorMonitoring?.message === "Status Election tidak mengizinkan untuk melakukan aksi ini." ? (
+              <div className="w-full min-h-screen">
+                <AlertStatusElection
+                  title="Pemungutan suara belum dimulai"
+                  textContent="Halaman ini baru dapat digunakan setelah status Election berubah menjadi Ongoing atau Finished."
+                />
+              </div>
+            ) : (
             <div className="w-full min-h-screen">
               {errorMonitoring?.message === "Election belum ada / belum dibuat" ? (
                 <EmptyElection 
