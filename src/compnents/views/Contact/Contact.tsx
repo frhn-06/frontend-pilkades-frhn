@@ -1,3 +1,4 @@
+import CTA from "@/compnents/ui/CTA";
 import ContactCards from "./ContactCards";
 import HeroSection from "./HeroSection";
 
@@ -14,6 +15,8 @@ const Contact = (props: TypeProps) => {
         <HeroSection />
 
         <ContactCards name={name} />
+
+        <CTA />
       </div>
     )
 }

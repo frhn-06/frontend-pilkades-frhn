@@ -3,7 +3,7 @@ import ValueProposition from "./ValueProposition";
 import Features from "./Features";
 import Keunggulan from "./Keunggulan";
 import FAQ from "./FAQ";
-import CTA from "./CTA";
+import CTA from "@/compnents/ui/CTA";
 
 
 const HomePage = (props: {name: string}) => {

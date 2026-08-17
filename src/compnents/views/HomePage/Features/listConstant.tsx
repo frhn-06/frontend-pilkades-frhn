@@ -35,17 +35,10 @@ const listConstant = [
             <MdHowToVote key={1} className="w-full h-full" />
         ]    
     },
-    // {
-    //     title: "Token Sekali Pakai",
-    //     description: "Setiap pemilih mendapatkan token unik dan sekali pakai sehingga membantu mencegah penggunaan ulang token pada pemungutan suara.",
-    //     icon: [
-    //         <LuTicketCheck key={1} className="w-full h-full" />,
-    //         <RiLockPasswordFill key={1} className="w-full h-full" />,
-    //     ]    
-    // },
+  
     {
-        title: "Monitoring & Hasil",
-        description: "Pantau partisipasi pemilih dan perolehan suara secara terpusat.",
+        title: "Real-Time Monitoring & Hasil",
+        description: "Pantau partisipasi pemilih dan perolehan suara secara real-time langsung, transparansi, dan terpusat.",
         icon: [
             <LuChartNoAxesCombined key={1} className="w-full h-full" />
         ]    

@@ -1,3 +1,4 @@
+import CTA from "@/compnents/ui/CTA";
 import HeroSection from "./HeroSection";
 import Steps from "./Steps";
 
@@ -16,6 +17,8 @@ const HowItWorksPage = (props: TypeProps) => {
         <HeroSection name={name} />
 
         <Steps />
+
+        <CTA />
       </div>
     )
 }

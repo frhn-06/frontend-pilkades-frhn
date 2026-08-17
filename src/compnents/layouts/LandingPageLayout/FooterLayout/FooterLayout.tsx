@@ -64,7 +64,7 @@ const FooterLayout = (props: TypeProps) => {
                   <Link href="mailto:farhanmunif233@email.com" className="w-9 h-9 hover:text-gray-300 active:text-white">
                     <MdEmail className="w-full h-full" />
                   </Link>
-                  <Link href="https://www.instagram.com/feiii_06/" className="w-9 h-9 hover:text-gray-300 active:text-white">
+                  <Link href="https://www.instagram.com/feiiiiiiiiii__/" className="w-9 h-9 hover:text-gray-300 active:text-white">
                     <FaInstagramSquare  className="w-full h-full" />
                   </Link>
                 </div>

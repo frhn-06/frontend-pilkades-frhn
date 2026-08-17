@@ -33,6 +33,12 @@ const listConstant = (nameApp: string) => [
         ]
     },
     {
+        question: `Apakah hasil pemilihan dapat dipantau secara real-time?`,
+        answer: [
+            `Ya. Setiap suara yang berhasil masuk akan langsung memperbarui data pada halaman monitoring, sehingga panitia dan peserta pemilihan dapat melihat perkembangan pemungutan suara tanpa perlu me-refresh halaman.`
+        ]
+    },
+    {
         question: `Apakah hasil pemilihan dapat diunduh?`,
         answer: [
             `Ya. Hasil pemilihan dapat diunduh dalam bentuk laporan PDF yang berisi informasi dan hasil pemungutan suara untuk kebutuhan dokumentasi.`
