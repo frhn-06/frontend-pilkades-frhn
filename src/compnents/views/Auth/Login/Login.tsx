@@ -36,7 +36,7 @@ const Login = () => {
         </div>
 
         <div className="flex-1 flex items-center p-4">
-          <div className="w-full max-w-90 mx-auto ">
+          <div className="w-full min-w-76 max-w-90 mx-auto ">
             <Card className="p-2">
               <form onSubmit={handleSubmitLogin(onLogin)}>
                 <CardHeader className="flex-col">

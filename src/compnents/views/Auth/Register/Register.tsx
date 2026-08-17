@@ -35,7 +35,7 @@ const Register = () => {
         </div>
           
         <div className="flex-1 flex items-center p-4">
-          <div className="w-full max-w-120 mx-auto ">
+          <div className="w-full min-w-76 max-w-120 mx-auto ">
 						<Card>
 							<form onSubmit={handleSubmitRegister(onRegister)}>
 								<CardHeader className="flex-col">

@@ -1,7 +1,6 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import { JwtExtended } from "./pages/api/auth/[...nextauth]";
-import { signOut } from "next-auth/react";
 
 
 

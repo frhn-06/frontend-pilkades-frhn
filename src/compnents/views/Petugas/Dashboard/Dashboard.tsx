@@ -31,7 +31,7 @@ const Dashboard = (props: TypeProps) => {
 
         socket.on("vote:created", () => {
           queryClient.invalidateQueries({
-            queryKey: ["Monitoring-petugas"]
+            queryKey: ["Dashboard-petugas"]
           })
         })
         
