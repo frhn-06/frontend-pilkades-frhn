@@ -1,40 +1,279 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# VoteDesk Election Management System — Frontend
 
-## Getting Started
+Frontend aplikasi **Election Management System (EMS)** yang dirancang untuk membantu penyelenggara mengelola proses pemilihan secara digital, mulai dari pengelolaan pemilihan, tempat pemungutan suara, petugas, pemilih, kandidat, hingga proses pemungutan dan monitoring hasil.
 
-First, run the development server:
+VoteDesk menggunakan pendekatan **multi-election**, sehingga satu sistem dapat digunakan untuk berbagai pemilihan dengan data masing-masing tetap terisolasi.
+
+## 📸 Preview
+
+![VoteDesk Election Management System](./github/images/readme-1.png)
+
+![VoteDesk Election Management System](./github/images/readme-2.png)
+
+![VoteDesk Election Management System](./github/images/readme-3.png)
+
+## ✨ Features
+
+### 🔐 Authentication & Access Control
+
+* Login & Register
+* Role-based access
+* Protected pages
+* Session management
+
+### 🗳️ Election Management
+
+* Create & manage election
+* Election information management
+* Election status management
+* Election-specific data isolation
+
+### 👥 User & TPS Management
+
+* Management Petugas
+* Management TPS
+* Assign Petugas to TPS
+* Active / inactive user management
+
+### 🧑‍🤝‍🧑 Voter Management
+
+* Management data pemilih
+* Search & pagination
+* Voter attendance
+* Voter status management
+
+### 👤 Candidate Management
+
+* Management kandidat
+* Candidate ordering
+* Candidate information
+
+### 🎟️ Voting & Token
+
+* Generate voting token
+* Token validation
+* Token expiration
+* Token printing
+* Voting flow
+* Vote confirmation
+
+### 📊 Monitoring & Results
+
+* Election monitoring
+* Voting progress
+* Real-time vote updates
+* Candidate vote monitoring
+* Election result
+
+### 📄 Report
+
+* Election result report
+* Export result to PDF
+
+### 📱 User Interface
+
+* Responsive design
+* Dashboard-based interface
+* Modal-based voting flow
+* Form validation
+* Interactive notifications
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Next.js
+* React.js
+* TypeScript
+* Tailwind CSS
+* HeroUI
+
+### State & Data Management
+
+* TanStack React Query
+* React Hook Form
+
+### Authentication
+
+* NextAuth
+* JWT
+
+### Real-Time Communication
+
+* Socket.IO
+
+### Supporting Libraries
+
+* React Datepicker
+* Framer Motion
+* PDF-related integration
+
+## 🔄 Voting Flow
+
+Proses pemungutan suara pada VoteDesk dirancang dengan beberapa tahap untuk menjaga alur pemilihan tetap terkontrol.
+
+```text
+Voter hadir
+    ↓
+Petugas mencatat kehadiran
+    ↓
+Token voting dibuat
+    ↓
+Voter memasukkan token
+    ↓
+Token divalidasi
+    ↓
+Daftar kandidat ditampilkan
+    ↓
+Voter memilih kandidat
+    ↓
+Konfirmasi pilihan
+    ↓
+Vote berhasil disimpan
+    ↓
+Status voter diperbarui
+```
+
+Token voting memiliki masa berlaku dan hanya dapat digunakan sesuai dengan aturan yang ditentukan oleh sistem.
+
+## ⚡ Real-Time Monitoring
+
+VoteDesk menggunakan **Socket.IO** untuk mendukung pembaruan data secara real-time.
+
+Ketika terjadi vote baru, frontend dapat menerima event dari server sehingga informasi monitoring dapat diperbarui tanpa harus melakukan refresh halaman secara manual.
+
+Secara sederhana:
+
+```text
+Voter
+  │
+  │ Submit Vote
+  ▼
+Backend
+  │
+  │ Vote berhasil
+  │
+  └──────► Socket.IO Event
+                 │
+                 ▼
+          Monitoring Dashboard
+                 │
+                 ▼
+          Data diperbarui
+```
+
+Komunikasi real-time juga menggunakan authentication sehingga koneksi dapat dikaitkan dengan election yang sesuai.
+
+## 🏢 Multi-Election Architecture
+
+VoteDesk dirancang dengan konsep **multi-election**.
+
+Satu aplikasi dapat digunakan untuk mengelola beberapa pemilihan, sementara data operasional setiap pemilihan tetap terisolasi.
+
+Contohnya:
+
+```text
+Election A
+├── Users
+├── TPS
+├── Voters
+├── Candidates
+├── Tokens
+└── Votes
+
+Election B
+├── Users
+├── TPS
+├── Voters
+├── Candidates
+├── Tokens
+└── Votes
+```
+
+Frontend tidak perlu mengirim `electionId` secara manual pada setiap request. Konteks election ditentukan melalui authentication dan dikelola oleh backend.
+
+## 🔗 Backend
+
+Frontend ini terhubung dengan backend REST API yang dibangun menggunakan:
+
+* Node.js
+* Express.js
+* TypeScript
+* Prisma
+* PostgreSQL
+
+Backend juga menangani authentication, authorization, election isolation, voting process, dan real-time communication menggunakan Socket.IO.
+
+📂 **Backend Repository**
+
+[VoteDesk Election Management System — Backend](https://github.com/frhn-06/backend-pilkades-frhn)
+
+## ⚙️ Installation
+
+Clone repository:
+
+```bash
+git clone https://github.com/frhn-06/frontend-pilkades-frhn.git
+```
+
+Masuk ke folder project:
+
+```bash
+cd frontend-pilkades-frhn
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Jalankan development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikasi akan berjalan pada:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+atau
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```text
+http://localhost:3001
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔑 Environment Variables
 
-## Learn More
+Buat file `.env.local` pada root project.
 
-To learn more about Next.js, take a look at the following resources:
+Contoh:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_API_URL=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+NEXTAUTH_SECRET=
 
-## Deploy on Vercel
+NEXT_PUBLIC_SOCKET_URL=
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Frontend dapat di-deploy menggunakan platform seperti Vercel.
+
+Production:
+
+[VoteDesk Election Management System](https://frontend-pilkades-frhn.vercel.app)
+
+## 📚 About This Project
+
+VoteDesk Election Management System merupakan project **Full-Stack Web Development** yang dibuat untuk mempelajari dan mengimplementasikan sistem pemilihan secara digital.
+
+Project ini mencakup berbagai proses, mulai dari pengelolaan election, petugas, TPS, pemilih, dan kandidat hingga proses pemungutan suara menggunakan token.
+
+Salah satu fokus utama project ini adalah penerapan **multi-election architecture**, sehingga satu sistem dapat digunakan untuk berbagai pemilihan dengan data yang tetap terisolasi.
+
+Project ini juga menjadi sarana untuk memperdalam pemahaman mengenai **authentication & authorization, REST API, database management, real-time communication menggunakan Socket.IO, file upload, voting workflow, serta pembuatan laporan PDF**.
