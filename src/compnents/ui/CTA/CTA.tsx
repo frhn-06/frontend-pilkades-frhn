@@ -1,28 +1,19 @@
 import ScrollReveal from "@/compnents/animation/ScrollReveal";
 import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
 import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
-import cn from "@/utils/cn";
 import { Card, CardBody } from "@heroui/react";
-
-
-interface IButton1 {
-  text: string;
-  href: string;
-  color: "yellow" | "red";
-}
-
-interface IButton2 {
-  text: string;
-  href: string;
-}
 
 
 
 interface TypeProps {
   title: string;
   text: string;
-  button1?: IButton1;
-  button2?: IButton2;
+  button1?: boolean;
+  textButton1?: string;
+  hrefButton1?: string;
+  button2?: boolean;
+  textButton2?: string;
+  hrefButton2?: string;
 }
 
 const CTA = (props: TypeProps) => {
@@ -30,7 +21,11 @@ const CTA = (props: TypeProps) => {
       title,
       text,
       button1,
+      textButton1,
+      hrefButton1,
       button2,
+      textButton2,
+      hrefButton2
     } = props;
 
     return (
@@ -46,27 +41,24 @@ const CTA = (props: TypeProps) => {
                   <p className="text-gray-100 text-xl text-center mb-6">
                     {text}
                   </p>
-                  {button1 !== undefined || button2 !== undefined && (
+                  {button1 || button2 && (
                     <div className="flex justify-center gap-4">
-                      {button1 !== undefined && (
+                      {button1 && (
                         <ButtonSolid 
-                          className={cn({
-                            "bg-yellow-400" : (button1 as IButton1).color === "yellow",
-                            "bg-red-500" : (button1 as IButton1).color === "red"
-                          })}
+                          className="bg-yellow-400"
                           isLink 
-                          href={(button1 as IButton1).href || ""}
+                          href={hrefButton1 || ""}
                         >
-                          {(button1 as IButton1).text}
+                          {textButton1}
                         </ButtonSolid>
                       )}
                       <div>
                         asus
                       </div>
 
-                      {button2 !== undefined && (
-                        <ButtonFlat isLink href={button2.href || ""}>
-                          {button2.text}
+                      {button2 && (
+                        <ButtonFlat isLink href={hrefButton2 || ""}>
+                          {textButton2}
                         </ButtonFlat>
                       )}
                     </div>

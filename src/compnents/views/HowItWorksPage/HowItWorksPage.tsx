@@ -21,11 +21,9 @@ const HowItWorksPage = (props: TypeProps) => {
         <CTA 
           title="Ingin Mengetahui Lebih Lanjut?"
           text="Lihat bagaimana VoteDesk dapat membantu menyederhanakan pengelolaan proses pemilihan."
-          button1={{
-            text: "Hubungi Kami",
-            href: "/contact",
-            color: "yellow"
-          }}
+          button1
+          textButton1="Hubungi Kami"
+          hrefButton1="/contact"
         />
       </div>
     )

@@ -30,15 +30,12 @@ const HomePage = (props: {name: string}) => {
         <CTA 
           title="Siap Mengelola Pemilihan dengan Lebih Mudah?"
           text="Kelola seluruh proses pemilihan dalam satu sistem yang terstruktur, terpantau, dan mudah digunakan."
-          button1={{
-            text: "Mulai",
-            href: "/auth/register",
-            color: "yellow"
-          }}
-          button2={{
-            text: "Cara Kerja",
-            href: "/how-it-works"
-          }}
+          button1
+          textButton1="Mulai"
+          hrefButton1="/auth/register"
+          button2
+          textButton2="Cara Kerja"
+          hrefButton2="/how-it-works"
         />
       </div>
     )
