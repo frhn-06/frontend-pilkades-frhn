@@ -48,7 +48,7 @@ const CTA = (props: TypeProps) => {
                   </p>
                   {button1 !== undefined || button2 !== undefined && (
                     <div className="flex justify-center gap-4">
-                      {button1 && (
+                      {button1 !== undefined && (
                         <ButtonSolid 
                           className={cn({
                             "bg-yellow-400" : (button1 as IButton1).color === "yellow",
@@ -61,7 +61,7 @@ const CTA = (props: TypeProps) => {
                         </ButtonSolid>
                       )}
 
-                      {button2 && (
+                      {button2 !== undefined && (
                         <ButtonFlat isLink href={button2.href || ""}>
                           {button2.text}
                         </ButtonFlat>
