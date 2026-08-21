@@ -16,7 +16,19 @@ const Contact = (props: TypeProps) => {
 
         <ContactCards name={name} />
 
-        <CTA />
+        <CTA 
+          title="Siap Mengelola Pemilihan dengan Lebih Mudah?"
+          text="Kelola seluruh proses pemilihan dalam satu sistem yang terstruktur, terpantau, dan mudah digunakan."
+          button1={{
+            text: "Mulai",
+            href: "/auth/register",
+            color: "yellow"
+          }}
+          button2={{
+            text: "Cara Kerja",
+            href: "/how-it-works"
+          }}
+        />
       </div>
     )
 }
