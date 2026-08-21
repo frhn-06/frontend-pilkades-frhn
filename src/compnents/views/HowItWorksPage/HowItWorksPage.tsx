@@ -1,6 +1,8 @@
 import CTA from "@/compnents/ui/CTA";
 import HeroSection from "./HeroSection";
 import Steps from "./Steps";
+import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
+
 
 
 interface TypeProps {
@@ -21,9 +23,17 @@ const HowItWorksPage = (props: TypeProps) => {
         <CTA 
           title="Ingin Mengetahui Lebih Lanjut?"
           text="Lihat bagaimana VoteDesk dapat membantu menyederhanakan pengelolaan proses pemilihan."
-          button1
-          textButton1="Hubungi Kami"
-          hrefButton1="/contact"
+          buttonChildren={(
+            <div className="flex justify-center gap-4">
+              <ButtonSolid 
+                className="bg-yellow-400"
+                isLink 
+                href="/contact"
+              >
+                Hubungi Kami
+              </ButtonSolid>   
+            </div>
+          )}
         />
       </div>
     )

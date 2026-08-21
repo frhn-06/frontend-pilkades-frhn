@@ -1,6 +1,4 @@
 import ScrollReveal from "@/compnents/animation/ScrollReveal";
-import ButtonFlat from "@/compnents/ui/ButtonUi/ButtonFlat";
-import ButtonSolid from "@/compnents/ui/ButtonUi/ButtonSolid";
 import { Card, CardBody } from "@heroui/react";
 
 
@@ -8,24 +6,14 @@ import { Card, CardBody } from "@heroui/react";
 interface TypeProps {
   title: string;
   text: string;
-  button1?: boolean;
-  textButton1?: string;
-  hrefButton1?: string;
-  button2?: boolean;
-  textButton2?: string;
-  hrefButton2?: string;
+  buttonChildren: React.ReactNode;
 }
 
 const CTA = (props: TypeProps) => {
     const {
       title,
       text,
-      button1,
-      textButton1,
-      hrefButton1,
-      button2,
-      textButton2,
-      hrefButton2
+      buttonChildren
     } = props;
 
     return (
@@ -41,28 +29,7 @@ const CTA = (props: TypeProps) => {
                   <p className="text-gray-100 text-xl text-center mb-6">
                     {text}
                   </p>
-                  {button1 || button2 && (
-                    <div className="flex justify-center gap-4">
-                      {button1 && (
-                        <ButtonSolid 
-                          className="bg-yellow-400"
-                          isLink 
-                          href={hrefButton1 || ""}
-                        >
-                          {textButton1}
-                        </ButtonSolid>
-                      )}
-                      <div>
-                        asus
-                      </div>
-
-                      {button2 && (
-                        <ButtonFlat isLink href={hrefButton2 || ""}>
-                          {textButton2}
-                        </ButtonFlat>
-                      )}
-                    </div>
-                  )}
+                  {buttonChildren}
                 </CardBody>
               </Card>
             </div>
