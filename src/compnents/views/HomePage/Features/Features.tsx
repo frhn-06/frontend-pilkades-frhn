@@ -23,10 +23,10 @@ const Features = (props: TypeProps) => {
               <h1 className="font-semibold text-2xl lg:text-3xl text-red-600 text-center mb-4">
                 FITUR UTAMA
               </h1>
-              <h2 className="text-gray-800 text-xl text-center mb-1">
+              <h2 className="text-gray-800 text-lg lg:text-xl text-center mb-1">
                 Semua yang Dibutuhkan untuk Mengelola Pemilihan
               </h2>
-              <p className="text-gray-500 text-center">
+              <p className="text-gray-500 text-center text-sm lg:text-base">
                 Dari pengaturan pemilihan hingga laporan akhir, {name} menyediakan berbagai fitur untuk membantu proses pemilihan berjalan lebih terstruktur dan efisien.
               </p>
             </div>
@@ -47,10 +47,10 @@ const Features = (props: TypeProps) => {
                               </div>
                             ))}
                           </div>
-                          <h1 className="text-xl font-semibold text-red-800">
+                          <h1 className="text-lg lg:text-xl font-semibold text-red-800">
                             {list.title}
                           </h1>
-                          <p className="text-gray-700">
+                          <p className="text-gray-700 text-sm lg:text-base">
                             {list.description}
                           </p>
                         </CardBody>

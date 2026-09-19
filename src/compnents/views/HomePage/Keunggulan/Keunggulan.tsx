@@ -23,7 +23,7 @@ const Keunggulan = (props: TypeProps) => {
                 <h1 className="font-semibold text-2xl lg:text-3xl text-white mb-4">
                   MENGAPA {name.toUpperCase()}?
                 </h1>
-                <h2 className="text-gray-200 text-xl mb-1">
+                <h2 className="text-gray-200 text-lg lg:text-xl mb-1">
                   Pemilihan lebih terstruktur, terpantau, dan mudah dikelola
                 </h2>
             
@@ -35,15 +35,15 @@ const Keunggulan = (props: TypeProps) => {
                           <td className="px-1">
                             <FaCheckSquare className="w-6 h-6 text-green-600 bg-white rounded-sm" />
                           </td>
-                          <td className="px-1">
+                          <td className="px-1 text-sm lg:text-base">
                             {list.title}
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-1">
+                          <td className="px-1 text-sm lg:text-base">
                             
                           </td>
-                          <td className="px-1">
+                          <td className="px-1 text-sm lg:text-base">
                             {list.description}
                           </td>
                         </tr>

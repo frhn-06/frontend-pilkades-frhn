@@ -26,7 +26,7 @@ const CTA = (props: TypeProps) => {
                   <h1 className="font-semibold text-2xl lg:text-3xl text-white text-center mb-4">
                     {title}
                   </h1>
-                  <p className="text-gray-100 text-xl text-center mb-6">
+                  <p className="text-gray-100 text-lg lg:text-xl text-center mb-6">
                     {text}
                   </p>
                   {buttonChildren}

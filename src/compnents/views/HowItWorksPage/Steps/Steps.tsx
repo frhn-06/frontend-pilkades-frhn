@@ -14,7 +14,7 @@ const Steps = () => {
               {listConstant.map((list, i) => (
                 <ScrollReveal key={i} variant="fadeUp"> 
                   <div>
-                    <h1 className="text-gray-200 font-bold mb-2">
+                    <h1 className="text-gray-200 font-bold mb-2 text-sm lg:text-base">
                       ~ Fase {i+1} ~
                     </h1>
                     <h2 className="text-white text-2xl lg:text-3xl font-bold mb-6">
@@ -27,25 +27,25 @@ const Steps = () => {
                           <table className="h-fit text-white">
                             <tbody>
                               <tr>
-                                <td className="px-1 font-bold text-xl flex items-start pb-1">
+                                <td className="px-1 font-bold text-lg lg:text-xl flex items-start pb-1">
                                   {i + 1}.
                                 </td>
-                                <td className="px-1 font-semibold text-xl pb-1">
+                                <td className="px-1 font-semibold text-lg lg:text-xl pb-1">
                                   {item.title}
                                 </td>
                               </tr>
                               <tr>
-                                <td className="px-1" />
+                                <td className="px-1 text-sm lg:text-base" />
 
-                                <td className="px-1">
+                                <td className="px-1 text-sm lg:text-base">
                                   {item.description}
                                 </td>
                               </tr>
                               {item.nb && (
                                 <tr>
-                                  <td className="px-1" />
+                                  <td className="px-1 text-sm lg:text-base" />
 
-                                  <td className="px-1 text-gray-200 italic pt-2">
+                                  <td className="px-1 text-sm lg:text-base text-gray-200 italic pt-2">
                                     {item.nb}
                                   </td>
                                 </tr>

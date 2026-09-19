@@ -20,10 +20,10 @@ const FAQ = (props: TypeProps) => {
               <h1 className="font-semibold text-2xl lg:text-3xl text-red-600 text-center mb-4">
                 INFORMASI
               </h1>
-              <h2 className="text-gray-800 text-xl text-center mb-1">
+              <h2 className="text-gray-800 text-lg lg:text-xl text-center mb-1">
                 Masih Ingin Tahu Lebih Banyak?
               </h2>
-              <p className="text-gray-500 text-center">
+              <p className="text-gray-500 text-center text-sm lg:text-base">
                 Temukan jawaban atas beberapa pertanyaan umum tentang {name} dan proses pemilihan digital.
               </p>
             </div>
@@ -36,12 +36,12 @@ const FAQ = (props: TypeProps) => {
                 <Accordion variant="shadow">
                   {listConstant(name).map((list, i) => (
                     <AccordionItem key={i} aria-label={list.question} title={(
-                      <p className="text-gray-700">
+                      <p className="text-gray-700 text-sm lg:text-base">
                         {list.question}
                       </p>
                     )}>
                       {list.answer.map((anwar, i) => (
-                        <p key={i} className="text-gray-500">
+                        <p key={i} className="text-gray-500 text-sm lg:text-base">
                           {anwar}
                         </p>
                       ))}

@@ -25,33 +25,33 @@ const FooterLayout = (props: TypeProps) => {
               </div>
 
               <div className="flex-1">
-                <h1 className="text-2xl font-bold text-white">
+                <h1 className="text-xl lg:text-2xl font-bold text-white">
                   {name}
                 </h1>
-                <h2 className="text-xl font-semibold text-gray-100">
+                <h2 className="text-lg lg:text-xl font-semibold text-gray-100">
                   Election Management System
                 </h2>
               </div>
 
               <div className="flex-1">
-                <h1 className="text-xl font-semibold text-gray-100 mb-1">
+                <h1 className="text-lg lg:text-xl font-semibold text-gray-100 mb-1">
                   Navigasi
                 </h1>
                 <div className="flex flex-col text-gray-100">
-                  <Link href="/" className="w-fit hover:text-gray-300 active:text-white">
+                  <Link href="/" className="w-fit hover:text-gray-300 active:text-white text-sm lg:text-base">
                     Beranda
                   </Link>
-                  <Link href="/how-it-works" className="w-fit hover:text-gray-300 active:text-white">
+                  <Link href="/how-it-works" className="w-fit hover:text-gray-300 active:text-white text-sm lg:text-base">
                     Cara Kerja
                   </Link>
-                  <Link href="/contact" className="w-fit hover:text-gray-300 active:text-white">
+                  <Link href="/contact" className="w-fit hover:text-gray-300 active:text-white text-sm lg:text-base">
                     Kontak
                   </Link>
                 </div>
               </div>
 
               <div className="flex-1">
-                <h1 className="text-xl font-semibold text-gray-100 mb-2">
+                <h1 className="text-lg lg:text-xl font-semibold text-gray-100 mb-2">
                   Terhubung
                 </h1>
                 <div className="flex text-gray-100 gap-6">

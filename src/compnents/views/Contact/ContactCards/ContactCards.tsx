@@ -24,13 +24,13 @@ const ContactCards = (props: TypeProps) => {
                   <div className="rounded-xl shadow-2xl/40 shadow-red-500 transition duration-250 hover:-translate-y-2 hover:shadow-2xl/80 h-full">
                     <Card className="border-2 border-red-400/20 h-full">
                       <CardBody className="gap-2 items-center p-4">
-                        <h1 className="text-red-800 font-bold text-2xl">
+                        <h1 className="text-red-800 font-bold text-xl lg:text-2xl">
                           {list.name}
                         </h1>
                         <div className="text-red-700 w-18 h-18">
                           {list.icon}
                         </div>
-                        <p className="text-gray-700 text-center">
+                        <p className="text-gray-700 text-center text-sm lg:text-base">
                           {list.description}
                         </p>
                       </CardBody>

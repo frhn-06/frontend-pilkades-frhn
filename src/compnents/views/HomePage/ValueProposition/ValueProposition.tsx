@@ -22,10 +22,10 @@ const ValueProposition = (props: TypeProps) => {
               <h1 className="font-semibold text-2xl lg:text-3xl text-red-600 text-center mb-4">
                 SATU PLATFORM, SELURUH PROSES
               </h1>
-              <h2 className="text-gray-800 text-xl text-center mb-1">
+              <h2 className="text-gray-800 text-lg lg:text-xl text-center mb-1">
                 Kelola Pemilihan dari Awal hingga Akhir
               </h2>
-              <p className="text-gray-500 text-center">
+              <p className="text-gray-500 text-center text-sm lg:text-base">
                 {name} membantu mengelola seluruh proses pemilihan dalam satu platform — mulai dari persiapan data, pemungutan suara, pemantauan hasil, hingga laporan akhir.
               </p>
             </div>
@@ -39,14 +39,14 @@ const ValueProposition = (props: TypeProps) => {
                     <div className="shadow-2xl/40 shadow-red-500 rounded-xl transition duration-250 hover:-translate-y-2 hover:shadow-2xl/80">
                       <Card className="p-2">
                         <CardBody className="flex-row gap-4">
-                          <p className="font-bold text-2xl text-gray-700">
+                          <p className="font-bold text-xl lg:text-2xl text-gray-700">
                             {i + 1}.
                           </p>
                           <div className="flex flex-col gap-4">
                             <div className="w-14 h-14 text-white p-2 bg-inti rounded-xl">
                               {list.icon}
                             </div>
-                            <h1 className="text-xl font-semibold text-red-800">
+                            <h1 className="text-lg lg:text-xl font-semibold text-red-800">
                               {list.title}
                             </h1>
                           </div>

@@ -31,8 +31,8 @@ const Contact = (props: TypeProps) => {
                 Mulai
               </ButtonSolid>
                   
-              <ButtonFlat isLink href="/how-it-works">
-                Cara Kerja
+              <ButtonFlat isLink href="/">
+                Home
               </ButtonFlat>        
             </div>
           )}
